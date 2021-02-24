@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Silhouette:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Silhouette_jar</output-path>
+    <root id="archive" name="Silhouette.jar">
+      <element id="module-output" name="Silhouette" />
+    </root>
+  </artifact>
+</component>
