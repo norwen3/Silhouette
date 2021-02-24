@@ -10,8 +10,5 @@ public class Page {
         this.title = title;
     }
 
-
     public void append(Element element){}
-
-
 }
