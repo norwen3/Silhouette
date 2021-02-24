@@ -2,7 +2,7 @@ package Element;
 
 public class Anchor extends OpenClosed{
 
-    public void linkText(){
+    public void setLinkText(){
 
     }
 

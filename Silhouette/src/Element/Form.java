@@ -14,7 +14,7 @@ public class Form extends OpenClosed{
     }
 
     //sets get or post
-    public void setMethod(){
+    public void setMethod(String type){
 
     }
 
