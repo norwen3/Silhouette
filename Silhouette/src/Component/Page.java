@@ -27,31 +27,31 @@ public class Page {
 
     // Modify link data (w/ Overloads)
     public void setLink(String rel, String href){
-        // <link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+        // <link rel="apple-touch-icon" href="iphone.png" />
     }
     public void setLink(String rel, String href, String title){
-        // <link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+        // <link rel="apple-touch-icon" href="iphone.png" title="my-touch-icon" />
     }
 
     public void setLinkSize(String rel, String href, String sizes){
-        // <link rel="apple-touch-icon" href="touch-icon-ipad.png" sizes="72x72" />
+        // <link rel="apple-touch-icon" href="ipad.png" sizes="72x72" />
     }
     public void setLinkSize(String rel, String href, String sizes, String title){
-        // <link rel="apple-touch-icon" href="touch-icon-ipad.png" sizes="72x72" />
+        // <link rel="apple-touch-icon" href="ipad.png" sizes="72x72" title="my-touch-icon" />
     }
 
     public void setLinkType(String rel, String href, String type){
-        // <link rel="apple-touch-icon" href="touch-icon-ipad.png" sizes="72x72" />
+        // <link rel="apple-touch-icon" href="ipad.png" type="image/png" />
     }
     public void setLinkType(String rel, String href, String type, String title){
-        // <link rel="apple-touch-icon" href="touch-icon-ipad.png" sizes="72x72" />
+        // <link rel="apple-touch-icon" href="ipad.png" type="image/png" title="my-touch-icon" />
     }
 
     public void setLinkMedia(String rel, String href, String type, String media){
-        // <link media="only screen and (max-device-width: 480px)" href="http://wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+        // <link rel="stylesheet" href="stylesheet.css" type="text/css" media="(max-width: 480px)" />
     }
     public void setLinkMedia(String rel, String href, String type, String media, String title){
-        // <link media="only screen and (max-device-width: 480px)" href="http://wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+        // <link rel="stylesheet" href="stylesheet.css" type="text/css" media="(max-width: 480px)" title="my-css" />
     }
 
 }
