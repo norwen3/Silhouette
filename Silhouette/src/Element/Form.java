@@ -1,6 +1,6 @@
 package Element;
 
-public class Form extends OpenClosed{
+public class Form extends ContainerElement {
 
     public Form(){}
 

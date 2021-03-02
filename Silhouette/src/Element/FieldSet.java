@@ -1,12 +1,12 @@
 package Element;
 
-public class FieldSet extends OpenClosed{
+import java.util.Map;
 
-    public void addField(Element element){
+// Represents a FieldSet elements that contain one or more fields (input tags)
+public class FieldSet extends ContainerElement {
 
-    }
+    // Adds a field (e.g. <input>)
+    public void addField(EmptyElement element, Map attributes){}
 
-    public void addLabel(String label){
-
-    }
+    public void addLabel(String label){}
 }

@@ -25,10 +25,9 @@ public abstract class Element {
     //int
     private static String tabindex;
 
-
+    // Key   (String) : Attribute name
+    // Value (String) : Attribute value
     Map<String, String> attributes = new HashMap<>();
-
-
 
     public void setAttribute(String attribute, String value){
         if(attributes.containsKey(attribute)) {
@@ -36,7 +35,6 @@ public abstract class Element {
         }
 
         attributes.put(attribute, value);
-
     }
 
 }

@@ -1,13 +1,13 @@
 package Element;
 
-public class Container extends OpenClosed{
+// Represents an HTML element that that holds one or more elements
+// Such element is:
+// Div, Article, Section, Aside, Footer, Header, Address
+public class Container extends ContainerElement {
 
+    // Constructor: type implies the semantic tag
+    public Container(String type){}
 
-    //type implies the semantic tag
-    public Container(String type){
-
-    }
-
-    //this creates a div
+    // Default: creates a div
     public Container(){}
 }

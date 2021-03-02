@@ -3,7 +3,7 @@ package Element;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListElement extends OpenClosed {
+public class ListElement extends ContainerElement {
 
     String listItem;
     List<String> items = new ArrayList<>();
