@@ -29,7 +29,7 @@ public abstract class Element {
     // Value (String) : Attribute value
     Map<String, String> attributes = new HashMap<>();
 
-    public void setAttribute(String attribute, String value){
+    public void addAttribute(String attribute, String value){
         if(attributes.containsKey(attribute)) {
             attributes.remove(attribute, value);
         }
