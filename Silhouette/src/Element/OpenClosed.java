@@ -1,6 +1,6 @@
 package Element;
 
-public class OpenClosed extends Element {
+public class OpenClosed extends Element{
 
 
 
