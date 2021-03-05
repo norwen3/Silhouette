@@ -1,4 +1,4 @@
-package Element;
+package HTML.LowLevel.Element;
 
 public class Figure extends ContainerElement {
 

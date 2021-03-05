@@ -1,4 +1,4 @@
-package Element;
+package HTML.LowLevel.Element;
 
 import java.util.Map;
 

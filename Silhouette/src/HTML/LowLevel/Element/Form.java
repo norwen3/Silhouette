@@ -1,4 +1,4 @@
-package Element;
+package HTML.LowLevel.Element;
 
 public class Form extends ContainerElement {
 

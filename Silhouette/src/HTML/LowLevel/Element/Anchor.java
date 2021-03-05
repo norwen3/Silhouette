@@ -1,4 +1,4 @@
-package Element;
+package HTML.LowLevel.Element;
 
 // Represents an anchor element (url link)
 public class Anchor extends ContainerElement {

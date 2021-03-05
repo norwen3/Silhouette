@@ -1,4 +1,4 @@
-package Element;
+package HTML.LowLevel.Element;
 
 // Class that represents all elements that contain something
 // Previously known as (OpenClosed)
@@ -10,7 +10,7 @@ public abstract class ContainerElement extends Element {
     //adds <p> tags to any element
     public void addParagraph(String text){}
 
-    //will add an Element to OpenClosed container of any type
+    //will add an HTML.LowLevel.Element to OpenClosed container of any type
     public void addElement(Element item){}
 
     //adds a title <h1>, <h2> etc..

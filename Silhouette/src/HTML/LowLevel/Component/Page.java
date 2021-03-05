@@ -1,6 +1,6 @@
-package Component;
+package HTML.LowLevel.Component;
 
-import Element.Element;
+import HTML.LowLevel.Element.Element;
 
 public class Page {
 
