@@ -6,7 +6,7 @@ import HTML.LowLevel.Element.Element;
 public class Article {
     void setTitle(){}
     void addParagraph(){}
-    void addGraphi(Graphic graphic){}
+    void addGraphic(Graphic graphic){}
     void setPagination(){
         // Previous or next article at the bottom of the page
         // Maybe unecessary (question mark)

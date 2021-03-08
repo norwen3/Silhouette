@@ -1,6 +1,7 @@
 package HTML.LowLevel.Element;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public abstract class Element {
@@ -36,5 +37,11 @@ public abstract class Element {
 
         attributes.put(attribute, value);
     }
+
+    // Classes and IDs
+    public void applyClass(String className){}
+    public void applyClasses(List<String> classNames){}
+    public void applyId(String idName){}
+    public void applyIds(List<String> idNames){}
 
 }
