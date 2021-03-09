@@ -1,14 +1,30 @@
-package CSS.LowLevel;
+package CSS.LowLevel.Style;
+
+import CSS.LowLevel.Declaration.Declaration;
 
 import java.util.List;
 
 public class Style {
     public void setId(String idName){}
     public void setClass(String className){}
+    public void setSelector(String value){}
     public void addRule(String declaration){} // e.g. Background-color: Blue
     public void addDeclaration(Declaration declaration){}
     public void addRule(List<String> declarations){}
     public void addDeclarations(List<Declaration> declarations){}
+
+    // Box Model
+    public void setMargin(String value){}
+    public void setWidth(String value){}
+    public void setBorder(String value){}
+    public void setPadding(String value){}
+    public void setContent(String value){}
+    public void setPosition(String value){}
+
+    // Apply to Child elements
+    public void applyToNthChild(int n){
+        // .myAmazingClass:nth-child(n);
+    }
 }
 
 

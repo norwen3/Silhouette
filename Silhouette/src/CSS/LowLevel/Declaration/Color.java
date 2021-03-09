@@ -1,4 +1,6 @@
-package CSS.LowLevel;
+package CSS.LowLevel.Declaration;
+
+import CSS.LowLevel.Declaration.Declaration;
 
 public class Color extends Declaration {
     public static String setValueHSLA(int hue, int saturation, int lightness, int alpha){
