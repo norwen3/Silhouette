@@ -1,13 +1,12 @@
 package CSS.LowLevel.Style;
 
-import CSS.LowLevel.IAlignment;
+import CSS.LowLevel.ILowLevel.IAlignment;
 
 // Specifies a grid
 // This automatically sets "Display: Grid" if no value is set in constructor;
 // Consturctor takes three values grid, inline-grid, subgrid
-public class Grid extends Style implements IAlignment {
+public class Grid extends RuleSet implements IAlignment {
     // Defining the Grid
-    public void setDisplay(String value){}
     public void setColumns(String... columns){
         // e.g. 15px 10px 2em 4fr etc..
     }

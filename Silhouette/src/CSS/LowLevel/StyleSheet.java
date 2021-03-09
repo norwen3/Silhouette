@@ -1,8 +1,8 @@
 package CSS.LowLevel;
 
-import CSS.LowLevel.Style.Style;
+import CSS.LowLevel.Style.RuleSet;
 
 public class StyleSheet {
     void setFileName(String fileName){}
-    void applyStyle(Style style){}
+    void applyStyle(RuleSet ruleSet){}
 }

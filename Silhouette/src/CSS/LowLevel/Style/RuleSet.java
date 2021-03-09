@@ -1,37 +1,66 @@
 package CSS.LowLevel.Style;
 
-import CSS.LowLevel.Declaration.Declaration;
-
-import java.util.List;
-
-public class Style {
+public class RuleSet {
     public void setId(String idName){}
     public void setClass(String className){}
     public void setSelector(String value){}
-    public void addRule(String declaration){} // e.g. Background-color: Blue
-    public void addDeclaration(Declaration declaration){}
-    public void addRule(List<String> declarations){}
-    public void addDeclarations(List<Declaration> declarations){}
+    public void setAtRule(String atRule){
+        // @keyframes, @media
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule
+    }
+
+    // Add rules
+    public void addRule(String css){
+        // Straight up CSS
+        // e.g. Background-color: Blue
+    }
+    public void addRule(String property, String value){
+        // Do like this:
+        // myColor.addRule("Background-color", "red");
+        //
+        // Or like this:
+        // myColor.addRule("Background-color", Color.RGB(211, 22, 3));
+    }
+
+    public void setDisplay(String value){}
 
     // Box Model
-    public void setMargin(String value){}
     public void setWidth(String value){}
+    public void setHeight(String value){}
+    public void setMargin(String value){}
     public void setBorder(String value){}
     public void setPadding(String value){}
     public void setContent(String value){}
+
+    // Alignment
     public void setPosition(String value){}
+    public void setFloat(String value){}
+    public void setTop(String value){}
+    public void setBottom(String value){}
 
     // Apply to Child elements
-    public void applyToNthChild(int n){
+    public void applyToNthChild(int n, String value){
         // .myAmazingClass:nth-child(n);
     }
 }
 
 
+
+
 /*
+Eggsample Fore
+Style myColor = new Style();
+myColor.addDeclaration("Background-color", Color.RGB(211, 22, 3));
+
+Style mySecondColor = new Style();
+myColor.addDeclaration("", Color.RGB(12, 32, 4));
+-> Equivalent to myColor.addDeclaration("Color", Color.RGB(12, 32, 4));
+
+
 Eggsample Tree
 Style myColor = new Style();
 myColor.addDeclaration(Color.setRGB("Background-color", 255, 255, 255));
+myColor.addDeclaration("background-color", Color.RGB(255, 255, 255));
 
 Grid myGrid = new Grid();
 myGrid.addDeclaration(Color.setRGB("Background-color", 255, 255, 255));

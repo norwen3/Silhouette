@@ -1,10 +1,10 @@
 package CSS.LowLevel.Style;
 
-import CSS.LowLevel.IAlignment;
+import CSS.LowLevel.ILowLevel.IAlignment;
 
 // Flexbox
 // This automatically sets "Display: Grid";
-public class FlexBox extends Style implements IAlignment {
+public class FlexBox extends RuleSet implements IAlignment {
     // Ordering and orientation
     public void setFlexDirection(String value){
         // row, row-reverse, column, column-reverse
