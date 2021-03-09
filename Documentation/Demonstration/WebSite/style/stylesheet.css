@@ -1,0 +1,23 @@
+body {
+    margin: 0 20em;
+    background-color: rgb(150, 180, 220);
+}
+
+figure {
+    margin: 0;
+    width: 50%;
+}
+
+img {
+    width: 100%;
+}
+
+.footer-columns {
+    display: flex;
+}
+
+.footer-columns div {
+    width: 100%;
+    margin: 1em;
+    border: 1px solid black;
+}
