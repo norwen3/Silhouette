@@ -1,4 +1,4 @@
 package HTML.HighLevel.Feature;
 
-public class Form {
+public class Schema {
 }
