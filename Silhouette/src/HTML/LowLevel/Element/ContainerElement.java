@@ -8,7 +8,8 @@ public abstract class ContainerElement extends Element {
     public void addText(String text){}
 
     //adds <p> tags to any element
-    public void addParagraph(String text){}
+    // @TODO: Remove? This is now a class
+    public void addParagraph(String... text){}
 
     //will add an HTML.LowLevel.Element to OpenClosed container of any type
     public void addElement(Element item){}

@@ -1,11 +1,16 @@
 package HTML.LowLevel.Element;
 
 // Represents an anchor element (url link)
+// Can instantiate anchor OR use static method
 public class Anchor extends ContainerElement {
 
-    public void setLinkText(){}
-    public void setUrl(){}
+    public Anchor(){}
+    public Anchor(String text, String url){}
 
-    //finds the text part that you want to add link to
-    public void stringToLink(String textMatch){}
+    public static String setLink(String text, String url){
+        // returns <a href="url">text</a>
+        return null;
+    }
+
+    public void setUrl(){}
 }
