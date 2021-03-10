@@ -7,10 +7,34 @@ public class Table {
     public void setColgroup(ColGroup colgroup){}
 
     // Insert methods
-    public void insertHead(int row, int column, String text){}
-    public void insertHead(int row, int column, Element element){}
-    public void insertNormal(int row, int column, String text){}
-    public void insertNormal(int row, int column, Element element){}
-    public void insertFoot(int row, int column, String text){}
-    public void insertFoot(int row, int column, Element element){}
+    public void insertHead(int row, int column, String text){
+        // <thead>
+        //    <tr><td>January</td></tr>
+        // </thead>
+    }
+    public void insertHead(int row, int column, Element element){
+        // <thead>
+        //    <tr><td>January</td></tr>
+        // </thead>
+    }
+    public void insertValue(int row, int column, String text){
+        // <tbody>
+        //    <tr><td>January</td></tr>
+        // </tbody>
+    }
+    public void insertValue(int row, int column, Element element){
+        // <tbody>
+        //    <tr><td>January</td></tr>
+        // </tbody>
+    }
+    public void insertFoot(int row, int column, String text){
+        // <tfoot>
+        //    <tr><td>January</td></tr>
+        // </tfoot>
+    }
+    public void insertFoot(int row, int column, Element element){
+        // <tfoot>
+        //    <tr><td>January</td></tr>
+        // </tfoot>
+    }
 }

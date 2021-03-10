@@ -1,10 +1,18 @@
 package HTML.LowLevel.Element;
 
-public class Picture extends ContainerElement {
+import HTML.LowLevel.ILowLevel.ISource;
+
+public class Picture extends ContainerElement implements ISource {
     // Constructor
     public Picture(){}
 
     // Methods
     public void addImage(Image image){}
-    public void addImage(Source source){}
+    // @TODO: Remove this?
+    // public void addImage(Source source){}
+
+    @Override
+    public void addSource(String media, String srcset) {
+
+    }
 }

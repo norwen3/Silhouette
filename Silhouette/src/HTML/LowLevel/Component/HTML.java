@@ -2,13 +2,14 @@ package HTML.LowLevel.Component;
 
 import HTML.LowLevel.Element.Element;
 
-public class Page {
+public class HTML {
 
     public void setTitle(String title) {}
     public void append(Element element){}
 
-    // Initializes the html generation
-    public void initialize(){}
+    public void initialize(){
+        // Initializes the html generation
+    }
 
     // Modify meta data
     public void setMetaName(String name, String content){
