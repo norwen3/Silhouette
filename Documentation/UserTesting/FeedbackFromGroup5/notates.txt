@@ -1,0 +1,34 @@
+Notater -> User testing med Gruppe 5 på Silhouette
+-------
+
+
+- SetLinkType metoden må settes inn i Container (OG ikke i HTML objektet)
+- SetLinkType metoden må også kunne brukes med kun to parametre
+- Virker som om det var intuitivt at head og body er containere (Det så ut som at det kom naturlig for de)
+- Heading objekt burde ta en int som level (Altså ikke string)
+- Heading objektet må arve riktig (Nå har den ikke applyClass metoden)
+- Kanskje lage en .addElements metode, som tar flere Element objekter (varargs?)
+- Må fikse .addElement og .applyId for Paragraph objektet
+	> Nå fungerer ikke article.addElement(p)
+
+(Nå var de ferdige med HTML biten)
+
+- Virker som det ikke går ann å skrive
+	bodyStyle.setSelector(body).addRule(...);
+	> kan ikke chaine de?
+- Virker som om .addRule() var intuitivt, han skrev det med en gang
+- 
+
+
+Tilbakemelding
+--------------
+- Ganske greit
+- Veldig greit faktisk
+- Måtte bare huske klassenavnene
+
+Føler dere at dere kunne reprodusert det på egenhånd?
+	- ja
+Kunne dere lagd mer kompliserte sider? Lagt til animasjoner og javascript?
+	- Hva mener du?
+Kunne dere utvidet nettsiden med rammeverket vårt?
+	- Ja
