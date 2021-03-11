@@ -1,0 +1,16 @@
+body {
+    background-color: rgb(200, 245, 240);
+    display:grid;
+}
+
+nav {
+    display: flex;
+}
+
+.myH1 {
+    font-size: 3em;
+}
+
+#myParagraph {
+    background-color: #179421;
+}
