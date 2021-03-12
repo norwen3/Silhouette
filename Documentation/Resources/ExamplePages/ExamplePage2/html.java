@@ -6,8 +6,8 @@ public class html {
         HTML myPage = new HTML();
 
         Container head = new Container("head");
-        head.setLinkType("stylesheet", "style.css", "text/css");    
-        
+        head.setLinkType("stylesheet", "style.css", "text/css"); 
+
         Container body = new Container("body");
         Container header = new Container("header");
         Container main = new Container("main");

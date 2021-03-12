@@ -1,0 +1,14 @@
+Result of user testing:
+
+Selve målet med programkoden var å lage en generert nettside med innhold av tekst og farger i Java altså i form av css og html.
+
+Setup:
+Setupet var meget bra siden oppsettet var selve nettsiden noe som er relativt simpelt og enkelt å lage generelt og i Java. Det er veldig strukturert og bra oppsett.
+
+Koden:
+Koden var semantisk og godt strukturert. Den er også lett å lese og er et veldig godt utgangspunkt til å lage en nettside generert med Java. Å lage en nettside ved hjelp
+av Java kan være noe litt vanskeligere, men dette var ett untak, altså veldig bra og enkel kode for nettside.
+
+Annet feedback:
+Det eneste som er et minus med APIet er at noen av delene er "rødt" eller vil ikke fungere dersom det kopieres, og et eksempel med dette er dersom man prøver å sette et 
+paragraph element inn i article. Det ville ikke Java kjenne igjen, men ellers var oppsettet og koden bygget opp på en fin og strukturert måte.
