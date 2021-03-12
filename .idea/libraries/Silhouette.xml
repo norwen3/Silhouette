@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Silhouette">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Silhouette/out/artifacts/Silhouette_jar/Silhouette.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -9,12 +9,18 @@ public abstract class ContainerElement extends Element {
 
     //adds <p> tags to any element
     // @TODO: Remove? This is now a class
-    public void addParagraph(String... text){}
+    //High-level API??
+    public Paragraph addParagraph(String... text){
+        return null;
+    }
 
     //will add an HTML.LowLevel.Element to OpenClosed container of any type
-    public void addElement(Element item){}
+    public void addElement(Element... item){}
 
+    //High-level API
     //adds a title <h1>, <h2> etc..
-    public void addHeading(String level, String text){}
+    public Heading addHeading(int level, String text){
+        return null;
+    }
 
 }

@@ -1,6 +1,6 @@
 package HTML.LowLevel.Element;
 
-public class Paragraph {
+public class Paragraph extends ContainerElement {
 
     // Constructors
     public Paragraph(){}
