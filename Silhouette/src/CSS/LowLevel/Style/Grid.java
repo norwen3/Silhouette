@@ -2,32 +2,84 @@ package CSS.LowLevel.Style;
 
 import CSS.LowLevel.ILowLevel.IAlignment;
 
-// Specifies a grid
-// This automatically sets "Display: Grid" if no value is set in constructor;
-// Consturctor takes three values grid, inline-grid, subgrid
+import java.util.Arrays;
+import java.util.Iterator;
+
+/**
+ * Specifies a CSS Grid.
+ */
 public class Grid extends RuleSet implements IAlignment {
-    // Defining the Grid
-    public void setColumns(String... columns){
-        // e.g. 15px 10px 2em 4fr etc..
-    }
-    public void setAutoColumns(String column){}
-    public void setRows(String... rows){}
-    public void setAutoRows(String row){}
-    public void setAutoFlow(String value){}
-    public void addArea(String areaName, int rowStart, int rowEnd, int colStart, int colEnd){}
-    public void setTemplate(String... args){
-        // Shorthand for grid-template-columns, grid-template-rows and grid-template-areas
-        // Separated by / sign
+
+    // Instance Variables
+
+    // Constructor
+
+    /**
+     * Initiates with one or more selectors
+     * @param selector Any type of CSS selector
+     */
+    public Grid(String selector){
+        super(selector);
     }
 
-    // Spacing
+    /**
+     * Initiates with selector, columns and rows.
+     * @param selector Any type of CSS selector
+     * @param columns Sets the columns
+     * @param rows Sets the rows
+     */
+    public Grid(String selector, String columns, String rows){
+        super(selector);
+        setColumns(columns);
+        setRows(rows);
+    }
+
+    // Methods
+
+    public void setColumns(String columns){
+        addRule("grid-template-columns", columns);
+    }
+    public void setRows(String rows){
+        addRule("grid-template-rows", rows);
+    }
+    public void setAutoColumns(String value){
+        addRule("grid-auto-columns", value);
+    }
+    public void setAutoRows(String value){
+        addRule("grid-auto-rows", value);
+    }
+    public void setAutoFlow(String value){
+        addRule("grid-auto-flow", value);
+    }
+    public void addArea(String areaName, int rowStart, int rowEnd, int colStart, int colEnd){
+
+    }
+    /**
+     * Shorthand for grid-template-columns, grid-template-rows and grid-template-areas. Seperated by / sign
+     * @param values
+     */
+    public void setTemplate(String... values){
+        StringBuilder str = new StringBuilder();
+
+        Iterator<String> valueIterator = Arrays.asList(values).iterator();
+        while (valueIterator.hasNext()){
+
+            str.append(valueIterator.next());
+
+            if (valueIterator.hasNext()){
+                str.append(" / ");
+            }
+        }
+
+        addRule(str.toString());
+    }
     public void setRowGap(String value){}
     public void setColumnGap(String value){}
     public void setGap(String value){}
-
-    // Alignment
     public void setJustifySelf(String value){}
     public void setJustifyItems(String value){}
+
+    // Override methods
 
     @Override
     public void setAlignItems(String value) {

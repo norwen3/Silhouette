@@ -75,7 +75,7 @@ public class RuleSet {
      * @param value CSS value
      */
     public void addRule(String property, String value){
-        rules.add(property + " " + value);
+        rules.add(property + ": " + value);
     }
 
     public void setDisplay(String value){
