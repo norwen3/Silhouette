@@ -10,8 +10,6 @@ import java.util.Iterator;
  */
 public class Grid extends RuleSet implements IAlignment {
 
-    // Instance Variables
-
     // Constructor
 
     /**
@@ -34,70 +32,85 @@ public class Grid extends RuleSet implements IAlignment {
         setRows(rows);
     }
 
-    // Methods
+    // Public Methods
 
     public void setColumns(String columns){
         addRule("grid-template-columns", columns);
     }
+
     public void setRows(String rows){
         addRule("grid-template-rows", rows);
     }
+
     public void setAutoColumns(String value){
         addRule("grid-auto-columns", value);
     }
+
     public void setAutoRows(String value){
         addRule("grid-auto-rows", value);
     }
+
     public void setAutoFlow(String value){
         addRule("grid-auto-flow", value);
     }
-    public void addArea(String areaName, int rowStart, int rowEnd, int colStart, int colEnd){
 
+    public void setRowGap(String value){
+        addRule("grid-row-gap", value);
     }
+
+    public void setColumnGap(String value){
+        addRule("grid-column-gap", value);
+    }
+
+    public void setGap(String value){
+        addRule("grid-gap", value);
+    }
+
+    public void setJustifySelf(String value){
+        addRule("justify-self", value);
+    }
+
+    public void setJustifyItems(String value){
+        addRule("justify-items", value);
+    }
+
+    public void setTemplateAreas(String... values){
+        String rule = combineValuesWithSeparator(" ", values);
+        addRule(rule);
+    }
+
     /**
      * Shorthand for grid-template-columns, grid-template-rows and grid-template-areas. Seperated by / sign
      * @param values
      */
     public void setTemplate(String... values){
-        StringBuilder str = new StringBuilder();
-
-        Iterator<String> valueIterator = Arrays.asList(values).iterator();
-        while (valueIterator.hasNext()){
-
-            str.append(valueIterator.next());
-
-            if (valueIterator.hasNext()){
-                str.append(" / ");
-            }
-        }
-
-        addRule(str.toString());
+        String rule = combineValuesWithSeparator(" / ", values);
+        addRule(rule);
     }
-    public void setRowGap(String value){}
-    public void setColumnGap(String value){}
-    public void setGap(String value){}
-    public void setJustifySelf(String value){}
-    public void setJustifyItems(String value){}
+
+    public void addArea(String areaName, int rowStart, int rowEnd, int colStart, int colEnd){
+        // @TODO: Figure this out
+    }
 
     // Override methods
 
     @Override
     public void setAlignItems(String value) {
-
+        addRule("align-items", value);
     }
 
     @Override
     public void setAlignSelf(String value) {
-
+        addRule("align-self", value);
     }
 
     @Override
     public void setJustifyContent(String value) {
-
+        addRule("justify-content", value);
     }
 
     @Override
     public void setAlignContent(String value) {
-
+        addRule("align-content", value);
     }
 }

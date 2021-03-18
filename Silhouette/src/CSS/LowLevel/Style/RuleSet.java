@@ -1,7 +1,9 @@
 package CSS.LowLevel.Style;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * Defines a CSS rule set containing a selector and multiple declarations.
@@ -30,6 +32,7 @@ public class RuleSet {
         // All selector types
         setSelector(selector);
     }
+
     /**
      * Initiates RuleSet with a selector that has an addon.
      * @param selector Base selector
@@ -42,6 +45,7 @@ public class RuleSet {
         // E.myClass
         setSelector(selector + addon);
     }
+
     /**
      * Initiates RuleSet with a combination selector.
      * @param selector1 First selector
@@ -69,6 +73,7 @@ public class RuleSet {
     public void addRule(String css){
         rules.add(css);
     }
+
     /**
      * Adds a CSS rule with property and value.
      * @param property CSS property
@@ -81,35 +86,63 @@ public class RuleSet {
     public void setDisplay(String value){
         rules.add("display: " + value);
     }
+
     public void setWidth(String value){
         rules.add("width: " + value);
     }
+
     public void setHeight(String value){
         rules.add("height: " + value);
     }
+
     public void setMargin(String value){
         rules.add("margin: " + value);
     }
+
     public void setBorder(String value){
         rules.add("border: " + value);
     }
+
     public void setPadding(String value){
         rules.add("padding: " + value);
     }
+
     public void setContent(String value){
         rules.add("content: " + value);
     }
+
     public void setPosition(String value){
         rules.add("position: " + value);
     }
+
     public void setFloat(String value){
         rules.add("float: " + value);
     }
+
     public void setTop(String value){
         rules.add("top: " + value);
     }
+
     public void setBottom(String value){
         rules.add("bottom: " + value);
+    }
+
+    // Private methods
+
+    protected String combineValuesWithSeparator(String separator, String[] values) {
+        StringBuilder str = new StringBuilder();
+
+        Iterator<String> valueIterator = Arrays.asList(values).iterator();
+        while (valueIterator.hasNext()){
+
+            str.append(valueIterator.next());
+
+            if (valueIterator.hasNext()){
+                str.append(separator);
+            }
+        }
+
+        return str.toString();
     }
 }
 
