@@ -2,8 +2,6 @@ package CSS.LowLevel.Style;
 
 import CSS.LowLevel.ILowLevel.IAlignment;
 
-// Flexbox
-// This automatically sets "Display: Grid";
 public class FlexBox extends RuleSet implements IAlignment {
 
     // Constructor

@@ -80,7 +80,7 @@ public class RuleSet {
      * @param value CSS value
      */
     public void addRule(String property, String value){
-        rules.add(property + ": " + value);
+        rules.add(property + ": " + value + ";");
     }
 
     public void setDisplay(String value){
@@ -127,7 +127,7 @@ public class RuleSet {
         rules.add("bottom: " + value);
     }
 
-    // Private methods
+    // Protected methods
 
     protected String combineValuesWithSeparator(String separator, String[] values) {
         StringBuilder str = new StringBuilder();
