@@ -18,6 +18,7 @@ public class Grid extends RuleSet implements IAlignment {
      */
     public Grid(String selector){
         super(selector);
+        setDisplay("grid");
     }
 
     /**
@@ -30,6 +31,7 @@ public class Grid extends RuleSet implements IAlignment {
         super(selector);
         setColumns(columns);
         setRows(rows);
+        setDisplay("grid");
     }
 
     // Public Methods
