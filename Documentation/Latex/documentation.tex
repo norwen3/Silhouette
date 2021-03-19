@@ -55,28 +55,22 @@ Link to type doc...
 \subsection{Scenarios and Solutions}
 
 \subsubsection{Scenario 1}
-Make two CSS rulesets and a grid. Give one of the rulesets a class to target and change the background-color of one ruleset. Add the grid to the same ruleset and set it's columns and rows. On the second ruleset, set the text-color, add it to the first ruleset, create a Container of type "header" and give it the same class as the ruleset.
+Make two rulesets, one that is a regular ruleset and one that is a grid ruleset. Give each ruleset a unique selector. For the regular ruleset, add a blue background and change the text color to \#32a852. For the grid, define three columns and two rows of varied size. Lastly, apply both of the rulesets to a Container of type "header".
 
 \subsubsection{Scenario 1 - Proposed Solution}
 
 \begin{lstlisting}
-    RuleSet colorBlue = new RuleSet(".BlueClass");
-    colorBlue.addRule("background-color", "blue");
+    RuleSet color = new RuleSet(".color");
+    color.addRule("background-color", "blue");
+    color.addRule("color", Color.Hex(#32a852));
 
-    Grid blueGrid = new Grid();
-    colorBlue.setColumns("10px", "12px");
-    colorBlue.setRows("10px", "12px");
-
-    RuleSet colorGreen = new RuleSet();
-    colorGreen.addRule("font-color", Color.RGB(23, 52, 12));
-
-    colorBlue.addRule(colorGreen);
+    Grid grid = new Grid("#grid");
+    grid.setColumns("1fr", "100px", "2em");
+    grid.setRows("50%", "120px");
 
     Container myHeader = new Container("header");
-    myHeader.applyClass("BlueClass");
-
-    -->
-    <header class="BlueClass" ></header>
+    myHeader.applySelector(".color");
+    myHeader.applySelector("#grid");
 \end{lstlisting}
 
 
