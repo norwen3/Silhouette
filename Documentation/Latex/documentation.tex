@@ -42,6 +42,13 @@ Establish existing solutions ...
 High Level Design Principles...
 
 \subsection{Design Patterns}
+\subsubsection{Builder Pattern}
+We were very quickly guided towards using the Builder pattern when we first had decided on the Framework-type. The Builder pattern, unlike the Abstract Factory pattern, is a lot more like a "Fluent interface", meaning it relies heavily on method cascading.
+The builder pattern is useful as it attempts to seperate the construction of an object from the way it is represented, this way we can use the same process to create many different looking objects that are fundementally similar.
+We need to use the builder pattern when we want immutable objects. We want immutable classes because they have a wide range of benefits when we are developing an API. They are simple to use, they are synchronization safe, we only need one constructor, and they are great for maps(which we're using) to name a few.
+
+The main problem with implementing the builder pattern is the sheer amount of extra code required. The lines will most likely more than double. However, those extra lines of code give us much more readable code and design flexibility. We exchange parameters in the constructor for much prettier method calls.
+
 
 \subsection{Design Decisions}
 
@@ -78,6 +85,7 @@ Make two rulesets, one that is a regular ruleset and one that is a grid ruleset.
 
 \subsubsection{Scenario 2}
 Make a table whose size changes dynamically, add values to the header row and add values to the rest of the rows as they are generated. Apply a class to the table and set a header color for the table.
+
 
 \subsubsection{Scenario 2 - Proposed Solution}
 
@@ -172,6 +180,25 @@ Make a Container of type header and give it a navigation bar with links to all p
     flexbox.setJustifyContent("space-around");
 \end{lstlisting}
 
+
+
+    \subsubsection{HTML}
+
+    Scenario 1: Make a form that looks like a CV, with a picture, some general text informasjon about my self as a person (wiht age, name etc.) wher the informasjon holder is in a strong text and the informasjon about the person is just normal text.
+
+    Scenario 2: Youtube copie, make a area for a video to be stord on the page where the name of the video is over the video area and make is so that it can be seen form that webpage and not a like to another wabpage.
+
+    Scenario 3: Login and password input area
+
+    Scenario 4: Questionnaire -> Make a form wiht several questions using radio and/or chekbox (inputs)
+
+    \subsubsection{CSS}
+
+    Scenario 1: Nav-bar with link(s) button / box around it that are flexible (when it comes to the length and height of the webpage), and when hover over it will change the background color.
+        
+    Scenario 2: Make stationary background so when some one scroll on the webpage the containers will comes form the top or bottom depending what way they are scrolling and overlap the background.
+
+    Scenario 3: Make a webpage that has diffrent colored boxes that are normaly 3 in length on a normal pc screen and just 1 in length when its used on a phone.
 
 
 \section{User Testing}
