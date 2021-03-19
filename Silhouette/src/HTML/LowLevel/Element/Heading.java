@@ -29,5 +29,12 @@ public class Heading extends ContainerElement{
             this.level = level;
             this.text = text;
         }
+        public Heading build(){
+            Heading h = new Heading(this);
+            verify();
+            return h;
+        }
+
+        public void verify(){}
     }
 }
