@@ -1,60 +1,8 @@
 % preamble %
 \documentclass[12pt]{article}
-\usepackage{amsfonts}
-\usepackage{fancyhdr}
-\usepackage{comment}
-\usepackage[a4paper, top=1cm, bottom=1.5cm, left=2cm, right=2cm]{geometry}
-\usepackage{enumitem}
-\usepackage{times}
-\usepackage{changepage}
-\usepackage{amssymb}
-\usepackage{graphicx}
-\usepackage{tabularx}
-\usepackage{titlesec}
-\usepackage{hyperref}
-\usepackage{changepage}
-\usepackage[parfill]{parskip}
-\usepackage{wrapfig}
-\usepackage[export]{adjustbox}
-\usepackage{multirow}
-\usepackage{array}
-\usepackage[table]{xcolor}
-\usepackage{longtable,booktabs}
-\usepackage{float}
 
-% settings %
-\setcounter{secnumdepth}{2} % enumerate
-\setcounter{tocdepth}{2}    % TOC entries
-%\renewcommand{\contentsname}{Innholdsfortegnelse}
-\newcounter{frcounter}
-\newcounter{frsubcounter}[frcounter]
-\newcounter{nfrcounter}
-\newcounter{nfrsubcounter}[nfrcounter]
-\titlespacing*{\paragraph}{\parindent}{1ex}{1em}
-
-% commands %
-    % counters %
-\newcommand*{\FR}{\stepcounter{frcounter}\textbf{[FR-\arabic{frcounter}] \quad}}
-\newcommand*{\FRsub}{\stepcounter{frsubcounter}\textbf{[FR-\arabic{frcounter}.\arabic{frsubcounter}] \quad}}
-\newcommand*{\NFR}{\stepcounter{nfrcounter}\textbf{[NFR-\arabic{nfrcounter}] \quad}}
-\newcommand*{\NFRsub}{\stepcounter{nfrsubcounter}\textbf{[NFR-\arabic{nfrcounter}.\arabic{nfrsubcounter}] \quad}}
-\newcommand{\invis}{\phantom{a}}
-
-    % requirement commands %
-\newcommand*{\freq}[1]{\FR\textbf{#1}\\}
-\newcommand*{\fsubreq}[1]{\FRsub{#1}\\}
-\newcommand*{\nfreq}[1]{\NFR\textbf{#1}\\}
-\newcommand*{\nfsubeq}[1]{\NFRsub{#1}\\}
-
-    % colors %
-\newcommand{\cellr}{\cellcolor{red!25}}
-\newcommand{\cello}{\cellcolor{orange!25}}
-\newcommand{\celly}{\cellcolor{yellow!25}}
-\newcommand{\celll}{\cellcolor{lime!25}}
-\newcommand{\cellg}{\cellcolor{green!25}}
-
-% environments %
-\newenvironment{subreq}{\begin{adjustwidth}{1cm}{}}{\end{adjustwidth}}
+% load preample %
+\input{packages/preamble.tex}
 
 % document %
 \begin{document}
@@ -104,7 +52,36 @@ Link to type doc...
 
 \section{Client Code}
 
-\subsection{Scenarios and Solution}
+\subsection{Scenarios and Solutions}
+
+\subsubsection{Scenario 1}
+Make two CSS rulesets and a grid. Give one of the rulesets a class to target and change the background-color of one ruleset. Add the grid to the same ruleset and set it's columns and rows. On the second ruleset, set the text-color, add it to the first ruleset, create a Container of type "header" and give it the same class as the ruleset.
+
+\subsubsection{Scenario 1 - Proposed Solution}
+
+\begin{lstlisting}
+    RuleSet colorBlue = new RuleSet(".BlueClass");
+    colorBlue.addRule("background-color", "blue");
+
+    Grid blueGrid = new Grid();
+    colorBlue.setColumns("10px", "12px");
+    colorBlue.setRows("10px", "12px");
+
+    RuleSet colorGreen = new RuleSet();
+    colorGreen.addRule("font-color", Color.RGB(23, 52, 12));
+
+    colorBlue.addRule(colorGreen);
+
+    Container myHeader = new Container("header");
+    myHeader.applyClass("BlueClass");
+
+    -->
+    <header class="BlueClass" ></header>
+\end{lstlisting}
+
+
+\subsubsection{Scenario 2}
+Make a table whose size changes dynamically, add values to the header row and add values to the rest of the rows as they are generated. Apply a class to the table and set a header color for the table.
 
 \subsubsection{HTML}
 
