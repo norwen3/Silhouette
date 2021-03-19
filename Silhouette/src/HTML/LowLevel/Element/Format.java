@@ -5,51 +5,51 @@ package HTML.LowLevel.Element;
 public class Format {
     public static String strong(String text){
         // returns <strong>text</strong>
-        return null;
+        return "<strong> " + text + " </strong>";
     }
     public static String bold(String text){
         // returns <b>text</b>
-        return null;
+        return "<b> " + text + " </b>";
     }
     public static String italic(String text){
         // returns <i>text</i>
-        return null;
+        return "<i> " + text + " </i>";
     }
     public static String emphasize(String text){
         // returns <em>text</em>
-        return null;
+        return "<em> " + text + " </em>";
     }
     public static String marked(String text){
         // returns <mark>text</mark>
-        return null;
+        return "<mark> " + text + " </mark>";
     }
     public static String small(String text){
         // returns <small>text</small>
-        return null;
+        return "<small> " + text + " </small>";
     }
     public static String deleted(String text){
         // returns <del>text</del>
-        return null;
+        return "<del> " + text + " </del>";
     }
     public static String inserted(String text){
         // returns <ins>text</ins>
-        return null;
+        return "<ins> " + text + " </ins>";
     }
     public static String subscript(String text){
         // returns <sub>text</sub>
-        return null;
+        return "<sub> " + text + " </sub>";
     }
     public static String supscript(String text){
         // returns <sup>text</sup>
-        return null;
+        return "<sup> " + text + " </sup>";
     }
     public static String preformatted(String text){
         // returns <pre>text</pre>
-        return null;
+        return "<pre> " + text + " </pre>";
     }
     public static String code(String text){
         // returns <code>text</code>
-        return null;
+        return "<code> " + text + " </code>";
     }
 }
 
