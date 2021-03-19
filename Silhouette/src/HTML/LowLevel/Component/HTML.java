@@ -55,4 +55,9 @@ public class HTML {
         // <link rel="stylesheet" href="stylesheet.css" type="text/css" media="(max-width: 480px)" title="my-css" />
     }
 
+    public static class HTMLBuilder{
+
+    }
 }
+
+
