@@ -1,36 +1,13 @@
 package HTML.LowLevel.Element;
 
-import java.util.List;
-
 public class Paragraph extends ContainerElement {
-    private List<Element> elementList;
-
-    public Paragraph(ParagraphBuilder builder){}
 
     // Constructors
     public Paragraph(){}
-    public Paragraph(String... text){
-        return;
-        //return new Paragraph(text).toString();
-    }
+    public Paragraph(String... text){}
 
     // Methods
-    public void addText(String... text){
-        return;
-        //return new addText(text);
-    }
-
-    @Override
-    public String toString() {
-        return "<p> " + elementList.toString() + "</p>";
-    }
-
-    public static class ParagraphBuilder{
-
-        public ParagraphBuilder(){}
-
-
-    }
+    public void addText(String... text){}
 }
 
 
