@@ -17,18 +17,10 @@ public class Container extends ContainerElement {
     public String getType() {
         return type;
     }
-    public List<Element> getElementList(){
-        return elementList;
-    }
-    public String elementListToString(List<Element> elementList){
-        for(Element e : elementList){
-            return e.toString();
-        }
-    }
 
     @Override
     public String toString(){
-        return "<"+type + ">" + elementListToString(elementList) + "</"+type+">";
+        return "<"+type + ">" + elementList.toString() + "</"+type+">";
     }
 
     public static class ContainerBuilder{
@@ -42,10 +34,6 @@ public class Container extends ContainerElement {
             return this;
         }
 
-        public ContainerBuilder listElement(Element e){
-            elementList.add(e);
-            return this;
-        }
         public Container build(){
             Container container = new Container(this);
             verify();
