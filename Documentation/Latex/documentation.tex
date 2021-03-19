@@ -55,21 +55,20 @@ Link to type doc...
 \subsection{Scenarios and Solutions}
 
 \subsubsection{Scenario 1}
-Silhouette is a Java web framework that aims to let users easily create websites in java and enables people who are not web designers to generate HTML and CSS from a range of classes and methods. The following report will give insight to our design decisions and the current state of our framework.
+Make two CSS rulesets and a grid. Give one of the rulesets a class to target and change the background-color of one ruleset. Add the grid to the same ruleset and set it's columns and rows. On the second ruleset, set the text-color, add it to the first ruleset, create a Container of type "header" and give it the same class as the ruleset.
 
 \subsubsection{Scenario 1 - Proposed Solution}
 
 \begin{lstlisting}
-    RuleSet colorBlue = new RuleSet();
-    colorBlue.setClass("BlueClass");
-    colorBlue.addRule("background-color:blue");
+    RuleSet colorBlue = new RuleSet(".BlueClass");
+    colorBlue.addRule("background-color", "blue");
 
     Grid blueGrid = new Grid();
-    colorBlue.addRule(blueGrid.setColumns("10px", "12px"));
-    colorBlue.addRule(blueGrid.setRows("10px", "12px"));
+    colorBlue.setColumns("10px", "12px");
+    colorBlue.setRows("10px", "12px");
 
     RuleSet colorGreen = new RuleSet();
-    colorGreen.addRule("font-color", Color.colorRGB(23, 52, 12));
+    colorGreen.addRule("font-color", Color.RGB(23, 52, 12));
 
     colorBlue.addRule(colorGreen);
 
