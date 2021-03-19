@@ -150,6 +150,28 @@ Make a simple form consisting of three input fields for username, password and s
     myFields.addLegend("Login Credentials");
 \end{lstlisting}
 
+\subsubsection{Scenario 5}
+Make a Container of type header and give it a navigation bar with links to all pages previously created. Make the navigation bar into a CSS flexbox so that all anchors be laid horizontally and justify the content to be "space-around".
+
+\subsubsection{Scenario 5 - Proposed Solution}
+
+\begin{lstlisting}
+    Container header = new Container("header");
+    Container nav = new Container("nav");
+
+    Anchor link1 = new AnchorBuilder("Front Page", "frontpage.html").build();
+    Anchor link2 = new AnchorBuilder("First Article", "article1.html").build();
+    Anchor link3 = new AnchorBuilder("Second Article", "article1.html").build();
+
+    nav.addElements(link1, link2, link3);
+
+    FlexBox flexbox = new FlexBox("header nav");
+    flexbox.setFlexDirection("row");
+    flexbox.setJustifyContent("space-around");
+\end{lstlisting}
+
+
+
 \section{User Testing}
 
 \subsection{Description of setup}
