@@ -18,9 +18,17 @@ public class Container extends ContainerElement {
         return type;
     }
 
+    public String elementListToString(List<Element> elementList){
+        if(elementList.isEmpty()){
+            return null;
+        }
+        for(Element e: elementList){e.toString();}
+        return elementListToString(elementList);
+    }
+
     @Override
     public String toString(){
-        return "<"+type + ">" + elementList.toString() + "</"+type+">";
+        return "<"+type + ">" + elementListToString(elementList) + "</"+type+">";
     }
 
     public static class ContainerBuilder{
@@ -46,3 +54,4 @@ public class Container extends ContainerElement {
 
     }
 }
+
