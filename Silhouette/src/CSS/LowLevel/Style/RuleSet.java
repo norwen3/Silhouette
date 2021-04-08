@@ -146,7 +146,13 @@ public class RuleSet {
     }
 }
 
-
+/* https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
+    @media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+ */
 
 
 /*

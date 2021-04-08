@@ -11,7 +11,7 @@ public class Container extends ContainerElement {
     private List<Element> elementList;
 
     // Constructor: type implies the semantic tag
-    public Container(ContainerBuilder builder){
+    public Container(Builder builder){
     }
 
     public String getType() {
@@ -28,16 +28,16 @@ public class Container extends ContainerElement {
 
     @Override
     public String toString(){
-        return "<"+type + ">" + elementListToString(elementList) + "</"+type+">";
+        return "<"+type+">" + elementListToString(elementList) + "</"+type+">";
     }
 
-    public static class ContainerBuilder{
+    public static class Builder {
         private String type;
         private List<Element> elementList = new ArrayList<>();
 
-        public ContainerBuilder(){
+        public Builder(){
         }
-        public ContainerBuilder setType(String type){
+        public Builder setType(String type){
             this.type = type;
             return this;
         }
@@ -55,3 +55,10 @@ public class Container extends ContainerElement {
     }
 }
 
+/* ???
+cant give a container a class or an id??
+    <div class="pcStand">
+        <div id="item-1">Apple</div>
+        <div id="item-2">Windows</div>
+    </div>
+ */

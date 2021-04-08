@@ -6,7 +6,7 @@ public class Input {
     private final String name;
     private final String label;
 
-    public Input(InputBuilder builder){
+    public Input(Builder builder){
         this.type = builder.type;
         this.id = builder.id;
         this.name = builder.name;
@@ -35,13 +35,13 @@ public class Input {
                 "<input type=\""+this.type+"\" id=\"" + this.id + "\" name=\""+ this.name + "\"> <br><br>";
     }
 
-    public static class InputBuilder{
+    public static class Builder {
         private final String type;
         private final String id;
         private final String name;
         private final String label;
 
-        public InputBuilder(String type, String id, String name, String label){
+        public Builder(String type, String id, String name, String label){
             this.type = type;
             this.id = id;
             this.name = name;

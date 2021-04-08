@@ -4,7 +4,7 @@ public class Heading extends ContainerElement{
     private final int level;
     private final String text;
 
-    public Heading(HeadingBuilder builder){
+    public Heading(Builder builder){
         this.level = builder.level;
         this.text = builder.text;
     }
@@ -21,11 +21,11 @@ public class Heading extends ContainerElement{
         return "<h"+level+">"+text+"</h"+level+">";
     }
 
-    public static class HeadingBuilder {
+    public static class Builder {
         private final int level;
         private final String text;
 
-        public HeadingBuilder(int level, String text){
+        public Builder(int level, String text){
             this.level = level;
             this.text = text;
         }

@@ -5,7 +5,7 @@ public class Form extends ContainerElement {
     private String type;
     private String action;
 
-    public Form(FormBuilder builder){
+    public Form(Builder builder){
     }
 
     public FieldSet getFieldSet(){
@@ -25,19 +25,19 @@ public class Form extends ContainerElement {
         return "<form action=\""+action + "\">\n" + fieldSet + "\n</form";
     }
 
-    public static class FormBuilder{
+    public static class Builder {
         private FieldSet fieldSet;
         private String method;
         private String action;
 
-        public FormBuilder(){}
+        public Builder(){}
 
         /**
          *
          * @param fieldSet
          * @return
          */
-        public FormBuilder setFieldSet(FieldSet fieldSet){
+        public Builder setFieldSet(FieldSet fieldSet){
             this.fieldSet = fieldSet;
             return this;
         }
@@ -50,7 +50,7 @@ public class Form extends ContainerElement {
          * @param type
          * @return
          */
-        public FormBuilder setMethod(String type){
+        public Builder setMethod(String type){
             this.method = method;
             return this;
         }
@@ -62,7 +62,7 @@ public class Form extends ContainerElement {
          * @param action
          * @return
          */
-        public FormBuilder setAction(String action){
+        public Builder setAction(String action){
             this.action = action;
             return this;
         }

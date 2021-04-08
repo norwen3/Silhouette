@@ -10,7 +10,7 @@ public class FieldSet extends ContainerElement {
     private Map<String,String> attributes;
     private String content;
 
-    public FieldSet(FieldSetBuilder builder){
+    public FieldSet(Builder builder){
         this.inputList = builder.inputList;
     }
 
@@ -22,29 +22,29 @@ public class FieldSet extends ContainerElement {
     }
 
 
-    public static class FieldSetBuilder{
+    public static class Builder {
         private final List<Input> inputList;
         private String legend;
         private Map<String, String> attributes;
         private String content;
 
-        public FieldSetBuilder(List<Input> inputList){
+        public Builder(List<Input> inputList){
             this.inputList = inputList;
         }
 
-        public FieldSetBuilder addInput(Input input){
+        public Builder addInput(Input input){
             this.inputList.add(input);
             return this;
         }
-        public FieldSetBuilder setLegend(String legend){
+        public Builder setLegend(String legend){
             this.legend = legend;
             return this;
         }
-        public FieldSetBuilder setAttributes(Map<String, String> attributes){
+        public Builder setAttributes(Map<String, String> attributes){
             this.attributes = attributes;
             return this;
         }
-        public FieldSetBuilder setContent(String content){
+        public Builder setContent(String content){
             this.content = content;
             return this;
         }
