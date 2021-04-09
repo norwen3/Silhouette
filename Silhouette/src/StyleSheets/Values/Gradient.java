@@ -2,7 +2,7 @@ package StyleSheets.Values;
 
 import StyleSheets.BaseComponents.Implementation.CSSManager;
 
-public class Gradient {
+public abstract class Gradient {
     /**
      * Returns a linear or radial gradient as String
      * E.g Color.gradient("linear", "180degs", Color.RGB(), "yellow")

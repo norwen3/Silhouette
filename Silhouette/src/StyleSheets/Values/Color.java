@@ -1,6 +1,6 @@
 package StyleSheets.Values;
 
-public class Color {
+public abstract class Color {
     // Color
 
     /**
