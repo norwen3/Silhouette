@@ -1,4 +1,4 @@
-package CSS.LowLevel.Style;
+package CSS.LowLevel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,7 +14,6 @@ public class RuleSet {
 
     String selector;
     ArrayList<String> rules = new ArrayList<>();
-    String atRule;
 
     // Constructors
 
@@ -125,24 +124,6 @@ public class RuleSet {
 
     public void setBottom(String value){
         rules.add("bottom: " + value);
-    }
-
-    // Protected methods
-
-    protected String combineValuesWithSeparator(String separator, String[] values) {
-        StringBuilder str = new StringBuilder();
-
-        Iterator<String> valueIterator = Arrays.asList(values).iterator();
-        while (valueIterator.hasNext()){
-
-            str.append(valueIterator.next());
-
-            if (valueIterator.hasNext()){
-                str.append(separator);
-            }
-        }
-
-        return str.toString();
     }
 }
 

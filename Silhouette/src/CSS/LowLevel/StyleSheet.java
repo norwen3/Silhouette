@@ -1,7 +1,5 @@
 package CSS.LowLevel;
 
-import CSS.LowLevel.Style.RuleSet;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -25,10 +23,6 @@ public class StyleSheet {
 
     // Public Methods
 
-    public void setFileName(String fileName){
-        this.fileName = fileName;
-    }
-
     public void applyStyle(RuleSet ruleSet){
         this.ruleSets.add(ruleSet);
     }
@@ -38,6 +32,10 @@ public class StyleSheet {
     }
 
     // Getters and setters
+
+    public void setFileName(String fileName){
+        this.fileName = fileName;
+    }
 
     public String getFileName() {
         return fileName;

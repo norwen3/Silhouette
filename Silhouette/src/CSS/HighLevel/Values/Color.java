@@ -1,4 +1,4 @@
-package CSS.LowLevel.Values;
+package CSS.HighLevel.Values;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -52,38 +52,5 @@ public class Color {
         return hexCode;
     }
 
-    /**
-     * Returns a linear or radial gradient as String
-     * E.g Color.gradient("linear", "180degs", Color.RGB(), "yellow")
-     * @param type "linear" or "radial"
-     * @param values
-     * @return String
-     */
-    public static String gradient(String type, String... values){
-        String str = combineValuesWithSeparator(", ", values);
 
-        if (type.equals("radial")) {
-            return "radial-gradient(" + str + ")";
-        } else {
-            return "linear-gradient(" + str + ")";
-        }
-    }
-
-    // Protected methods
-
-    protected static String combineValuesWithSeparator(String separator, String[] values) {
-        StringBuilder str = new StringBuilder();
-
-        Iterator<String> valueIterator = Arrays.asList(values).iterator();
-        while (valueIterator.hasNext()){
-
-            str.append(valueIterator.next());
-
-            if (valueIterator.hasNext()){
-                str.append(separator);
-            }
-        }
-
-        return str.toString();
-    }
 }

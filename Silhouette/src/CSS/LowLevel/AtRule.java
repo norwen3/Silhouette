@@ -1,4 +1,4 @@
-package CSS.LowLevel.Style;
+package CSS.LowLevel;
 
 import java.util.ArrayList;
 

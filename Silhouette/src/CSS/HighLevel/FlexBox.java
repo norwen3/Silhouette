@@ -1,6 +1,7 @@
-package CSS.LowLevel.Style;
+package CSS.HighLevel;
 
-import CSS.LowLevel.ILowLevel.IAlignment;
+import CSS.LowLevel.IAlignment;
+import CSS.LowLevel.RuleSet;
 
 public class FlexBox extends RuleSet implements IAlignment {
 
