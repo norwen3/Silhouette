@@ -1,8 +1,7 @@
 package CSS.HighLevel;
 
 import CSS.HighLevel.Implementation.CSSManager;
-import CSS.LowLevel.IAlignment;
-import CSS.LowLevel.RuleSet;
+import CSS.HighLevel.Implementation.IAlignment;
 
 /**
  * Specifies a CSS Grid.

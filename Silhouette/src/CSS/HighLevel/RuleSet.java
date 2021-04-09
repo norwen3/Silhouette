@@ -1,19 +1,13 @@
-package CSS.LowLevel;
+package CSS.HighLevel;
+
+import CSS.HighLevel.Implementation.Statement;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
 
 /**
  * Defines a CSS rule set containing a selector and multiple declarations.
  */
-public class RuleSet {
-
-    // Instance variables
-
-    String selector;
-    ArrayList<String> rules = new ArrayList<>();
+public class RuleSet extends Statement {
 
     // Constructors
 
@@ -21,7 +15,7 @@ public class RuleSet {
      * Adds "*" as default selector.
      */
     public RuleSet(){
-        this.selector = "*";
+        identifier = "*";
     }
     /**
      * Initiates with one or more selectors
@@ -62,25 +56,11 @@ public class RuleSet {
     // Methods
 
     public void setSelector(String selector){
-        this.selector = selector;
+        identifier = selector;
     }
 
-    /**
-     * Adds a CSS rule as straight CSS.
-     * @param css
-     */
-    public void addRule(String css){
-        rules.add(css);
-    }
 
-    /**
-     * Adds a CSS rule with property and value.
-     * @param property CSS property
-     * @param value CSS value
-     */
-    public void addRule(String property, String value){
-        rules.add(property + ": " + value + ";");
-    }
+
 
     public void setDisplay(String value){
         rules.add("display: " + value);

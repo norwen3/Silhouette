@@ -1,6 +1,10 @@
 package CSS.LowLevel;
 
+import CSS.HighLevel.Implementation.Statement;
+import CSS.HighLevel.RuleSet;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /*
 * @TODO:
@@ -17,29 +21,26 @@ import java.util.ArrayList;
 /**
  * Defines a CSS at-rule, which follows the general syntax @[KEYWORD] (RULE);
  */
-public class AtRule {
+public class AtRule extends Statement {
 
     // Instance variables
 
-    String atRule;
-    ArrayList<RuleSet> listOfRuleSets = new ArrayList<>();
+    public ArrayList<RuleSet> ruleSets = new ArrayList<>();
 
     // Constructors
 
     public AtRule(String keyword, String rule){
         // @keyframes, @media
-        atRule = "@" + keyword + " " + rule;
+        identifier = "@" + keyword + " " + rule;
     }
 
     // Methods
 
     public void addRuleSet(RuleSet ruleSet){
-        listOfRuleSets.add(ruleSet);
+        ruleSets.add(ruleSet);
     }
 
     public void addRuleSets(RuleSet... ruleSets){
-        for (RuleSet ruleSet : ruleSets){
-            listOfRuleSets.add(ruleSet);
-        }
+        this.ruleSets.addAll(Arrays.asList(ruleSets));
     }
 }
