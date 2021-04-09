@@ -29,188 +29,195 @@ Link til GitHub: \href{https://github.com/norwen3/Silhouette}{https://github.com
 
 \section{Group Description}
 
-\subsection{Delegation of Work}
+    \subsection{Delegation of Work}
 
-\subsubsection{Description of Work}
-Each students writes about scenarios they have contributed with...
-Workload...
+    \subsubsection{Description of Work}
+    Each students writes about scenarios they have contributed with...
+    Workload...
 
 \section{Background}
 Establish existing solutions ...
 
-\section{Design Specification}
-High Level Design Principles...
+\section{Method}
 
-\subsection{Design Patterns}
-\subsubsection{Builder Pattern}
-We were very quickly guided towards using the Builder pattern when we first had decided on the Framework-type. The Builder pattern, unlike the Abstract Factory pattern, is a lot more like a "Fluent interface", meaning it relies heavily on method cascading.
-The builder pattern is useful as it attempts to seperate the construction of an object from the way it is represented, this way we can use the same process to create many different looking objects that are fundementally similar.
-We need to use the builder pattern when we want immutable objects. We want immutable classes because they have a wide range of benefits when we are developing an API. They are simple to use, they are synchronization safe, we only need one constructor, and they are great for maps(which we're using) to name a few.
+    \subsection{Design Specification}
+    High Level Design Principles...
 
-The main problem with implementing the builder pattern is the sheer amount of extra code required. The lines will most likely more than double. However, those extra lines of code give us much more readable code and design flexibility. We exchange parameters in the constructor for much prettier method calls.
+\subsubsection{Design Patterns}
+    \paragraph{Builder Pattern}
+    We were very quickly guided towards using the Builder pattern when we first had decided on the Framework-type. The Builder pattern, unlike the Abstract Factory pattern, is a lot more like a "Fluent interface", meaning it relies heavily on method cascading.
+    The builder pattern is useful as it attempts to seperate the construction of an object from the way it is represented, this way we can use the same process to create many different looking objects that are fundementally similar.
+    We need to use the builder pattern when we want immutable objects. We want immutable classes because they have a wide range of benefits when we are developing an API. They are simple to use, they are synchronization safe, we only need one constructor, and they are great for maps(which we're using) to name a few.
 
-
-\subsection{Design Decisions}
-
-\subsection{Personal Decisions}
-
-\section{Project Structure (File Structure)}
-
-\subsection{Type Reference Documentation}
-Link to type doc...
-
-\section{Client Code}
-
-\subsection{Scenarios and Solutions}
-
-\subsubsection{Scenario 1}
-Make two rulesets, one that is a regular ruleset and one that is a grid ruleset. Give each ruleset a unique selector. For the regular ruleset, add a blue background and change the text color to \#32a852. For the grid, define three columns and two rows of varied size. Lastly, apply both of the rulesets to a Container of type "header".
-
-\subsubsection{Scenario 1 - Proposed Solution}
-
-\begin{lstlisting}
-    RuleSet color = new RuleSet(".color");
-    color.addRule("background-color", "blue");
-    color.addRule("color", Color.Hex(#32a852));
-
-    Grid grid = new Grid("#grid");
-    grid.setColumns("1fr", "100px", "2em");
-    grid.setRows("50%", "120px");
-
-    Container myHeader = new Container("header");
-    myHeader.applySelector(".color");
-    myHeader.applySelector("#grid");
-\end{lstlisting}
+    The main problem with implementing the builder pattern is the sheer amount of extra code required. The lines will most likely more than double. However, those extra lines of code give us much more readable code and design flexibility. We exchange parameters in the constructor for much prettier method calls.
 
 
-\subsubsection{Scenario 2}
-Make a table whose size changes dynamically, add values to the header row and add values to the rest of the rows as they are generated. Apply a class to the table and set a header color for the table.
+    \subsubsection{Design Decisions}
+
+    \subsubsection{Personal Decisions}
+
+\subsection{Project Structure (File Structure)}
+
+    \subsubsection{Type Reference Documentation}
+    Link to type doc...
+
+\subsection{Client Code}
+
+    \subsubsection{Scenarios and Solutions}
+
+    \paragraph{Scenario 1}
+    Make two rulesets, one that is a regular ruleset and one that is a grid ruleset. Give each ruleset a unique selector. For the regular ruleset, add a blue background and change the text color to \#32a852. For the grid, define three columns and two rows of varied size. Lastly, apply both of the rulesets to a Container of type "header".
+
+    \paragraph{Scenario 1 - Proposed Solution}
+
+    \begin{lstlisting}
+        RuleSet color = new RuleSet(".color");
+        color.addRule("background-color", "blue");
+        color.addRule("color", Color.Hex(#32a852));
+
+        Grid grid = new Grid("#grid");
+        grid.setColumns("1fr", "100px", "2em");
+        grid.setRows("50%", "120px");
+
+        Container myHeader = new Container("header");
+        myHeader.applySelector(".color");
+        myHeader.applySelector("#grid");
+    \end{lstlisting}
 
 
-\subsubsection{Scenario 2 - Proposed Solution}
+    \paragraph{Scenario 2}
+    Make a table whose size changes dynamically, add values to the header row and add values to the rest of the rows as they are generated. Apply a class to the table and set a header color for the table.
 
-\begin{lstlisting}
-    Table table = new Table();
-    int col = headerArray.length;
-    int row = array.length;
-    RuleSet color = new RuleSet(".tableClass");
-    color.addRule("background-color", Color.RGB(255,255,255));
-    ColGroup headerCol = new ColGroup();
 
-    table.setSize(row, col);
-    table.applySelector(".tableClass");
+    \paragraph{Scenario 2 - Proposed Solution}
 
-    for(int i= 0; i<row; i++){
-        for(int j= 0; j<col; j++){
-            while(i<1){
-                table.insertHead(i,j, headerArray[j]);
-            }
-            table.insertValue(i,j, array[j])
-            if(i<1){
-                headerCol.addCol(col, color.toString());
+    \begin{lstlisting}
+        Table table = new Table();
+        int col = headerArray.length;
+        int row = array.length;
+        RuleSet color = new RuleSet(".tableClass");
+        color.addRule("background-color", Color.RGB(255,255,255));
+        ColGroup headerCol = new ColGroup();
+
+        table.setSize(row, col);
+        table.applySelector(".tableClass");
+
+        for(int i= 0; i<row; i++){
+            for(int j= 0; j<col; j++){
+                while(i<1){
+                    table.insertHead(i,j, headerArray[j]);
+                }
+                table.insertValue(i,j, array[j])
+                if(i<1){
+                    headerCol.addCol(col, color.toString());
+                }
             }
         }
-    }
-\end{lstlisting}
+    \end{lstlisting}
 
-\subsubsection{Scenario 3}
-Make a frontpage and two article pages and share a common stylesheet between them. Add a simple ruleset that targets the body element and give it a lightgreen background to see that the changes have applied to all the pages. Lastly, generate the code.
+    \paragraph{Scenario 3}
+    Make a frontpage and two article pages and share a common stylesheet between them. Add a simple ruleset that targets the body element and give it a lightgreen background to see that the changes have applied to all the pages. Lastly, generate the code.
 
-\subsubsection{Scenario 3 - Proposed Solution}
+    \paragraph{Scenario 3 - Proposed Solution}
 
-\begin{lstlisting}
-    HTML myWebsite = new HTML("example website");
-    
-    Page frontPage = new Page("frontpage", "My Front Page");
-    Page articlePage1 = new Page("article", "My First Article");
-    page articlePage2 = new Page("article", "My Second Article");
+    \begin{lstlisting}
+        HTML myWebsite = new HTML("example website");
+        
+        Page frontPage = new Page("frontpage", "My Front Page");
+        Page articlePage1 = new Page("article", "My First Article");
+        page articlePage2 = new Page("article", "My Second Article");
 
-    StyleSheet style = new StyleSheet("style.css");
+        StyleSheet style = new StyleSheet("style.css");
 
-    RuleSet bg = new RuleSet("body");
-    bg.addRule("background-color", "lightgreen");
+        RuleSet bg = new RuleSet("body");
+        bg.addRule("background-color", "lightgreen");
 
-    style.append(bg);
+        style.append(bg);
 
-    website.link("style.css");
-    website.addPage(frontPage);
-    website.addPage(articlePage1);
-    website.addPage(articlePage2);
+        website.link("style.css");
+        website.addPage(frontPage);
+        website.addPage(articlePage1);
+        website.addPage(articlePage2);
 
-    website.initialize();
-\end{lstlisting}
+        website.initialize();
+    \end{lstlisting}
 
-\subsubsection{Scenario 4}
-Make a simple form consisting of three input fields for username, password and submit. Label each of the fields accordingly and give the fieldset a legend of "Login Credentials".
+    \paragraph{Scenario 4}
+    Make a simple form consisting of three input fields for username, password and submit. Label each of the fields accordingly and give the fieldset a legend of "Login Credentials".
 
-\subsubsection{Scenario 4 - Proposed Solution}
+    \paragraph{Scenario 4 - Proposed Solution}
 
-\begin{lstlisting}
-    FieldSet myFields = new FieldSet();
+    \begin{lstlisting}
+        FieldSet myFields = new FieldSet();
 
-    Input username = new Input("text");
-    username.addLabel("Type Username");
-    
-    Input password = new Input("password");
-    password.addLabel("Type Password");
-    
-    Input submit = new Input("submit");
+        Input username = new Input("text");
+        username.addLabel("Type Username");
+        
+        Input password = new Input("password");
+        password.addLabel("Type Password");
+        
+        Input submit = new Input("submit");
 
-    myFields.addFields(username, password, submit);
-    myFields.addLegend("Login Credentials");
-\end{lstlisting}
+        myFields.addFields(username, password, submit);
+        myFields.addLegend("Login Credentials");
+    \end{lstlisting}
 
-\subsubsection{Scenario 5}
-Make a Container of type header and give it a navigation bar with links to all pages previously created. Make the navigation bar into a CSS flexbox so that all anchors be laid horizontally and justify the content to be "space-around".
+    \paragraph{Scenario 5}
+    Make a Container of type header and give it a navigation bar with links to all pages previously created. Make the navigation bar into a CSS flexbox so that all anchors be laid horizontally and justify the content to be "space-around".
 
-\subsubsection{Scenario 5 - Proposed Solution}
+    \paragraph{Scenario 5 - Proposed Solution}
 
-\begin{lstlisting}
-    Container header = new Container("header");
-    Container nav = new Container("nav");
+    \begin{lstlisting}
+        Container header = new Container("header");
+        Container nav = new Container("nav");
 
-    Anchor link1 = new AnchorBuilder("Front Page", "frontpage.html").build();
-    Anchor link2 = new AnchorBuilder("First Article", "article1.html").build();
-    Anchor link3 = new AnchorBuilder("Second Article", "article1.html").build();
+        Anchor link1 = new AnchorBuilder("Front Page", "frontpage.html").build();
+        Anchor link2 = new AnchorBuilder("First Article", "article1.html").build();
+        Anchor link3 = new AnchorBuilder("Second Article", "article1.html").build();
 
-    nav.addElements(link1, link2, link3);
+        nav.addElements(link1, link2, link3);
 
-    FlexBox flexbox = new FlexBox("header nav");
-    flexbox.setFlexDirection("row");
-    flexbox.setJustifyContent("space-around");
-\end{lstlisting}
-
+        FlexBox flexbox = new FlexBox("header nav");
+        flexbox.setFlexDirection("row");
+        flexbox.setJustifyContent("space-around");
+    \end{lstlisting}
 
 
-\subsubsection{Scenario 6}
-Make a simple article page about yourself. Write your name in a level 2 heading at the top of the article, then add an unordered list containing containing key points about you. Lastly, add your email in bold text below the text.
 
-\subsubsection{Scenario 7}
-Display a local video on your website and make sure that it supports at least three different file formats.
+    \paragraph{Scenario 6}
+    Make a simple article page about yourself. Write your name in a level 2 heading at the top of the article, then add an unordered list containing containing key points about you. Lastly, add your email in bold text below the text.
 
-\subsubsection{Scenario 8}
-Make a questionnaire consisting of two questions. Make it so the first question has two possibilities and one correct answer, and so the second question has three possibilities with multiple correct answers. (Radio and Checkbox)
+    \paragraph{Scenario 7}
+    Display a local video on your website and make sure that it supports at least three different file formats.
 
-\subsubsection{Scenario 9}
-Remove underline for all anchors inside nav Containers and change the text color to red on mouse hover for each anchor.
-    
-\subsubsection{Scenario 10}
-Give the header a fixed gradient background from blue to red (right).
+    \paragraph{Scenario 8}
+    Make a questionnaire consisting of two questions. Make it so the first question has two possibilities and one correct answer, and so the second question has three possibilities with multiple correct answers. (Radio and Checkbox)
 
-\subsubsection{Scenario 11}
-Define a grid that serves as a page layout, and give it three columns and one row with equally distributed length. Make sure to wrap them under each other once the screen is narrower than 1000px, such that there are one column and three rows.
+    \paragraph{Scenario 9}
+    Remove underline for all anchors inside nav Containers and change the text color to red on mouse hover for each anchor.
+        
+    \paragraph{Scenario 10}
+    Give the header a fixed gradient background from blue to red (right).
 
-\section{User Testing}
+    \paragraph{Scenario 11}
+    Define a grid that serves as a page layout, and give it three columns and one row with equally distributed length. Make sure to wrap them under each other once the screen is narrower than 1000px, such that there are one column and three rows.
 
-\subsection{Description of setup}
+\subsection{User Testing}
 
-\subsection{The Code}
+    \subsubsection{Description of setup}
 
-\subsection{Feedback}
+    \subsubsection{The Code}
 
-\section{Revised API}
+    \subsubsection{Feedback}
 
-\section{Project Discussion and Conclusion}
+\subsection{Revised API}
+
+\section{Project Discussion}
+
+\section{Conclusion}
+Framvisning av det ferdie API-et
+
+\section{References}
 
 
 \end{document}
