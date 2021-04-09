@@ -1,12 +1,12 @@
 package HTML.LowLevel.Element;
 
-public class Input {
+public class Input extends Element{
     private final String type;
     private final String id;
     private final String name;
     private final String label;
 
-    public Input(InputBuilder builder){
+    public Input(Builder builder){
         this.type = builder.type;
         this.id = builder.id;
         this.name = builder.name;
@@ -35,26 +35,41 @@ public class Input {
                 "<input type=\""+this.type+"\" id=\"" + this.id + "\" name=\""+ this.name + "\"> <br><br>";
     }
 
-    public static class InputBuilder{
-        private final String type;
-        private final String id;
-        private final String name;
-        private final String label;
+    public static class Builder implements HTML.LowLevel.ILowLevel.Builder {
+        private String type;
+        private String id = "";
+        private String name ="";
+        private String label = "";
 
-        public InputBuilder(String type, String id, String name, String label){
+        public Builder(String type, String id, String name, String label){
             this.type = type;
             this.id = id;
             this.name = name;
             this.label = label;
         }
 
+        public Builder setId(String id){
+            this.id = id;
+            return this;
+        }
+
+        public Builder setName(String name){
+            this.name = name;
+            return this;
+        }
+
+        public Builder setLabel(String label){
+            this.label = label;
+            return this;
+        }
+
+        @Override
         public Input build(){
             Input input = new Input(this);
             verify();
             return input;
         }
 
-        private void verify() {
-        }
+
     }
 }
