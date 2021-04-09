@@ -1,5 +1,7 @@
 package HTML.LowLevel.Element;
 
+import HTML.LowLevel.ILowLevel.Builder;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +13,12 @@ public class Container extends ContainerElement {
     private List<Element> elementList;
 
     // Constructor: type implies the semantic tag
-    public Container(ContainerBuilder builder){
+    public Container(Builder builder){
+        this.type = builder.type;
+        this.elementList = builder.elementList;
+    }
+    public Container(){
+        this.type = "div";
     }
 
     public String getType() {
@@ -31,25 +38,32 @@ public class Container extends ContainerElement {
         return "<"+type + ">" + elementListToString(elementList) + "</"+type+">";
     }
 
-    public static class ContainerBuilder{
+    public static class Builder implements HTML.LowLevel.ILowLevel.Builder {
         private String type;
-        private List<Element> elementList = new ArrayList<>();
+        private List<Element> elementList;
 
-        public ContainerBuilder(){
+        public Builder(String type){
+            this.type = type;
+            this.elementList = new ArrayList<>();
         }
-        public ContainerBuilder setType(String type){
+
+        public Builder setContent(List<Element> elementList){
+            this.elementList = elementList;
+            return this;
+        }
+        public Builder setType(String type){
             this.type = type;
             return this;
         }
 
+        @Override
         public Container build(){
             Container container = new Container(this);
             verify();
             return container;
         }
 
-        private void verify() {
-        }
+
 
 
     }
