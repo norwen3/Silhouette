@@ -1,8 +1,10 @@
 package HTML.LowLevel.Element;
 
+import HTML.LowLevel.ILowLevel.Builder;
+
 public class Heading extends ContainerElement{
     private final int level;
-    private final String text;
+    private String text;
 
     public Heading(Builder builder){
         this.level = builder.level;
@@ -21,20 +23,29 @@ public class Heading extends ContainerElement{
         return "<h"+level+">"+text+"</h"+level+">";
     }
 
-    public static class Builder {
-        private final int level;
-        private final String text;
 
-        public Builder(int level, String text){
+    public static class Builder implements HTML.LowLevel.ILowLevel.Builder {
+
+        private final int level;
+        private String text;
+
+
+        public Builder(int level) {
             this.level = level;
-            this.text = text;
+            this.text = "";
         }
-        public Heading build(){
+
+        public Builder setText(String text) {
+            this.text = text;
+            return this;
+        }
+
+        @Override
+        public Heading build() {
             Heading h = new Heading(this);
             verify();
             return h;
         }
 
-        public void verify(){}
     }
 }
