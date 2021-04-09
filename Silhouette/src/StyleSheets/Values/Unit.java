@@ -4,9 +4,11 @@ package StyleSheets.Values;
  * Allows for java manipulation since the methods take a number value.
  */
 public abstract class Unit {
-    // Ambiguous
-    public static String generic(int value, String unit) {
 
+    // Ambiguous
+
+    public static String generic(int value, String unit) {
+        return value + unit;
     }
 
     // Absolute lengths
