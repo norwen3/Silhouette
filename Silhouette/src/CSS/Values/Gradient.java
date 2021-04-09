@@ -1,9 +1,6 @@
-package CSS.HighLevel.Values;
+package CSS.Values;
 
-import CSS.HighLevel.Implementation.CSSManager;
-
-import java.util.Arrays;
-import java.util.Iterator;
+import CSS.BaseComponents.Implementation.CSSManager;
 
 public class Gradient {
     /**

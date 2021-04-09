@@ -1,8 +1,6 @@
-package CSS.HighLevel;
+package CSS.BaseComponents;
 
-import CSS.HighLevel.Implementation.Statement;
-
-import java.util.ArrayList;
+import CSS.BaseComponents.Implementation.Statement;
 
 /**
  * Defines a CSS rule set containing a selector and multiple declarations.

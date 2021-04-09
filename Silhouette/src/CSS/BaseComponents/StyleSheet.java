@@ -1,6 +1,6 @@
-package CSS.LowLevel;
+package CSS.BaseComponents;
 
-import CSS.HighLevel.RuleSet;
+import CSS.BaseComponents.Implementation.Statement;
 
 import java.util.ArrayList;
 import java.util.Arrays;

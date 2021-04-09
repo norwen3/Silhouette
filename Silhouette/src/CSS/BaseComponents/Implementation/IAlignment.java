@@ -1,4 +1,4 @@
-package CSS.HighLevel.Implementation;
+package CSS.BaseComponents.Implementation;
 
 public interface IAlignment {
     public void setAlignItems(String value);

@@ -1,4 +1,4 @@
-package CSS.HighLevel;
+package CSS;
 
 public class GridChild {
     // Placing Grid Items
