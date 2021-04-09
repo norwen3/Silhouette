@@ -35,6 +35,7 @@ public class Input extends Element{
                 "<input type=\""+this.type+"\" id=\"" + this.id + "\" name=\""+ this.name + "\"> <br><br>";
     }
 
+
     public static class Builder implements HTML.LowLevel.ILowLevel.Builder {
         private String type;
         private String id = "";

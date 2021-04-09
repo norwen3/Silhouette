@@ -23,9 +23,12 @@ public class Heading extends ContainerElement{
         return "<h"+level+">"+text+"</h"+level+">";
     }
 
+
     public static class Builder implements HTML.LowLevel.ILowLevel.Builder {
+
         private final int level;
         private String text;
+
 
         public Builder(int level) {
             this.level = level;

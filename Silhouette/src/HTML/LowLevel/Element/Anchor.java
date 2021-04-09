@@ -15,7 +15,7 @@ public class Anchor extends ContainerElement {
         return url;
     }
 
-    private Anchor(AnchorBuilder builder){
+    private Anchor(Builder builder){
         this.text = builder.text;
         this.url = builder.url;
     }
@@ -25,25 +25,25 @@ public class Anchor extends ContainerElement {
         return "<a href=\"" + this.url + "\">" +this.text + "<\\a>";
     }
 
-    public static class AnchorBuilder{
+    public static class Builder {
         private String text;
         private String url;
 
-        public AnchorBuilder(){
+        public Builder(){
 
         }
-        public AnchorBuilder setLink(String text, String url){
+        public Builder setLink(String text, String url){
             // returns <a href="url">text</a>
             this.text = text;
             this.url = url;
             return this;
         }
 
-        public AnchorBuilder setText(String text){
+        public Builder setText(String text){
             this.text = text;
             return this;
         }
-        public AnchorBuilder setUrl(String url){
+        public Builder setUrl(String url){
             this.url = url;
             return this;
         }

@@ -1,9 +1,8 @@
-package CSS.LowLevel.Style;
+package StyleSheets;
 
-import CSS.LowLevel.ILowLevel.IAlignment;
-
-import java.util.Arrays;
-import java.util.Iterator;
+import StyleSheets.BaseComponents.Implementation.CSSManager;
+import StyleSheets.BaseComponents.Implementation.IAlignment;
+import StyleSheets.BaseComponents.RuleSet;
 
 /**
  * Specifies a CSS Grid.
@@ -77,7 +76,7 @@ public class Grid extends RuleSet implements IAlignment {
     }
 
     public void setTemplateAreas(String... values){
-        String rule = combineValuesWithSeparator(" ", values);
+        String rule = CSSManager.combineValuesWithSeparator(" ", values);
         addRule(rule);
     }
 
@@ -86,7 +85,7 @@ public class Grid extends RuleSet implements IAlignment {
      * @param values
      */
     public void setTemplate(String... values){
-        String rule = combineValuesWithSeparator(" / ", values);
+        String rule = CSSManager.combineValuesWithSeparator(" / ", values);
         addRule(rule);
     }
 
