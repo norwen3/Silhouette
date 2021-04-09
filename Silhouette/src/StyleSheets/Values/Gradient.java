@@ -1,6 +1,6 @@
-package CSS.Values;
+package StyleSheets.Values;
 
-import CSS.BaseComponents.Implementation.CSSManager;
+import StyleSheets.BaseComponents.Implementation.CSSManager;
 
 public class Gradient {
     /**

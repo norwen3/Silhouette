@@ -1,4 +1,4 @@
-package CSS.Values;
+package StyleSheets.Values;
 
 public class Color {
     // Color

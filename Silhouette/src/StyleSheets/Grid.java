@@ -1,8 +1,8 @@
-package CSS;
+package StyleSheets;
 
-import CSS.BaseComponents.Implementation.CSSManager;
-import CSS.BaseComponents.Implementation.IAlignment;
-import CSS.BaseComponents.RuleSet;
+import StyleSheets.BaseComponents.Implementation.CSSManager;
+import StyleSheets.BaseComponents.Implementation.IAlignment;
+import StyleSheets.BaseComponents.RuleSet;
 
 /**
  * Specifies a CSS Grid.

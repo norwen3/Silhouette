@@ -1,4 +1,4 @@
-package CSS.BaseComponents.Implementation;
+package StyleSheets.BaseComponents.Implementation;
 
 import java.util.Arrays;
 import java.util.Iterator;

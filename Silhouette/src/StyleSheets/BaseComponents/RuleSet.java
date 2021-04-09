@@ -1,6 +1,6 @@
-package CSS.BaseComponents;
+package StyleSheets.BaseComponents;
 
-import CSS.BaseComponents.Implementation.Statement;
+import StyleSheets.BaseComponents.Implementation.Statement;
 
 /**
  * Defines a CSS rule set containing a selector and multiple declarations.

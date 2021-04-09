@@ -1,7 +1,7 @@
-package CSS;
+package StyleSheets;
 
-import CSS.BaseComponents.Implementation.Statement;
-import CSS.BaseComponents.AtRule;
+import StyleSheets.BaseComponents.Implementation.Statement;
+import StyleSheets.BaseComponents.AtRule;
 
 public class Animation extends AtRule {
     //public void
