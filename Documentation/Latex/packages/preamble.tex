@@ -21,6 +21,7 @@
 \usepackage{float}
 \usepackage{listings} % For presenting code nicely
 \usepackage{hyperref}
+\usepackage{framed}
 
 % settings %
 \setcounter{secnumdepth}{2} % enumerate
@@ -57,12 +58,18 @@
 \definecolor{pgreen}{rgb}{0,0.5,0}
 \definecolor{pred}{rgb}{0.9,0,0}
 \definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+% \definecolor{clientCode}{HTML}{fff6db}
+\definecolor{ccInner}{HTML}{edf3f5}
+\definecolor{ccFrame}{HTML}{dce1e3}
+
+\definecolor{shadecolor}{named}{ccFrame} 
 
 % environments %
 \newenvironment{subreq}{\begin{adjustwidth}{1cm}{}}{\end{adjustwidth}}
 
 % lstset %
 \lstset{
+    backgroundcolor = \color{ccInner},
     language=Java,
     showspaces=false,
     showtabs=false,
