@@ -38,6 +38,7 @@ public class Input extends Element{
     }
 
     public static class Builder implements IBuilder {
+
         private String type;
         private String id = "";
         private String name ="";

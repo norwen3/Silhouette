@@ -31,6 +31,7 @@ public class FieldSet extends ContainerElement {
 
     public static class Builder implements IBuilder {
         private List<Input> inputList;
+
         private String legend;
         private Map<String, String> attributes;
         private String content;

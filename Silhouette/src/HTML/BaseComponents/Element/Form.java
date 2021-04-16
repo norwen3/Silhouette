@@ -8,9 +8,11 @@ public class Form extends ContainerElement {
     private String action;
 
     public Form(Builder builder){
+
         this.fieldSet = builder.fieldSet;
         this.method = builder.method;
         this.action = builder.action;
+
     }
 
     public FieldSet getFieldSet(){
@@ -55,7 +57,9 @@ public class Form extends ContainerElement {
          * @param method
          * @return
          */
+
         public Builder setMethod(String method){
+
             this.method = method;
             return this;
         }
