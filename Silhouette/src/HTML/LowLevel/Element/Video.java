@@ -6,13 +6,16 @@ import HTML.LowLevel.ILowLevel.ISource;
 // Video Tag
 // Source tag auto generates
 public class Video implements IDimensions, ISource {
+    /* Width og Height kan vel være i en?
+    public void setVideoBoxSize(int width, int height) {}
+     */
 
-    @Override
+    @Override //int ? width="320"
     public void setWidth(String dimension) {
 
     }
 
-    @Override
+    @Override //int ? height="240"
     public void setHeight(String dimension) {
 
     }
@@ -31,4 +34,5 @@ public class Video implements IDimensions, ISource {
   Your browser does not support the video tag.
 </video>
 
+https://www.w3schools.com/tags/tag_video.asp
  */
