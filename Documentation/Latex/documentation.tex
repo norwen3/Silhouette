@@ -24,21 +24,21 @@
 
 \newpage
 
+Link til GitHub: \href{https://github.com/norwen3/Silhouette}{https://github.com/norwen3/Silhouette}
+
 \section{Introduction}
 
-Silhouette is a web framework that let's users create websites with Java. But why Java? Although websites can be made using raw HTML and CSS, doing it that way presents issues that can lead to devestating problems.
+Silhouette is a web framework that let's users create websites with Java. But why Java? Although websites can be made using raw HTML and CSS, this approach introduces a series of issues that will be discussed in the following paragraphs. 
 
-By design, HTML is a fixed markup language where the structure of tags determine the presentation in browsers. Content is grouped together in containers and follow a tree-like structure, such as a filesystem on a PC. The problem here is that browsers will interpret the HTML regardless of their validity, meaning that the user must themselves control the syntax. This also means that users must follow the strict formatting guidelines of HTML, greatly limiting them to form a better approach with the team.
+By design, HTML is a fixed markup language where the structure of tags determine not only the presentation but also the DOM layout. Content is grouped together in containers and follow a tree-like structure, which is nice for the end-user, but it can restrict the programmer. The problem here is that the programmer must follow the strict formatting guidelines of HTML, NOT SURE YET approach with the team. Another problem is that browsers will interpret the HTML regardless of their validity, meaning that typos and other seemingly minor issues can go unnoticed.
 
-An article titled "The Problem with HTML" by Dr. Maxime Chevalier-Boisvert discusses how HTML and CSS is growing fast to become more than originally intended, blurring the lines between HTML, CSS and JavaScript[1]. She discusses how the ability to achieve the same goals across these main components, is harmful to the distinction between the three, such as allowing animations controls for both CSS and JavaScript.
+An article titled "The Problem with HTML" by Dr. Maxime Chevalier-Boisvert argues how HTML, CSS and JavaScript is growing fast to become more than originally intended, blurring the lines between the three[1]. She discusses how the fact that one can do animations in both JavaScript and CSS, for instance, is harmful to the distinction between the three. A second argument can be made that due to the fast growth of these languages, browsers fail to support the newest and greatest features, forcing the programmer to take precautions when designing.
 
-The main goal of the Silhouette framework is therefore to provide all the tools necessary for web design, and make an abstraction to the user to let the framework taking care of all the problems previously mentioned. In addition, the user will gain access to all the OOP-related features, desserted in standard HTML.
+So how will Silhouette takle these problems? First of all, Silhouette aims to make a clear distinction between HTML and CSS by abstracting the same features into methods that are both easy to read and use, but still achieves the same result. The methods will make sure to correct minor mistakes to prevent nasty surprises. Second, the framework will provide best-practice solutions in markup for tags that are not widely supported among browsers.
+
+In addition to all this, the user will have access to all the OOP benefits that lets anyone have more control, automate, and format the code after any given standard. We think this alone is a good enough reason to work with markup in OOP.
 
 
-
-
-
-Link til GitHub: \href{https://github.com/norwen3/Silhouette}{https://github.com/norwen3/Silhouette}
 
 \subsection{Group Description}
 
