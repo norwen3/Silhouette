@@ -51,22 +51,21 @@ So to sum it up short, Silhouette acts like a gateway to make websites with OOP,
 \section{Background}
 TODO: Include some client-code here
 
-There is no hiding that there are plenty of java web frameworks already existing out there, and with almost everything tried, it is hard to figure out a new exciting solution without reinventing the wheel. People generally use web frameworks for x core reasons:
+There is no hiding that there are plenty of java web frameworks already existing out there, and with almost everything tried, it is hard to figure out a new exciting solution without reinventing the wheel. People generally use web frameworks for 3 main reasons:
 
 \begin{itemize}
-    \item To not have to repeat code over and over, making the process a lot more efficient.
-    \item To establish a structure in the applications so it sets a standard.
-    \item To gain access to additional features that further simplifies the process.
+    \item To gain access to additional features.
+    \item To avoid code repition.
+    \item To establish a standard structure in the application.
 \end{itemize}
 
-If the framework does not provide these, it's questionable whether it is actually useful. However, if it does not stand out in any way, people will choose the already existing frameworks out there. That's why it's important to take insperation from these already established frameworks, but not a direct copy paste. Below are some key web frameworks that Silhouette has taken note of.
+If the framework fail to meet these requirements, it will be significantly less useful. However, it is also important that the framework introduces something new to the table, or else users might as well use the already well established frameworks out there. Although Silhouette does not directly take insperation of any "one" framework, there are some similarities worth discussing (CHANGES THIS LATER).
 
-\textbf{Spring} focuses heavily on simplifying the components required to build a web application, and with Spring Boot, the user won't have to think about configuration and just start coding. Spring offers cloud support and is popular among companies that want to use containers. Spring uses "Beans" that are like regular java objects, but they are managed by a Spring IoC Container to provide inversion of control, that let's the user manage dependencies more effectively.
+\textbf{Spring} focuses heavily on simplifying the components required to build web applications, and with Spring Boot, any configurations are completily omitted. It also offers cloud support and is popular among companies that want to use containers. "Beans" function like ordinary java objects, but they are managed by a Spring IoC Container to provide inversion of control, that let's the user manage dependencies more effectively.
 
-\textbf{Java Server Faces} or JSF is another important framework to look at. It is component based, which means that... It enforces clean MVC and offers Inversion of Control. Since the user is not writing plain low level HTML, but rather abstrac representations of UI-components, the abstractions are converted into the appropriate representation of HTML depending on the device and version of the internet.. Something like that.
+\textbf{Java Server Faces} or JSF is another important framework that is component based. It enforces clean MVC and offers Inversion of Control like Spring. Since the user is not writing plain low level HTML, but rather abstrac representations of UI-components, the abstractions are converted into the appropriate representation of HTML depending on the device and version of the internet.
 
-Bla bla bla, what all these have in common is x, but Silhouette does y..
-Silhouette takes insperation in that it provides dynamic conent. Silhouette also uses POJOs (Plain Old Java Objects) as components. Silhouette can also read from file and generate the page. The high level APIs in Silhouette greatly reduces the HTML code as it automagically generates code.
+Silhouette provides inversion of control by ... Silhouette also uses POJOs (Plain Old Java Objects) as components. Silhouette can also read from file and generate the page. The high level APIs in Silhouette greatly reduces the HTML code as it automagically generates code. But mainly
 
 \section{Method}
 "A section to describe the method under which the framework has been created (can be shared). This section should contain a description for each of the stages given in the "Framework Design" lecture (API Design Specification, API Design, Implementation and User Testing). 
