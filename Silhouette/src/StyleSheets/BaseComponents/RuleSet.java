@@ -10,12 +10,6 @@ public class RuleSet extends Statement {
     // Constructors
 
     /**
-     * Adds "*" as default selector.
-     */
-    public RuleSet(){
-        identifier = "*";
-    }
-    /**
      * Initiates with one or more selectors
      * @param selector Any type of CSS selector
      */
@@ -24,41 +18,11 @@ public class RuleSet extends Statement {
         setSelector(selector);
     }
 
-    /**
-     * Initiates RuleSet with a selector that has an addon.
-     * @param selector Base selector
-     * @param addon Selector addon
-     */
-    public RuleSet(String selector, String addon){
-        // E[foo="bar"]
-        // E:first-child
-        // E::before
-        // E.myClass
-        setSelector(selector + addon);
-    }
-
-    /**
-     * Initiates RuleSet with a combination selector.
-     * @param selector1 First selector
-     * @param combinator Combinator
-     * @param selector2 Second selector
-     */
-    public RuleSet(String selector1, char combinator, String selector2){
-        // E F
-        // E > F
-        // E + F
-        // E ~ F
-        setSelector(selector1 + " " + combinator + " " + selector2);
-    }
-
     // Methods
 
     public void setSelector(String selector){
         identifier = selector;
     }
-
-
-
 
     public void setDisplay(String value){
         rules.add("display: " + value);
@@ -134,52 +98,5 @@ myGrid.addDeclaration(Color.setRGB("Background-color", 255, 255, 255));
 myGrid.setColumns("15px", "10px", "200000em");
 myGrid.setRows("1px", "2px", "3px");
 myGrid.addArea("searchbar", 1, 2, 3, 4);
-
-
-Eggsample 2
-Style colorBlue = new Style();
-colorBlue.setClass("BlueClass");
-colorBlue.addDeclaration("Background-color:Blue");
-
-colorBlue.addDeclaration(Grid.setColumns("10px", "12px"))
-colorBlue.addDeclaration(Grid.setRows("10px", "12px"))
-
-Color colorGreen = new Color();
-colorGreen.setValueRGB(23, 52, 12);
-colorGreen.setProperty("Background-color");
-
-
-colorBlue.addDeclaration(colorGreen);
-
-Header myHeader = new Header();
-myHeader.applyClass("BlueClass");
-
--->
-<header class="BlueClass" ></header>
-
-
-Example 1
-
-Style colorBlue = new Style("Background-color:Blue");
-colorBlue.addStyling("border-color: Blue");
-colorBlue.addStyling("Float:left");
-
-Style floatLeft = new Style("Float:Left");
-
-Header myHeader = new Header();
-Footer myFooter = new Footer();
-
-myHeader.applyStyle(colorBlue);
-myFooter.applyStyle(colorBlue);
-myFooter.applyStyle(floatLeft);
-
-myHeader.applyClass();
-myHeader.applyClasses()
-
-
--->
-<header class="colorBlue"></header>
-<footer class="colorBLue floatLeft"></header>
-
 
  */

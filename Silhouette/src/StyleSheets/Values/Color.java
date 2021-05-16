@@ -38,7 +38,7 @@ public abstract class Color {
     }
 
     /**
-     * Returns Hex value as String
+     * Checks validity of Hex, and then returns value as String
      * @param hexCode
      * @return String
      */
