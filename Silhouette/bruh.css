@@ -1,20 +1,20 @@
 .colors {
     color: magenta;
     color: #FFFFFF;
-    background-color: blue;
+    background-color: indigo;
 }
 
-@media (min-width 1000px) {
-    .colors     {
+@media (min-width: 1000px) {
+    .colors {
         color: magenta;
         color: #FFFFFF;
-        background-color: blue;
+        background-color: indigo;
     }
 
-    .colors     {
+    .colors {
         color: magenta;
         color: #FFFFFF;
-        background-color: blue;
+        background-color: indigo;
     }
 
 }

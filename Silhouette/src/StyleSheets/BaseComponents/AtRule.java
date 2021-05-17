@@ -1,9 +1,10 @@
 package StyleSheets.BaseComponents;
 
 import StyleSheets.BaseComponents.Implementation.Statement;
+import StyleSheets.Values.Color;
+import StyleSheets.Values.Property;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /*
 * @TODO:
@@ -70,8 +71,13 @@ public class AtRule extends Statement {
             return this;
         }
 
-        public Builder addRule(String property, String value) {
-            addRule(property + ": " + value + ";");
+        public Builder addRule(Property property, String value) {
+            addRule(propertyToString(property) + ": " + value + ";");
+            return this;
+        }
+
+        public Builder addRule(Property property, Color color) {
+            addRule(propertyToString(property) + ": " + colorToString(color) + ";");
             return this;
         }
 
