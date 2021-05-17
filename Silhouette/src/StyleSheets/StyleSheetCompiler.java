@@ -46,16 +46,16 @@ public abstract class StyleSheetCompiler {
     private static String compileAtRule(AtRule atRule, int tabs) {
         StringBuilder str = new StringBuilder();
 
-        str.append(addTabs(tabs) + atRule.identifier);
+        str.append(addTabs(tabs) + atRule.getIdentifier());
         str.append(addTabs(tabs) + " {\n");
 
         // Compile all rulesets
-        for (RuleSet ruleSet : atRule.ruleSets) {
+        for (RuleSet ruleSet : atRule.getRuleSets()) {
             str.append(compileRuleSet(ruleSet, 1));
         }
 
         // Compile all rules
-        for (String rule : atRule.rules) {
+        for (String rule : atRule.getRules()) {
             str.append(addTabs(1) + rule + "\n");
         }
 
@@ -67,10 +67,10 @@ public abstract class StyleSheetCompiler {
     private static String compileRuleSet(RuleSet ruleSet, int tabs) {
         StringBuilder str = new StringBuilder();
 
-        str.append(addTabs(tabs) + ruleSet.identifier);
+        str.append(addTabs(tabs) + ruleSet.getIdentifier());
         str.append(addTabs(tabs) + " {\n");
 
-        for (String rule : ruleSet.rules) {
+        for (String rule : ruleSet.getRules()) {
             str.append(addTabs(tabs + 1) + rule + "\n");
         }
 

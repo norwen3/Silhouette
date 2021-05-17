@@ -3,7 +3,7 @@ package StyleSheets;
 import StyleSheets.BaseComponents.Implementation.IAlignment;
 import StyleSheets.BaseComponents.RuleSet;
 
-public class FlexBox extends RuleSet implements IAlignment {
+public class FlexBox /*extends RuleSet implements IAlignment*/ {
 
     // Constructor
 
@@ -12,12 +12,12 @@ public class FlexBox extends RuleSet implements IAlignment {
      * @param selector Any type of CSS selector
      */
     public FlexBox(String selector){
-        super(selector);
-        setDisplay("flex");
+        /*super(selector);
+        setDisplay("flex");*/
     }
 
     // Methods
-
+/*  @TODO: Unecessary, remove? Make special enums for each class
     public void setFlexDirection(String value){
         addRule("flex-direction", value);
     }
@@ -67,4 +67,6 @@ public class FlexBox extends RuleSet implements IAlignment {
     public void setAlignContent(String value) {
         addRule("align-content", value);
     }
+
+ */
 }

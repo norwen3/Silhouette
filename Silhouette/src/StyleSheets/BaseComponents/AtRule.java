@@ -24,22 +24,59 @@ public class AtRule extends Statement {
 
     // Instance variables
 
-    public ArrayList<RuleSet> ruleSets = new ArrayList<>();
+    private final ArrayList<RuleSet> ruleSets;
 
     // Constructors
 
-    public AtRule(String keyword, String rule){
-        // @keyframes, @media
-        identifier = "@" + keyword + " " + rule;
+    private AtRule(Builder builder) {
+        identifier = builder.identifier;
+        rules = builder.rules;
+        ruleSets = builder.ruleSets;
     }
 
-    // Methods
+    // Getters
 
-    public void addRuleSet(RuleSet ruleSet){
-        ruleSets.add(ruleSet);
+    public String getIdentifier() {
+        return identifier;
     }
 
-    public void addRuleSets(RuleSet... ruleSets){
-        this.ruleSets.addAll(Arrays.asList(ruleSets));
+    public ArrayList<String> getRules() {
+        return rules;
+    }
+
+    public ArrayList<RuleSet> getRuleSets() {
+        return ruleSets;
+    }
+
+    public static class Builder {
+        public String identifier = "@";
+
+        public ArrayList<String> rules = new ArrayList<>();
+
+        public ArrayList<RuleSet> ruleSets = new ArrayList<>();
+
+        public Builder setIdentifier(String keyword, String rule) {
+            identifier = "@" + keyword + " " + rule;
+            return this;
+        }
+
+        public Builder addRuleSet(RuleSet ruleSet) {
+            ruleSets.add(ruleSet);
+            return this;
+        }
+
+        public Builder addRule(String css) {
+            rules.add(css);
+            return this;
+        }
+
+        public Builder addRule(String property, String value) {
+            addRule(property + ": " + value + ";");
+            return this;
+        }
+
+        public AtRule build() {
+            return new AtRule(this);
+        }
     }
 }

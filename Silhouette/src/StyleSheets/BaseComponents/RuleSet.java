@@ -2,6 +2,8 @@ package StyleSheets.BaseComponents;
 
 import StyleSheets.BaseComponents.Implementation.Statement;
 
+import java.util.ArrayList;
+
 /**
  * Defines a CSS rule set containing a selector and multiple declarations.
  */
@@ -9,17 +11,48 @@ public class RuleSet extends Statement {
 
     // Constructors
 
-    /**
-     * Initiates with one or more selectors
-     * @param selector Any type of CSS selector
-     */
-    public RuleSet(String selector){
-        // All selector types
-        setSelector(selector);
+    private RuleSet(Builder builder){
+        identifier = builder.identifier;
+        rules = builder.rules;
     }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public ArrayList<String> getRules() {
+        return rules;
+    }
+
+    public static class Builder {
+        public String identifier;
+
+        public ArrayList<String> rules = new ArrayList<>();
+
+        public Builder setSelector(String selector) {
+            identifier = selector;
+            return this;
+        }
+
+        public Builder addRule(String css) {
+            rules.add(css);
+            return this;
+        }
+
+        public Builder addRule(String property, String value) {
+            addRule(property + ": " + value + ";");
+            return this;
+        }
+
+        public RuleSet build() {
+            return new RuleSet(this);
+        }
+    }
+
 
     // Methods
 
+    /* @TODO: Use a single method with enums instead
     public void setSelector(String selector){
         identifier = selector;
     }
@@ -67,36 +100,5 @@ public class RuleSet extends Statement {
     public void setBottom(String value){
         rules.add("bottom: " + value);
     }
+    */
 }
-
-/* https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
-    @media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
-  }
-}
- */
-
-
-/*
-Eggsample Fore
-Style myColor = new Style();
-myColor.addDeclaration("Background-color", Color.RGB(211, 22, 3));
-
-Style mySecondColor = new Style();
-myColor.addDeclaration("", Color.RGB(12, 32, 4));
--> Equivalent to myColor.addDeclaration("Color", Color.RGB(12, 32, 4));
-
-
-Eggsample Tree
-Style myColor = new Style();
-myColor.addDeclaration(Color.setRGB("Background-color", 255, 255, 255));
-myColor.addDeclaration("background-color", Color.RGB(255, 255, 255));
-
-Grid myGrid = new Grid();
-myGrid.addDeclaration(Color.setRGB("Background-color", 255, 255, 255));
-myGrid.setColumns("15px", "10px", "200000em");
-myGrid.setRows("1px", "2px", "3px");
-myGrid.addArea("searchbar", 1, 2, 3, 4);
-
- */
