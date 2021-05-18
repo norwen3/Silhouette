@@ -3,12 +3,23 @@ package StyleSheets;
 import StyleSheets.BaseComponents.AtRule;
 import StyleSheets.Values.AtRuleType;
 
+/**
+ * Defines an Animation at-rule that is used to create animations.
+ */
 public class Animation extends AtRule {
 
+    /**
+     * Constructor used by builder to build a new Animation object.
+     * @param builder the builder for grid
+     */
     public Animation(final Builder builder) {
         super(builder);
     }
 
+    /**
+     * The builder class for the animation.
+     * It is an inner static class used to build an immutable instance of an Animation object.
+     */
     public static class Builder extends AtRule.Builder<Animation.Builder> {
 
         /**
@@ -30,28 +41,12 @@ public class Animation extends AtRule {
             super(type, constraint);
         }
 
+        /**
+         * Builds the animation and returns it.
+         * @return Animation constructed by the builder
+         */
         public Animation Build() {
             return new Animation(this);
         }
     }
-
-    //public void
-    /*
-    public Animation(String name){
-        super("keyframes", "name");
-
-    }
-
-    public void AddKeyframe(String name){
-
-    }
-
-    public class Keyframe extends Statement {
-        public Keyframe(String name)
-        {
-            identifier = name;
-        }
-    }
-
-     */
 }
