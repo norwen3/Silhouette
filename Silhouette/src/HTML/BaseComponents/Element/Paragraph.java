@@ -14,6 +14,14 @@ public class Paragraph extends ContainerElement {
     // Methods
     public void addText(String... text){}
 
+    public String getText() {
+        return text;
+    }
+
+    @Override
+    public String toString(){
+        return "<p>"+text+"</p>";
+    }
     public static class Builder implements IBuilder{
         private String text;
 

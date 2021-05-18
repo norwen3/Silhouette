@@ -18,7 +18,7 @@ public class Page {
     }
 
     public void basicPage() throws IOException {
-        build().initialize("index");
+        basicBuild().initialize("index");
     }
     private HTML.Builder basicPageInner(){
 
@@ -32,7 +32,7 @@ public class Page {
                 .setType("body")
                 .addElements(new Container.Builder()
                                 .setType("header")
-                                .addElement(new Container.Builder()
+                                .addElements(new Container.Builder()
                                             .setType("nav")
                                             .addElements(new Heading.Builder()
                                                 .setText("Main Page")
@@ -53,7 +53,7 @@ public class Page {
                                                 .build())
                                 .build(),new Container.Builder()
                                 .setType("footer")
-                                .addElement(
+                                .addElements(
                                         new Anchor.Builder()
                                                 .setLink("Go to google", "www.google.com")
                                                 .build()
@@ -63,9 +63,29 @@ public class Page {
                 .setTitle("Main Page")
                 ;
     }
-    public HTML build(){
+    public HTML basicBuild(){
         HTML.Builder temp =  basicPageInner();
         return temp.build();
     }
 
+
+    private HTML.Builder innerArticlePage(){
+        Container.Builder body= new Container.Builder().setType("body");
+        Container.Builder main = new Container.Builder().setType("main");
+        Container.Builder header = new Container.Builder().setType("header");
+        Container.Builder footer = new Container.Builder().setType("footer");
+        Container.Builder nav = new Container.Builder().setType("nav");
+        Container.Builder aside = new Container.Builder().setType("aside");
+        Container.Builder article = new Container.Builder().setType("article");
+
+
+        return builder.setTitle("Article")
+                .append(body.addElements(
+                header.addElements(nav.build())
+                        .build(),
+                        main.addElements(aside.build(),article.build())
+                                .build(),footer.build())
+                        .build());
+
+    }
 }

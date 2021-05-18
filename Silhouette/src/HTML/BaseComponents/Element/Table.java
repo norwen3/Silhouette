@@ -15,6 +15,10 @@ public class Table extends ContainerElement{
 
     }
 
+    public String[][] getTableArray() {
+        return tableArray;
+    }
+
     public int getRow() {
         return row;
     }
