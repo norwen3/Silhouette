@@ -1,5 +1,10 @@
 package StyleSheets.Values;
 
+/**
+ * Contains all CSS properties that are used in CSS statements.
+ * @see StyleSheets.BaseComponents.RuleSet.Builder#addRule(Property, String)
+ * @see StyleSheets.BaseComponents.RuleSet.Builder#addRule(Property, Color) 
+ */
 public enum Property {
     ALIGN_CONTENT,
     ALIGN_ITEMS,

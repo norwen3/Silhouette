@@ -50,12 +50,6 @@ public abstract class StyleManager {
         return formatStyleData(unit.toString());
     }
 
-    public static String colorToString(Color color) {
-        String str = color.toString();
-
-        return str.toLowerCase();
-    }
-
     public static String unitToString(Unit unit) {
         String str = unit.toString().toLowerCase();
 

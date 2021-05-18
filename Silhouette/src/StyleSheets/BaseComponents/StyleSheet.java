@@ -19,7 +19,7 @@ public class StyleSheet {
         rawCSS = builder.rawCSS;
     }
 
-    public void Initialize() {
+    public void initialize() {
         StyleSheetCompiler.compile(this);
     }
 

@@ -45,19 +45,22 @@ public abstract class StyleSheetCompiler {
         StringBuilder str = new StringBuilder();
 
         str.append(addTabs(tabs) + atRule.getIdentifier());
-        str.append(" {\n");
 
-        // Compile all rulesets
-        for (RuleSet ruleSet : atRule.getRuleSets()) {
-            str.append(compileRuleSet(ruleSet, 1));
+        if (!atRule.getRules().isEmpty() || !atRule.getRuleSets().isEmpty()) {
+            str.append(" {\n");
+
+            // Compile all rulesets
+            for (RuleSet ruleSet : atRule.getRuleSets()) {
+                str.append(compileRuleSet(ruleSet, 1));
+            }
+
+            // Compile all rules
+            for (String rule : atRule.getRules()) {
+                str.append(addTabs(1) + rule + "\n");
+            }
+
+            str.append(addTabs(tabs) + "}\n\n");
         }
-
-        // Compile all rules
-        for (String rule : atRule.getRules()) {
-            str.append(addTabs(1) + rule + "\n");
-        }
-
-        str.append(addTabs(tabs) + "}\n\n");
 
         return str.toString();
     }

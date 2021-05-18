@@ -1,5 +1,10 @@
 package StyleSheets.Values;
 
+/**
+ * Contains all types for CSS at-rule. 
+ * @see StyleSheets.BaseComponents.AtRule.Builder#Builder(AtRuleType)
+ * @see StyleSheets.BaseComponents.AtRule.Builder#Builder(AtRuleType, String) 
+ */
 public enum AtRuleType {
     CHARSET,
     COLOR_PROFILE,

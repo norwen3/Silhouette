@@ -13,7 +13,6 @@ public abstract class Size {
     public static String generic(int value, String unit) {
         return value + unit;
     }
-
     public static String generic(int value, Unit unit) {
         return value + StyleManager.unitToString(unit);
     }

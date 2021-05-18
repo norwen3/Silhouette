@@ -6,103 +6,100 @@ import StyleSheets.Values.Property;
 import java.util.ArrayList;
 
 /**
- * Defines a CSS rule set containing a selector and multiple declarations.
+ * Defines a CSS rule set that represents a block of CSS statements, including the selector and curly braces.
+ * The general syntax is @SELECTOR {STATEMENTS}
  */
 public class RuleSet extends Statement {
 
+    /**
+     * Constructor used by builder to build a new RuleSet object.
+     * @param builder the builder for rule set
+     */
     protected RuleSet(final Builder<?> builder){
         identifier = builder.identifier;
         rules = builder.rules;
     }
 
+    /**
+     * Gets the identifier for the rule set as a String.
+     * @return identifier
+     */
     public String getIdentifier() {
         return identifier;
     }
 
+    /**
+     * Gets the list of rules stored in the rule set. Each rule is stored as strings.
+     * @return ArrayList<String>
+     */
     public ArrayList<String> getRules() {
         return rules;
     }
 
+    /**
+     * The builder class for the rule set.
+     * It is an inner static class used to build an immutable instance of a RuleSet object.
+     * @param <T> generic builder
+     */
     public static class Builder <T extends Builder<T>>{
+        /**
+         * @see Statement#identifier
+         */
         public String identifier;
-
+        /**
+         * @see Statement#rules
+         */
         public ArrayList<String> rules = new ArrayList<>();
 
-        public T setSelector(String selector) {
+        /**
+         * Constructor for rule set builder.
+         * @param selector the selector used as the identifier of the rule set
+         */
+        public Builder(final String selector) {
             identifier = selector;
-            return (T)this;
         }
 
-        public T addRule(String css) {
+        /**
+         * Adds a rule to be nested in the rule set.
+         * This overload takes pure CSS as the argument and adds it to the list of rules.
+         * @param css the rule which will be added to the list of rules
+         * @return builder of generic type for rule sets
+         */
+        public T addRule(final String css) {
             rules.add(css);
             return (T)this;
         }
 
-        public T addRule(Property property, String value) {
+        /**
+         * Adds a rule to be nested in the rule set.
+         * This overload takes a property and a value as arguments and adds it to the list of rules.
+         * @param property the property via Property enum
+         * @param value the value as a String
+         * @return builder of generic type for rule sets
+         */
+        public T addRule(final Property property, final String value) {
             addRule(StyleManager.stringifyEnum(property) + ": " + value + ";");
             return (T)this;
         }
 
-        public T addRule(Property property, Color color) {
-            addRule(StyleManager.stringifyEnum(property) + ": " + StyleManager.colorToString(color) + ";");
+        /**
+         * Adds a rule to be nested in the rule set.
+         * This overload takes a property and a color as arguments and adds it to the list of rules.
+         * @param property the property via Property enum
+         * @param color the color via Color enum
+         * @return builder of generic type for rule sets
+         */
+        public T addRule(final Property property, final Color color) {
+            addRule(StyleManager.stringifyEnum(property) + ": " + StyleManager.stringifyEnum(color) + ";");
             return (T)this;
         }
 
+        /**
+         * Builds the rule set and returns it.
+         * @return RuleSet constructed by the builder
+         */
         public RuleSet build() {
             return new RuleSet(this);
         }
     }
-
-
-    // Methods
-
-    /* @TODO: Use a single method with enums instead
-    public void setSelector(String selector){
-        identifier = selector;
-    }
-
-    public void setDisplay(String value){
-        rules.add("display: " + value);
-    }
-
-    public void setWidth(String value){
-        rules.add("width: " + value);
-    }
-
-    public void setHeight(String value){
-        rules.add("height: " + value);
-    }
-
-    public void setMargin(String value){
-        rules.add("margin: " + value);
-    }
-
-    public void setBorder(String value){
-        rules.add("border: " + value);
-    }
-
-    public void setPadding(String value){
-        rules.add("padding: " + value);
-    }
-
-    public void setContent(String value){
-        rules.add("content: " + value);
-    }
-
-    public void setPosition(String value){
-        rules.add("position: " + value);
-    }
-
-    public void setFloat(String value){
-        rules.add("float: " + value);
-    }
-
-    public void setTop(String value){
-        rules.add("top: " + value);
-    }
-
-    public void setBottom(String value){
-        rules.add("bottom: " + value);
-    }
-    */
 }
