@@ -8,7 +8,7 @@ public class Table extends ContainerElement{
     private ColGroup colGroup;
     private String[][] tableArray;
 
-    public Table(Builder builder){
+    private Table(Builder builder){
         this.row = builder.row;
         this.column = builder.column;
         this.caption = builder.caption;

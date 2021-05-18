@@ -6,10 +6,10 @@ public class Paragraph extends ContainerElement {
     private String text;
 
     // Constructors
-    public Paragraph(Builder builder){
+    private Paragraph(Builder builder){
         this.text = builder.text;
     }
-    public Paragraph(String... text){}
+
 
     // Methods
     public void addText(String... text){}

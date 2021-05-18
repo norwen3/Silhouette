@@ -12,7 +12,7 @@ public class ColGroup extends ContainerElement{
     private Map<String, String> attributes;
     private List<String> columns;
 
-    public ColGroup(Builder builder){
+    private ColGroup(Builder builder){
         this.span = builder.span;
         this.style = builder.style;
         this.attributes = builder.attributes;

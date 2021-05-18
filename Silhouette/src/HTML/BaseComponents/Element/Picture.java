@@ -13,7 +13,7 @@ public class Picture extends ContainerElement{
     private List<Image> images;
     private Map<String,String> source;
     // Constructor
-    public Picture(Builder builder){
+    private Picture(Builder builder){
         this.images = builder.images;
         this.source = builder.source;
     }

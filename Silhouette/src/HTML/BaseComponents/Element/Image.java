@@ -13,7 +13,7 @@ public class Image extends EmptyElement  {
     private Map<String, String> attributes;
     private String alt;
     // Constructor
-    public Image(Builder builder){
+    private Image(Builder builder){
         this.width = builder.width;
         this.height = builder.height;
         this.src = builder.src;

@@ -12,7 +12,7 @@ public class Audio extends ContainerElement{
     private String src;
 
 
-    public Audio(Builder builder){
+    private Audio(Builder builder){
         this.attributes = builder.attributes;
         this.srcset = builder.srcset;
         this.autoplay=builder.autoplay;

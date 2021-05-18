@@ -81,8 +81,8 @@ public class HTML {
         }
         public Builder setMetaProperty(String metaProperty, String metaPropertyContent){
             // <meta property="og:audio" content="http://example.com/amazing.mp3" />
-            this.metaProperty = metaProperty;
-            this.metaPropertyContent = metaPropertyContent;
+            this.metaProperty = "<meta property=\""+ metaProperty+"\"";
+            this.metaPropertyContent = " content=\""+metaPropertyContent+"\" />";
             return this;
         }
         public Builder setMetaHttpEquiv(String http_equiv, String metaHttpContent){

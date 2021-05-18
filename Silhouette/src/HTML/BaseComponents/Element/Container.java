@@ -16,16 +16,13 @@ public class Container extends ContainerElement {
     private Map<String,String> attributes;
 
     // Constructor: type implies the semantic tag
-    public Container(Builder builder){
+    private Container(Builder builder){
 
         this.type = builder.type;
         this.elementList = builder.elementList;
         this.attributes = builder.attributes;
     }
-    public Container(){
-        this.type = "div";
 
-    }
 
     public String getType() {
         return type;

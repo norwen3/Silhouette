@@ -14,7 +14,7 @@ public class FieldSet extends ContainerElement {
     private Map<String,String> attributes;
     private String content;
 
-    public FieldSet(Builder builder){
+    private FieldSet(Builder builder){
         this.inputList = builder.inputList;
         this.legend = builder.legend;
         this.attributes = builder.attributes;
