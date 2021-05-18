@@ -1,7 +1,9 @@
 package StyleSheets.BaseComponents;
 
 import StyleSheets.BaseComponents.Implementation.Statement;
+import StyleSheets.StyleSheetCompiler;
 
+import javax.swing.text.Style;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -9,35 +11,17 @@ public class StyleSheet {
 
     // Instance variables
 
-    private String fileName;
-    private ArrayList<Statement> statements = new ArrayList<>();
+    private final String fileName;
+    private final ArrayList<Statement> statements;
 
     // Constructor
 
-    public StyleSheet(String fileName){
-        setFileName(fileName);
+    private StyleSheet(Builder builder) {
+        fileName = builder.fileName;
+        statements = builder.statements;
     }
 
-    public StyleSheet(String fileName, RuleSet... statements){
-        this.fileName = fileName;
-        this.statements.addAll(Arrays.asList(statements));
-    }
-
-    // Public Methods
-
-    public void applyStyle(Statement statements){
-        this.statements.add(statements);
-    }
-
-    public void applyStyles(Statement... statements){
-        this.statements.addAll(Arrays.asList(statements));
-    }
-
-    // Getters and setters
-
-    public void setFileName(String fileName){
-        this.fileName = fileName;
-    }
+    // Getters
 
     public String getFileName() {
         return fileName;
@@ -45,5 +29,31 @@ public class StyleSheet {
 
     public ArrayList<Statement> getStatements() {
         return statements;
+    }
+
+    public void Initialize() {
+        StyleSheetCompiler.compile(this);
+    }
+
+    public static class Builder {
+
+        private String fileName = "main";
+        private ArrayList<Statement> statements = new ArrayList<>();
+
+        // Public Methods
+
+        public Builder applyStyle(final Statement statements) {
+            this.statements.add(statements);
+            return this;
+        }
+
+        public Builder setFileName(final String fileName){
+            this.fileName = fileName;
+            return this;
+        }
+
+        public StyleSheet build() {
+            return new StyleSheet(this);
+        }
     }
 }

@@ -7,7 +7,7 @@ import StyleSheets.BaseComponents.RuleSet;
 /**
  * Specifies a CSS Grid.
  */
-public class Grid extends RuleSet implements IAlignment {
+public class Grid /*extends RuleSet implements IAlignment*/ {
 
     // Constructor
 
@@ -16,8 +16,10 @@ public class Grid extends RuleSet implements IAlignment {
      * @param selector Any type of CSS selector
      */
     public Grid(String selector){
+        /*
         super(selector);
         setDisplay("grid");
+         */
     }
 
     /**
@@ -27,14 +29,17 @@ public class Grid extends RuleSet implements IAlignment {
      * @param rows Sets the rows
      */
     public Grid(String selector, String columns, String rows){
+        /*
         super(selector);
         setColumns(columns);
         setRows(rows);
         setDisplay("grid");
+
+         */
     }
 
     // Public Methods
-
+/*  @TODO: Unecessary, remove?
     public void setColumns(String columns){
         addRule("grid-template-columns", columns);
     }
@@ -75,6 +80,8 @@ public class Grid extends RuleSet implements IAlignment {
         addRule("justify-items", value);
     }
 
+ */
+/*  @TODO: Temporarily commented out
     public void setTemplateAreas(String... values){
         String rule = CSSManager.combineValuesWithSeparator(" ", values);
         addRule(rule);
@@ -84,6 +91,8 @@ public class Grid extends RuleSet implements IAlignment {
      * Shorthand for grid-template-columns, grid-template-rows and grid-template-areas. Seperated by / sign
      * @param values
      */
+
+    /* @TODO: Temporarily commented out
     public void setTemplate(String... values){
         String rule = CSSManager.combineValuesWithSeparator(" / ", values);
         addRule(rule);
@@ -114,4 +123,6 @@ public class Grid extends RuleSet implements IAlignment {
     public void setAlignContent(String value) {
         addRule("align-content", value);
     }
+
+     */
 }

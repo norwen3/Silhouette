@@ -1,20 +1,27 @@
 package StyleSheets.BaseComponents.Implementation;
 
+import StyleSheets.Values.Color;
+import StyleSheets.Values.Property;
+
 import java.util.ArrayList;
 
 public abstract class Statement {
     /**
      * An identifier can be anything that appears as a property, id, class, keyword value, and at-rule.
      */
-    public String identifier;
+    protected String identifier;
 
-    public ArrayList<String> rules = new ArrayList<>();
+    protected ArrayList<String> rules;
 
-    public void addRule(String css){
-        rules.add(css);
+    protected static String propertyToString(Property property) {
+        String str = property.toString();
+
+        return str.toLowerCase().replace('_', '-');
     }
 
-    public void addRule(String property, String value){
-        addRule(property + ": " + value + ";");
+    protected static String colorToString(Color color) {
+        String str = color.toString();
+
+        return str.toLowerCase();
     }
 }
