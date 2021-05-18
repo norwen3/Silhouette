@@ -1,6 +1,6 @@
 package StyleSheets;
 
-import StyleSheets.BaseComponents.Implementation.StyleManager;
+import StyleSheets.BaseComponents.StyleManager;
 import StyleSheets.Values.Unit;
 
 /**

@@ -1,4 +1,4 @@
-package StyleSheets.BaseComponents.Implementation;
+package StyleSheets.BaseComponents;
 
 import StyleSheets.Values.Color;
 import StyleSheets.Values.Property;

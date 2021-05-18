@@ -1,6 +1,6 @@
 package StyleSheets;
 
-import StyleSheets.BaseComponents.Implementation.StyleManager;
+import StyleSheets.BaseComponents.StyleManager;
 
 public abstract class Gradient {
     /**

@@ -1,7 +1,5 @@
 package StyleSheets.BaseComponents;
 
-import StyleSheets.BaseComponents.Implementation.Statement;
-import StyleSheets.BaseComponents.Implementation.StyleManager;
 import StyleSheets.Values.Color;
 import StyleSheets.Values.Property;
 

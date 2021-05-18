@@ -1,7 +1,6 @@
 package StyleSheets.BaseComponents;
 
-import StyleSheets.BaseComponents.Implementation.Statement;
-
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class StyleSheet {
@@ -9,6 +8,7 @@ public class StyleSheet {
     // Instance variables
 
     private final String fileName;
+    private final String rawCSS;
     private final ArrayList<Statement> statements;
 
     // Constructor
@@ -16,25 +16,29 @@ public class StyleSheet {
     private StyleSheet(Builder builder) {
         fileName = builder.fileName;
         statements = builder.statements;
-    }
-
-    // Getters
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public ArrayList<Statement> getStatements() {
-        return statements;
+        rawCSS = builder.rawCSS;
     }
 
     public void Initialize() {
         StyleSheetCompiler.compile(this);
     }
 
+    public String getFileName() {
+        return fileName;
+    }
+
+    public String getRawCSS() {
+        return rawCSS;
+    }
+
+    public ArrayList<Statement> getStatements() {
+        return statements;
+    }
+
     public static class Builder {
 
         private String fileName = "main";
+        private String rawCSS = "";
         private ArrayList<Statement> statements = new ArrayList<>();
 
         // Public Methods
@@ -50,7 +54,12 @@ public class StyleSheet {
         }
 
         public Builder normalize() {
-            // @TODO: Implement this
+            String str = StyleManager.readFile("src/StyleSheets/BaseComponents/Resources/normalize.css");
+
+            if (str != null) {
+                rawCSS = str;
+            }
+
             return this;
         }
 

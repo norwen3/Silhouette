@@ -1,6 +1,5 @@
 package StyleSheets;
 
-import StyleSheets.BaseComponents.Implementation.StyleManager;
 import StyleSheets.BaseComponents.RuleSet;
 import StyleSheets.Values.Property;
 

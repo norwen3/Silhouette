@@ -1,10 +1,15 @@
-package StyleSheets.BaseComponents.Implementation;
+package StyleSheets.BaseComponents;
 
 import StyleSheets.Values.AtRuleType;
 import StyleSheets.Values.Color;
 import StyleSheets.Values.Property;
 import StyleSheets.Values.Unit;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Iterator;
 
@@ -59,5 +64,15 @@ public abstract class StyleManager {
         }
 
         return str;
+    }
+
+    public static String readFile(String filePath) {
+        String content = null;
+        try {
+            content = Files.readString(Paths.get(filePath), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return content;
     }
 }

@@ -1,9 +1,5 @@
 package StyleSheets.BaseComponents;
 
-import StyleSheets.BaseComponents.AtRule;
-import StyleSheets.BaseComponents.Implementation.Statement;
-import StyleSheets.BaseComponents.RuleSet;
-import StyleSheets.BaseComponents.StyleSheet;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -28,6 +24,8 @@ public abstract class StyleSheetCompiler {
     }
 
     private static void compileCSS(StringBuilder str, StyleSheet styleSheet) {
+        str.append(styleSheet.getRawCSS());
+
         for (Statement statement : styleSheet.getStatements()) {
             // Check if statement is a RuleSet or an AtRule
             if (statement instanceof RuleSet) {
