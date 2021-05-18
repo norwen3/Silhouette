@@ -1,7 +1,10 @@
-package StyleSheets.Values;
+package StyleSheets;
 
+/**
+ * Helping class to control and simplify various types of coloring methods.
+ * Every method in this class is static and returns a string that can be used with properties.
+ */
 public abstract class ColorModel {
-    // Color
 
     /**
      * Returns an HSLA value as String.
@@ -11,7 +14,7 @@ public abstract class ColorModel {
      * @param alpha Alpha
      * @return String
      */
-    public static String HSLA(float hue, float saturation, float lightness, float alpha){
+    public static String HSLA(float hue, float saturation, float lightness, float alpha) {
         return "hsla(" + hue + ", " + saturation + ", " + lightness + ", " + alpha + ")";
     }
 
@@ -22,7 +25,7 @@ public abstract class ColorModel {
      * @param lightness Lightness in percent
      * @return String
      */
-    public static String HSL(float hue, float saturation, float lightness){
+    public static String HSL(float hue, float saturation, float lightness) {
         return "hsl(" + hue + ", " + saturation + ", " + lightness + ")";
     }
 
@@ -38,14 +41,18 @@ public abstract class ColorModel {
     }
 
     /**
-     * Checks validity of Hex, and then returns value as String
+     * Checks validity of Hex, and then returns value as String.
      * @param hexCode
      * @return String
      */
     public static String Hex(String hexCode){
-        if (!hexCode.contains("#")){
+
+        if (!hexCode.contains("#") && hexCode.length() == 6){
             return "#" + hexCode;
+        } else if (!hexCode.contains("#") && hexCode.length() != 6) {
+            return "#" + "FFFFFF";
         }
+
         return hexCode;
     }
 

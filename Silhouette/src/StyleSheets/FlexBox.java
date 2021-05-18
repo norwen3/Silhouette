@@ -1,72 +1,45 @@
 package StyleSheets;
 
-import StyleSheets.BaseComponents.Implementation.IAlignment;
 import StyleSheets.BaseComponents.RuleSet;
+import StyleSheets.Values.Property;
 
-public class FlexBox /*extends RuleSet implements IAlignment*/ {
-
-    // Constructor
+/**
+ * Defines a CSS flex-box that is used to manipulate flow behaviour of HTML elements.
+ * For example, it is useful to arrange HTMl elements side-to-side with even relative space between each other.
+ * Automatically, the FlexBox class will add a rule that sets display property to "flex"
+ */
+public class FlexBox extends RuleSet {
 
     /**
-     * Initiates with one or more selectors
-     * @param selector Any type of CSS selector
+     * Constructor used by builder to build a new FlexBox object.
+     * @param builder the builder for grid
      */
-    public FlexBox(String selector){
-        /*super(selector);
-        setDisplay("flex");*/
+    public FlexBox(final Builder builder) {
+        super(builder);
+
     }
 
-    // Methods
-/*  @TODO: Unecessary, remove? Make special enums for each class
-    public void setFlexDirection(String value){
-        addRule("flex-direction", value);
+    /**
+     * The builder class for the flex-box.
+     * It is an inner static class used to build an immutable instance of a FlexBox object.
+     */
+    public static class Builder extends RuleSet.Builder<Grid.Builder> {
+
+        /**
+         * Constructor for flex-box builder.
+         * @param selector the selector used as the identifier of the flex-box
+         */
+        public Builder(final String selector) {
+            super(selector);
+            addRule(Property.DISPLAY, "flex");
+        }
+
+        /**
+         * Builds the flex-box and returns it.
+         * @return FlexBox constructed by the builder
+         */
+        public FlexBox build() {
+            return new FlexBox(this);
+        }
     }
-
-    public void setFlexWrap(String value){
-        addRule("flex-wrap", value);
-    }
-
-    public void setFlexFlow(String value){
-        addRule("flex-flow", value);
-    }
-
-    public void setFlexGrow(String value){
-        addRule("flex-grow", value);
-    }
-
-    public void setFlexShrink(String value){
-        addRule("flex-shrink", value);
-    }
-
-    public void setFlexBasis(String value){
-        addRule("flex-basis", value);
-    }
-
-    public void setFlex(String value){
-        addRule("flex", value);
-    }
-
-    // Override methods
-
-    @Override
-    public void setAlignItems(String value) {
-        addRule("align-items", value);
-    }
-
-    @Override
-    public void setAlignSelf(String value) {
-        addRule("align-self", value);
-    }
-
-    @Override
-    public void setJustifyContent(String value) {
-        addRule("justify-content", value);
-    }
-
-    @Override
-    public void setAlignContent(String value) {
-        addRule("align-content", value);
-    }
-
- */
 }
