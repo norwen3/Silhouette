@@ -1,6 +1,7 @@
 package StyleSheets.BaseComponents;
 
 import StyleSheets.BaseComponents.Implementation.Statement;
+import StyleSheets.BaseComponents.Implementation.StyleManager;
 import StyleSheets.Values.Color;
 import StyleSheets.Values.Property;
 
@@ -29,7 +30,7 @@ public class AtRule extends Statement {
 
     // Constructors
 
-    private AtRule(Builder builder) {
+    protected AtRule(final Builder<?> builder) {
         identifier = builder.identifier;
         rules = builder.rules;
         ruleSets = builder.ruleSets;
@@ -49,36 +50,36 @@ public class AtRule extends Statement {
         return ruleSets;
     }
 
-    public static class Builder {
+    public static class Builder<T extends Builder<T>> {
         public String identifier = "@";
 
         public ArrayList<String> rules = new ArrayList<>();
 
         public ArrayList<RuleSet> ruleSets = new ArrayList<>();
 
-        public Builder setIdentifier(String keyword, String rule) {
+        public T setIdentifier(String keyword, String rule) {
             identifier = "@" + keyword + " " + rule;
-            return this;
+            return (T)this;
         }
 
-        public Builder addRuleSet(RuleSet ruleSet) {
+        public T addRuleSet(RuleSet ruleSet) {
             ruleSets.add(ruleSet);
-            return this;
+            return (T)this;
         }
 
-        public Builder addRule(String css) {
+        public T addRule(String css) {
             rules.add(css);
-            return this;
+            return (T)this;
         }
 
-        public Builder addRule(Property property, String value) {
-            addRule(propertyToString(property) + ": " + value + ";");
-            return this;
+        public T addRule(Property property, String value) {
+            addRule(StyleManager.propertyToString(property) + ": " + value + ";");
+            return (T)this;
         }
 
-        public Builder addRule(Property property, Color color) {
-            addRule(propertyToString(property) + ": " + colorToString(color) + ";");
-            return this;
+        public T addRule(Property property, Color color) {
+            addRule(StyleManager.propertyToString(property) + ": " + StyleManager.colorToString(color) + ";");
+            return (T)this;
         }
 
         public AtRule build() {

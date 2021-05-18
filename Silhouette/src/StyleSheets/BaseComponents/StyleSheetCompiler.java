@@ -1,4 +1,4 @@
-package StyleSheets;
+package StyleSheets.BaseComponents;
 
 import StyleSheets.BaseComponents.AtRule;
 import StyleSheets.BaseComponents.Implementation.Statement;

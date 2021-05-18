@@ -1,6 +1,6 @@
 package StyleSheets.Values;
 
-import StyleSheets.BaseComponents.Implementation.CSSManager;
+import StyleSheets.BaseComponents.Implementation.StyleManager;
 
 public abstract class Gradient {
     /**
@@ -11,13 +11,13 @@ public abstract class Gradient {
      * @return String
      */
     public static String linearGradient(String type, String... values){
-        String str = CSSManager.combineValuesWithSeparator(", ", values);
+        String str = StyleManager.combineValuesWithSeparator(", ", values);
 
         return "linear-gradient(" + str + ")";
     }
 
     public static String radialGradient(String type, String... values){
-        String str = CSSManager.combineValuesWithSeparator(", ", values);
+        String str = StyleManager.combineValuesWithSeparator(", ", values);
 
         return "radial-gradient(" + str + ")";
     }
