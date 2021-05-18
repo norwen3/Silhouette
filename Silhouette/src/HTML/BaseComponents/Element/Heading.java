@@ -3,7 +3,7 @@ package HTML.BaseComponents.Element;
 import HTML.BaseComponents.ILowLevel.IBuilder;
 
 public class Heading extends ContainerElement{
-    private final int level;
+    private String level;
     private String text;
 
     public Heading(Builder builder){
@@ -11,7 +11,7 @@ public class Heading extends ContainerElement{
         this.text = builder.text;
     }
 
-    public int getLevel() {
+    public String getLevel() {
         return level;
     }
 
@@ -20,21 +20,25 @@ public class Heading extends ContainerElement{
     }
     @Override
     public String toString(){
-        return "<h"+level+">"+text+"</h"+level+">";
+        return "<"+level+">"+text+"</"+level+">";
     }
 
     public static class Builder implements IBuilder {
-        private final int level;
+        //standard level is h1
+        private String level;
         private String text;
 
-
-        public Builder(int level) {
-            this.level = level;
+        public Builder() {
+            this.level = "h1";
             this.text = "";
         }
 
         public Builder setText(String text) {
             this.text = text;
+            return this;
+        }
+        public Builder setLevel(String level){
+            this.level = level;
             return this;
         }
 

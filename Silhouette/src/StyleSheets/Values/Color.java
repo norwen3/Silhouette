@@ -1,53 +1,151 @@
 package StyleSheets.Values;
 
-public abstract class Color {
-    // Color
-
-    /**
-     * Returns an HSLA value as String.
-     * @param hue Hue
-     * @param saturation Saturation in percent
-     * @param lightness Lightness in percent
-     * @param alpha Alpha
-     * @return String
-     */
-    public static String HSLA(float hue, float saturation, float lightness, float alpha){
-        return "hsla(" + hue + ", " + saturation + ", " + lightness + ", " + alpha + ")";
-    }
-
-    /**
-     * Returns an HSL value as String
-     * @param hue Hue
-     * @param saturation Saturation in percent
-     * @param lightness Lightness in percent
-     * @return String
-     */
-    public static String HSL(float hue, float saturation, float lightness){
-        return "hsl(" + hue + ", " + saturation + ", " + lightness + ")";
-    }
-
-    /**
-     * Returns an RGB value as String
-     * @param red
-     * @param green
-     * @param blue
-     * @return String
-     */
-    public static String RGB(int red, int green, int blue){
-        return "rgb(" + red + ", " + green + ", " + blue + ")";
-    }
-
-    /**
-     * Returns Hex value as String
-     * @param hexCode
-     * @return String
-     */
-    public static String Hex(String hexCode){
-        if (!hexCode.contains("#")){
-            return "#" + hexCode;
-        }
-        return hexCode;
-    }
-
-
+public enum Color {
+    ALICEBLUE,
+    ANTIQUEWHITE,
+    AQUA,
+    AQUAMARINE,
+    AZURE,
+    BEIGE,
+    BISQUE,
+    BLACK,
+    BLANCHEDALMOND,
+    BLUE,
+    BLUEVIOLET,
+    BROWN,
+    BURLYWOOD,
+    CADETBLUE,
+    CHARTREUSE,
+    CHOCOLATE,
+    CORAL,
+    CORNFLOWERBLUE,
+    CORNSILK,
+    CRIMSON,
+    CYAN,
+    DARKBLUE,
+    DARKCYAN,
+    DARKGOLDENROD,
+    DARKGRAY,
+    DARKGREEN,
+    DARKGREY,
+    DARKKHAKI,
+    DARKMAGENTA,
+    DARKOLIVEGREEN,
+    DARKORANGE,
+    DARKORCHID,
+    DARKRED,
+    DARKSALMON,
+    DARKSEAGREEN,
+    DARKSLATEBLUE,
+    DARKSLATEGRAY,
+    DARKSLATEGREY,
+    DARKTURQUOISE,
+    DARKVIOLET,
+    DEEPPINK,
+    DEEPSKYBLUE,
+    DIMGRAY,
+    DIMGREY,
+    DODGERBLUE,
+    FIREBRICK,
+    FLORALWHITE,
+    FORESTGREEN,
+    FUCHSIA,
+    GAINSBORO,
+    GHOSTWHITE,
+    GOLD,
+    GOLDENROD,
+    GRAY,
+    GREEN,
+    GREENYELLOW,
+    GREY,
+    HONEYDEW,
+    HOTPINK,
+    INDIANRED,
+    INDIGO,
+    IVORY,
+    KHAKI,
+    LAVENDER,
+    LAVENDERBLUSH,
+    LAWNGREEN,
+    LEMONCHIFFON,
+    LIGHTBLUE,
+    LIGHTCORAL,
+    LIGHTCYAN,
+    LIGHTGOLDENRODYELLOW,
+    LIGHTGRAY,
+    LIGHTGREEN,
+    LIGHTGREY,
+    LIGHTPINK,
+    LIGHTSALMON,
+    LIGHTSEAGREEN,
+    LIGHTSKYBLUE,
+    LIGHTSLATEGRAY,
+    LIGHTSLATEGREY,
+    LIGHTSTEELBLUE,
+    LIGHTYELLOW,
+    LIME,
+    LIMEGREEN,
+    LINEN,
+    MAGENTA,
+    MAROON,
+    MEDIUMAQUAMARINE,
+    MEDIUMBLUE,
+    MEDIUMORCHID,
+    MEDIUMPURPLE,
+    MEDIUMSEAGREEN,
+    MEDIUMSLATEBLUE,
+    MEDIUMSPRINGGREEN,
+    MEDIUMTURQUOISE,
+    MEDIUMVIOLETRED,
+    MIDNIGHTBLUE,
+    MINTCREAM,
+    MISTYROSE,
+    MOCCASIN,
+    NAVAJOWHITE,
+    NAVY,
+    OLDLACE,
+    OLIVE,
+    OLIVEDRAB,
+    ORANGE,
+    ORANGERED,
+    ORCHID,
+    PALEGOLDENROD,
+    PALEGREEN,
+    PALETURQUOISE,
+    PALEVIOLETRED,
+    PAPAYAWHIP,
+    PEACHPUFF,
+    PERU,
+    PINK,
+    PLUM,
+    POWDERBLUE,
+    PURPLE,
+    RED,
+    ROSYBROWN,
+    ROYALBLUE,
+    SADDLEBROWN,
+    SALMON,
+    SANDYBROWN,
+    SEAGREEN,
+    SEASHELL,
+    SIENNA,
+    SILVER,
+    SKYBLUE,
+    SLATEBLUE,
+    SLATEGRAY,
+    SLATEGREY,
+    SNOW,
+    SPRINGGREEN,
+    STEELBLUE,
+    TAN,
+    TEAL,
+    THISTLE,
+    TOMATO,
+    TURQUOISE,
+    VIOLET,
+    WHEAT,
+    WHITE,
+    WHITESMOKE,
+    YELLOW,
+    YELLOWGREEN,
 }

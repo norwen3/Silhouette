@@ -1,8 +1,6 @@
 package HTML.BaseComponents;
 
-import HTML.BaseComponents.Element.Container;
 import HTML.BaseComponents.Element.Element;
-import HTML.BaseComponents.Element.ListElement;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -41,10 +39,15 @@ public class HTML {
     public void initialize(String fileName) throws IOException {
         // Initializes the html generation
         BufferedWriter writer = new BufferedWriter(new FileWriter(fileName+".html"));
-        writer.write("<html><!DOCTYPE HTML5/>"+elementIterator() + "</html>");
+        writer.write(this.toString());
         writer.close();
     }
 
+    @Override
+    public String toString() {
+        return "<html><!DOCTYPE HTML5/>" + title + metaName + metaContent + metaProperty+
+                metaPropertyContent + http_equiv + metaHttpContent + charset + metaHtml +elementIterator() + "</html>";
+    }
 
     //Container c = new Container.Builder().build();
     public static class Builder{
@@ -72,8 +75,8 @@ public class HTML {
         // Modify meta data
         public Builder setMetaName(String metaName, String metaContent){
             // <meta name="application-name" content="Rey Bango Front-end Developer"/>
-            this.metaName = metaName;
-            this.metaContent = metaContent;
+            this.metaName = "<meta name=\""+metaName+"\" ";
+            this.metaContent = "content=\""+metaContent+"\"/>";
             return this;
         }
         public Builder setMetaProperty(String metaProperty, String metaPropertyContent){
@@ -84,12 +87,12 @@ public class HTML {
         }
         public Builder setMetaHttpEquiv(String http_equiv, String metaHttpContent){
             // <meta http-equiv="X-UA-Compatible" content="chrome=1">
-            this.http_equiv = http_equiv;
-            this.metaHttpContent = metaHttpContent;
+            this.http_equiv = "<meta http-equiv=\""+http_equiv+" ";
+            this.metaHttpContent = "content=\""+metaHttpContent+"\"/>";
             return this;
         }
         public Builder setMetaCharset(String charset){
-            this.charset = charset;
+            this.charset ="<meta charset=\""+ charset+"\" />";
             return this;
         }
         public Builder setMetaDataAsHTML(String metaDataAsHTML){
@@ -99,14 +102,15 @@ public class HTML {
         }
 
         // Modify link data (w/ Overloads)
-        public Builder setLink(String rel, String href){
+        private Builder setLink(String rel, String href){
             // <link rel="apple-touch-icon" href="iphone.png" />
             this.links.put("<link rel=\""+rel+"\"","href=\""+href+"\" />" );
             return this;
         }
+        //title can be empty ""
         public Builder setLink(String rel, String href, String title){
             // <link rel="apple-touch-icon" href="iphone.png" title="my-touch-icon" />
-            String s="title=\""+title+"\"";
+            String s=" title=\""+title+"\"";
             setLink(rel,href+s);
             return this;
         }
@@ -141,10 +145,11 @@ public class HTML {
             setLinkType(rel, href,type+s);
             return this;
         }
-        public void setLinkMedia(String rel, String href, String type, String media, String title){
+        public Builder setLinkMedia(String rel, String href, String type, String media, String title){
             // <link rel="stylesheet" href="stylesheet.css" type="text/css" media="(max-width: 480px)" title="my-css" />
             String s = "media=\"("+ media + ")\" title=\""+title+"\"";;
             setLinkType(rel,href,type+s);
+            return this;
         }
 
         public HTML build(){
