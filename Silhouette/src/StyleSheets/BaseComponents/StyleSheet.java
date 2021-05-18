@@ -49,6 +49,11 @@ public class StyleSheet {
             return this;
         }
 
+        public Builder normalize() {
+            // @TODO: Implement this
+            return this;
+        }
+
         public StyleSheet build() {
             return new StyleSheet(this);
         }

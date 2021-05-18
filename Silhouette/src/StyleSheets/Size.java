@@ -1,11 +1,12 @@
-package StyleSheets.Values;
+package StyleSheets;
 
 import StyleSheets.BaseComponents.Implementation.StyleManager;
+import StyleSheets.Values.Unit;
 
 /**
  * Allows for java manipulation since the methods take a number value.
  */
-public abstract class Sizing {
+public abstract class Size {
 
     // Ambiguous
 

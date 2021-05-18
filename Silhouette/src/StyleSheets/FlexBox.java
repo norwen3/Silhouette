@@ -1,46 +1,24 @@
 package StyleSheets;
 
-public class FlexBox /*extends RuleSet*/ {
+import StyleSheets.BaseComponents.Implementation.StyleManager;
+import StyleSheets.BaseComponents.RuleSet;
+import StyleSheets.Values.Property;
 
-    // Constructor
+public class FlexBox extends RuleSet {
 
-    /**
-     * Initiates with one or more selectors
-     * @param selector Any type of CSS selector
-     */
-    public FlexBox(String selector){
-        /*super(selector);
-        setDisplay("flex");*/
+    public FlexBox(final Builder builder) {
+        super(builder);
+
     }
 
-    // Methods
-/*  @TODO: Unecessary, remove? Make special enums for each class
-    public void setFlexDirection(String value){
-        addRule("flex-direction", value);
-    }
+    public static class Builder extends RuleSet.Builder<Grid.Builder> {
 
-    public void setFlexWrap(String value){
-        addRule("flex-wrap", value);
-    }
+        public Builder() {
+            addRule(Property.DISPLAY, "flex");
+        }
 
-    public void setFlexFlow(String value){
-        addRule("flex-flow", value);
+        public FlexBox build() {
+            return new FlexBox(this);
+        }
     }
-
-    public void setFlexGrow(String value){
-        addRule("flex-grow", value);
-    }
-
-    public void setFlexShrink(String value){
-        addRule("flex-shrink", value);
-    }
-
-    public void setFlexBasis(String value){
-        addRule("flex-basis", value);
-    }
-
-    public void setFlex(String value){
-        addRule("flex", value);
-    }
- */
 }

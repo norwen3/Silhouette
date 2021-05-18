@@ -1,4 +1,4 @@
-package StyleSheets.Values;
+package StyleSheets;
 
 public abstract class ColorModel {
     // Color

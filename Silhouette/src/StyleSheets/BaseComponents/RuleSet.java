@@ -12,8 +12,6 @@ import java.util.ArrayList;
  */
 public class RuleSet extends Statement {
 
-    // Constructors
-
     protected RuleSet(final Builder<?> builder){
         identifier = builder.identifier;
         rules = builder.rules;

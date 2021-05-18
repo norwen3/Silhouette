@@ -1,11 +1,11 @@
-package StyleSheets.Values;
+package StyleSheets;
 
 import StyleSheets.BaseComponents.Implementation.StyleManager;
 
 public abstract class Gradient {
     /**
      * Returns a linear or radial gradient as String
-     * E.g Color.gradient("linear", "180degs", Color.RGB(), "yellow")
+     * E.g Color.gradient("linear", "180degs", ColorModel.RGB(), "yellow")
      * @param type "linear" or "radial"
      * @param values
      * @return String

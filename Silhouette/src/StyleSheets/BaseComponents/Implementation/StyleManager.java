@@ -25,24 +25,24 @@ public abstract class StyleManager {
         return str.toString();
     }
 
-    private static String stringToLowerCaseAndReplaceDashes(String str) {
+    private static String formatStyleData(String str) {
         return str.toLowerCase().replace('_', '-');
     }
 
     public static String stringifyEnum(Property property) {
-        return stringToLowerCaseAndReplaceDashes(property.toString());
+        return formatStyleData(property.toString());
     }
 
     public static String stringifyEnum(AtRuleType atRuleType) {
-        return stringToLowerCaseAndReplaceDashes(atRuleType.toString());
+        return formatStyleData(atRuleType.toString());
     }
 
     public static String stringifyEnum(Color color) {
-        return stringToLowerCaseAndReplaceDashes(color.toString());
+        return formatStyleData(color.toString());
     }
 
     public static String stringifyEnum(Unit unit) {
-        return stringToLowerCaseAndReplaceDashes(unit.toString());
+        return formatStyleData(unit.toString());
     }
 
     public static String colorToString(Color color) {
