@@ -60,6 +60,7 @@ public class Container extends ContainerElement {
             return this;
 
         }
+        //type = div, head, body, footer, etc
         public Builder setType(String type){
             this.type = type;
             return this;
