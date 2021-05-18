@@ -1,9 +1,5 @@
 package StyleSheets.BaseComponents;
 
-import StyleSheets.BaseComponents.AtRule;
-import StyleSheets.BaseComponents.Implementation.Statement;
-import StyleSheets.BaseComponents.RuleSet;
-import StyleSheets.BaseComponents.StyleSheet;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -28,6 +24,8 @@ public abstract class StyleSheetCompiler {
     }
 
     private static void compileCSS(StringBuilder str, StyleSheet styleSheet) {
+        str.append(styleSheet.getRawCSS());
+
         for (Statement statement : styleSheet.getStatements()) {
             // Check if statement is a RuleSet or an AtRule
             if (statement instanceof RuleSet) {
@@ -47,19 +45,22 @@ public abstract class StyleSheetCompiler {
         StringBuilder str = new StringBuilder();
 
         str.append(addTabs(tabs) + atRule.getIdentifier());
-        str.append(" {\n");
 
-        // Compile all rulesets
-        for (RuleSet ruleSet : atRule.getRuleSets()) {
-            str.append(compileRuleSet(ruleSet, 1));
+        if (!atRule.getRules().isEmpty() || !atRule.getRuleSets().isEmpty()) {
+            str.append(" {\n");
+
+            // Compile all rulesets
+            for (RuleSet ruleSet : atRule.getRuleSets()) {
+                str.append(compileRuleSet(ruleSet, 1));
+            }
+
+            // Compile all rules
+            for (String rule : atRule.getRules()) {
+                str.append(addTabs(1) + rule + "\n");
+            }
+
+            str.append(addTabs(tabs) + "}\n\n");
         }
-
-        // Compile all rules
-        for (String rule : atRule.getRules()) {
-            str.append(addTabs(1) + rule + "\n");
-        }
-
-        str.append(addTabs(tabs) + "}\n\n");
 
         return str.toString();
     }

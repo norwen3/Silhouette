@@ -1,5 +1,9 @@
 package StyleSheets.Values;
 
+/**
+ * Contains all CSS colors used together with color-related properties.
+ * @see StyleSheets.BaseComponents.RuleSet.Builder#addRule(Property, Color) 
+ */
 public enum Color {
     ALICEBLUE,
     ANTIQUEWHITE,

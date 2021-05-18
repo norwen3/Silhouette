@@ -1,54 +1,121 @@
 package StyleSheets.BaseComponents;
 
-import StyleSheets.BaseComponents.Implementation.Statement;
-
 import java.util.ArrayList;
 
+/**
+ * Defines a cascading stylesheet that contains CSS statements.
+ * The StyleSheet class will generate a formatted CSS file containing the field data.
+ * One or more stylesheets can be used for a single HTML page or throughout the whole website.
+ */
 public class StyleSheet {
 
-    // Instance variables
-
+    /**
+     * The file name ending with the .css extension.
+     */
     private final String fileName;
+    /**
+     * Raw CSS that in String format that will be applied to the CSS file.
+     */
+    private final String rawCSS;
+    /**
+     * Statement objects that will be applied to the CSS file.
+     */
     private final ArrayList<Statement> statements;
 
-    // Constructor
-
+    /**
+     * Constructor used by builder to build a new StyleSheet object.
+     * @param builder the builder for rule set
+     */
     private StyleSheet(Builder builder) {
         fileName = builder.fileName;
         statements = builder.statements;
+        rawCSS = builder.rawCSS;
     }
 
-    // Getters
+    /**
+     * Compiles the stylesheet into a CSS file.
+     */
+    public void initialize() {
+        StyleSheetCompiler.compile(this);
+    }
 
+    /**
+     * Gets the file name of the stylesheet.
+     * @return String
+     */
     public String getFileName() {
         return fileName;
     }
 
+    /**
+     * gets the raw CSS as String.
+     * @return String
+     */
+    public String getRawCSS() {
+        return rawCSS;
+    }
+
+    /**
+     * Gets the list of statements.
+     * @return ArrayList<Statement>
+     */
     public ArrayList<Statement> getStatements() {
         return statements;
     }
 
-    public void Initialize() {
-        StyleSheetCompiler.compile(this);
-    }
-
+    /**
+     * The builder class for the stylesheet.
+     * It is an inner static class used to build an immutable instance of a StyleSheet object.
+     */
     public static class Builder {
 
-        private String fileName = "main";
+        /**
+         * @see StyleSheet#fileName
+         */
+        private String fileName;
+        /**
+         * @see StyleSheet#rawCSS
+         */
+        private String rawCSS = "";
+        /**
+         * @see StyleSheet#statements
+         */
         private ArrayList<Statement> statements = new ArrayList<>();
 
-        // Public Methods
-
-        public Builder applyStyle(final Statement statements) {
-            this.statements.add(statements);
-            return this;
-        }
-
-        public Builder setFileName(final String fileName){
+        /**
+         * Constructor for stylesheet builder.
+         * @param fileName the file name
+         */
+        public Builder(final String fileName) {
             this.fileName = fileName;
+        }
+
+        /**
+         * Adds a statement to the stylesheet.
+         * @param statement the statement to be added to the list of statements
+         * @return builder of generic type for stylesheets
+         */
+        public Builder applyStyle(final Statement statement) {
+            this.statements.add(statement);
             return this;
         }
 
+        /**
+         * Normalizes the stylesheet using normalize.css v8.0.1 provided by Necolas.
+         * @return builder of generic type for stylesheets
+         */
+        public Builder normalize() {
+            String str = StyleManager.readFile("src/StyleSheets/BaseComponents/Resources/normalize.css");
+            if (str != null) {
+                rawCSS = str;
+            }
+            return this;
+        }
+
+        /**
+         * Builds the stylesheet and returns it.
+         * @return StyleSheet constructed by the builder
+         */
         public StyleSheet build() {
             return new StyleSheet(this);
         }
