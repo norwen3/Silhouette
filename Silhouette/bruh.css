@@ -19,3 +19,7 @@
 
 }
 
+.grid {
+    grid-template-areas: "bruh bruh" "moment moment";
+}
+

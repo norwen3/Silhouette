@@ -1,44 +1,43 @@
 package StyleSheets;
 
-import StyleSheets.BaseComponents.Implementation.CSSManager;
-import StyleSheets.BaseComponents.Implementation.IAlignment;
+import StyleSheets.BaseComponents.Implementation.StyleManager;
 import StyleSheets.BaseComponents.RuleSet;
+import StyleSheets.Values.Property;
 
 /**
  * Specifies a CSS Grid.
  */
-public class Grid /*extends RuleSet implements IAlignment*/ {
+public class Grid extends RuleSet {
 
-    // Constructor
+    public Grid(final Builder builder) {
+        super(builder);
 
-    /**
-     * Initiates with one or more selectors
-     * @param selector Any type of CSS selector
-     */
-    public Grid(String selector){
-        /*
-        super(selector);
-        setDisplay("grid");
-         */
     }
 
-    /**
-     * Initiates with selector, columns and rows.
-     * @param selector Any type of CSS selector
-     * @param columns Sets the columns
-     * @param rows Sets the rows
-     */
-    public Grid(String selector, String columns, String rows){
-        /*
-        super(selector);
-        setColumns(columns);
-        setRows(rows);
-        setDisplay("grid");
+    public static class Builder extends RuleSet.Builder<Builder> {
+        public Builder setTemplateAreas(String... areas){
 
-         */
+            for (int i = 0; i < areas.length; i++) {
+                areas[i] = "\"" + areas[i] + "\"";
+            }
+
+
+            String value = StyleManager.combineValuesWithSeparator(" ", areas);
+
+            addRule(Property.GRID_TEMPLATE_AREAS, value);
+            return this;
+        }
+
+        public Builder setTemplate(String... values){
+            String rule = StyleManager.combineValuesWithSeparator(" / ", values);
+            addRule(rule);
+            return this;
+        }
+
+        public Grid build() {
+            return new Grid(this);
+        }
     }
-
-    // Public Methods
 /*  @TODO: Unecessary, remove?
     public void setColumns(String columns){
         addRule("grid-template-columns", columns);
@@ -100,28 +99,6 @@ public class Grid /*extends RuleSet implements IAlignment*/ {
 
     public void addArea(String areaName, int rowStart, int rowEnd, int colStart, int colEnd){
         // @TODO: Figure this out
-    }
-
-    // Override methods
-
-    @Override
-    public void setAlignItems(String value) {
-        addRule("align-items", value);
-    }
-
-    @Override
-    public void setAlignSelf(String value) {
-        addRule("align-self", value);
-    }
-
-    @Override
-    public void setJustifyContent(String value) {
-        addRule("justify-content", value);
-    }
-
-    @Override
-    public void setAlignContent(String value) {
-        addRule("align-content", value);
     }
 
      */

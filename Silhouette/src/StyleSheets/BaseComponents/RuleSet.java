@@ -1,6 +1,7 @@
 package StyleSheets.BaseComponents;
 
 import StyleSheets.BaseComponents.Implementation.Statement;
+import StyleSheets.BaseComponents.Implementation.StyleManager;
 import StyleSheets.Values.Color;
 import StyleSheets.Values.Property;
 
@@ -13,7 +14,7 @@ public class RuleSet extends Statement {
 
     // Constructors
 
-    private RuleSet(Builder builder){
+    protected RuleSet(final Builder<?> builder){
         identifier = builder.identifier;
         rules = builder.rules;
     }
@@ -26,29 +27,29 @@ public class RuleSet extends Statement {
         return rules;
     }
 
-    public static class Builder {
+    public static class Builder <T extends Builder<T>>{
         public String identifier;
 
         public ArrayList<String> rules = new ArrayList<>();
 
-        public Builder setSelector(String selector) {
+        public T setSelector(String selector) {
             identifier = selector;
-            return this;
+            return (T)this;
         }
 
-        public Builder addRule(String css) {
+        public T addRule(String css) {
             rules.add(css);
-            return this;
+            return (T)this;
         }
 
-        public Builder addRule(Property property, String value) {
-            addRule(propertyToString(property) + ": " + value + ";");
-            return this;
+        public T addRule(Property property, String value) {
+            addRule(StyleManager.propertyToString(property) + ": " + value + ";");
+            return (T)this;
         }
 
-        public Builder addRule(Property property, Color color) {
-            addRule(propertyToString(property) + ": " + colorToString(color) + ";");
-            return this;
+        public T addRule(Property property, Color color) {
+            addRule(StyleManager.propertyToString(property) + ": " + StyleManager.colorToString(color) + ";");
+            return (T)this;
         }
 
         public RuleSet build() {
