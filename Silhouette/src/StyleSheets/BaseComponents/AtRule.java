@@ -2,6 +2,7 @@ package StyleSheets.BaseComponents;
 
 import StyleSheets.BaseComponents.Implementation.Statement;
 import StyleSheets.BaseComponents.Implementation.StyleManager;
+import StyleSheets.Values.AtRuleType;
 import StyleSheets.Values.Color;
 import StyleSheets.Values.Property;
 
@@ -52,13 +53,15 @@ public class AtRule extends Statement {
 
     public static class Builder<T extends Builder<T>> {
         public String identifier = "@";
-
         public ArrayList<String> rules = new ArrayList<>();
-
         public ArrayList<RuleSet> ruleSets = new ArrayList<>();
 
-        public T setIdentifier(String keyword, String rule) {
-            identifier = "@" + keyword + " " + rule;
+        public T setIdentifier(String css) {
+            return (T)this;
+        }
+
+        public T setIdentifier(AtRuleType property, String rule) {
+            identifier = "@" + StyleManager.stringifyEnum(property) + " " + rule;
             return (T)this;
         }
 
@@ -73,12 +76,12 @@ public class AtRule extends Statement {
         }
 
         public T addRule(Property property, String value) {
-            addRule(StyleManager.propertyToString(property) + ": " + value + ";");
+            addRule(StyleManager.stringifyEnum(property) + ": " + value + ";");
             return (T)this;
         }
 
         public T addRule(Property property, Color color) {
-            addRule(StyleManager.propertyToString(property) + ": " + StyleManager.colorToString(color) + ";");
+            addRule(StyleManager.stringifyEnum(property) + ": " + StyleManager.colorToString(color) + ";");
             return (T)this;
         }
 

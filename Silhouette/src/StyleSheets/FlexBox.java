@@ -1,9 +1,6 @@
 package StyleSheets;
 
-import StyleSheets.BaseComponents.Implementation.IAlignment;
-import StyleSheets.BaseComponents.RuleSet;
-
-public class FlexBox /*extends RuleSet implements IAlignment*/ {
+public class FlexBox /*extends RuleSet*/ {
 
     // Constructor
 
@@ -45,28 +42,5 @@ public class FlexBox /*extends RuleSet implements IAlignment*/ {
     public void setFlex(String value){
         addRule("flex", value);
     }
-
-    // Override methods
-
-    @Override
-    public void setAlignItems(String value) {
-        addRule("align-items", value);
-    }
-
-    @Override
-    public void setAlignSelf(String value) {
-        addRule("align-self", value);
-    }
-
-    @Override
-    public void setJustifyContent(String value) {
-        addRule("justify-content", value);
-    }
-
-    @Override
-    public void setAlignContent(String value) {
-        addRule("align-content", value);
-    }
-
  */
 }

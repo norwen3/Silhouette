@@ -1,5 +1,6 @@
 package StyleSheets.BaseComponents.Implementation;
 
+import StyleSheets.Values.AtRuleType;
 import StyleSheets.Values.Color;
 import StyleSheets.Values.Property;
 import StyleSheets.Values.Unit;
@@ -24,10 +25,24 @@ public abstract class StyleManager {
         return str.toString();
     }
 
-    public static String propertyToString(Property property) {
-        String str = property.toString();
-
+    private static String stringToLowerCaseAndReplaceDashes(String str) {
         return str.toLowerCase().replace('_', '-');
+    }
+
+    public static String stringifyEnum(Property property) {
+        return stringToLowerCaseAndReplaceDashes(property.toString());
+    }
+
+    public static String stringifyEnum(AtRuleType atRuleType) {
+        return stringToLowerCaseAndReplaceDashes(atRuleType.toString());
+    }
+
+    public static String stringifyEnum(Color color) {
+        return stringToLowerCaseAndReplaceDashes(color.toString());
+    }
+
+    public static String stringifyEnum(Unit unit) {
+        return stringToLowerCaseAndReplaceDashes(unit.toString());
     }
 
     public static String colorToString(Color color) {

@@ -43,12 +43,12 @@ public class RuleSet extends Statement {
         }
 
         public T addRule(Property property, String value) {
-            addRule(StyleManager.propertyToString(property) + ": " + value + ";");
+            addRule(StyleManager.stringifyEnum(property) + ": " + value + ";");
             return (T)this;
         }
 
         public T addRule(Property property, Color color) {
-            addRule(StyleManager.propertyToString(property) + ": " + StyleManager.colorToString(color) + ";");
+            addRule(StyleManager.stringifyEnum(property) + ": " + StyleManager.colorToString(color) + ";");
             return (T)this;
         }
 
