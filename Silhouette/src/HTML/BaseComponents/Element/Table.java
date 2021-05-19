@@ -36,6 +36,11 @@ public class Table extends ContainerElement{
     public ColGroup getColGroup() {
         return colGroup;
     }
+
+    /**
+     * stringifies the table
+     * @return
+     */
     private String getTable(){
         String s= "";
         for(int i = 0; i<this.row; i++){
@@ -48,7 +53,10 @@ public class Table extends ContainerElement{
         return s;
     }
     public String toString(){
-        return "<table>\n" + colGroup.toString() + getTable() + "</table>\n";
+        if(!colGroup.equals(null))
+            return "<table>\n" + colGroup.toString() + getTable() + "</table>\n";
+        else
+            return "<table>\n" + getTable() + "</table>\n";
     }
 
     public static class Builder implements IBuilder{
