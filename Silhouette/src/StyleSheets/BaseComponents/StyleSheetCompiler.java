@@ -28,7 +28,9 @@ public abstract class StyleSheetCompiler {
             }
 
             File file = new File( outputFolder + fileName);
-            file.getParentFile().mkdirs();
+            if (file.getParentFile() != null) {
+                file.getParentFile().mkdirs();
+            }
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             writer.write(css.toString());
             writer.close();
