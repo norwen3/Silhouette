@@ -6,6 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Represents all HTML-tags
+ * Is the top of the hierarchy
+ * Missing implementation
+ * Missing some implementation on all classes due to this
+ * Missing mostly information regarding global attributes of elements
+ */
 public abstract class Element {
 
     // char
@@ -41,6 +48,11 @@ public abstract class Element {
     }
 
     // Classes and IDs
+
+    /**
+     * Not implemented
+     * @param className
+     */
     public void applyClass(String className){}
     public void applyClasses(List<String> classNames){}
     public void applyId(String idName){}

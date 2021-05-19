@@ -1,6 +1,13 @@
 package HTML.BaseComponents.Element;
 
-// Previously known as (Closed)
-// area, base, br, col, embed, hr, img, input, wbr
+//
+//
+
+/**
+ * Closed Element tags.
+ * Single tags like <img/>
+ * Not implemented due to time contraints
+ * area, base, br, col, embed, hr, img, input, wbr
+ */
 public abstract class EmptyElement extends Element {
 }

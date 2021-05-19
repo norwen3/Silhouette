@@ -4,11 +4,20 @@ import HTML.BaseComponents.ILowLevel.IBuilder;
 import HTML.BaseComponents.ILowLevel.IDimensions;
 import HTML.BaseComponents.ILowLevel.ISource;
 
-// Video Tag
-// Source tag auto generates
+//
+//
+
+/**
+ * This class represents a Video-tag
+ * Source tag auto generates
+ */
 public class Video extends ContainerElement {
     private String width, height, source,type;
 
+    /**
+     * Constructor used by Builder
+     * @param builder
+     */
     private Video(Builder builder){
         this.width = builder.width;
         this.height = builder.height;
@@ -32,9 +41,20 @@ public class Video extends ContainerElement {
         return type;
     }
 
+    /**
+     * Builder for Video-Element
+     * Returns a Video-object
+     */
     public static class Builder implements IBuilder, IDimensions, ISource{
         private String width, height, source,type;
 
+        /**
+         * Sets a standard Video tag
+         * Width = 100
+         * Height = 100
+         * no source
+         * type = video/mp4
+         */
         public Builder(){
             this.width = "100";
             this.height = "100";
@@ -42,20 +62,34 @@ public class Video extends ContainerElement {
             this.type = "video/mp4";
         }
 
-
+        /**
+         * Sets the width of the video
+         * @param dimension
+         * @return
+         */
         @Override
         public Builder setWidth(String dimension) {
             this.width = dimension;
             return this;
         }
 
-
+        /**
+         * Sets the height of the video
+         * @param dimension
+         * @return
+         */
         @Override
         public Builder setHeight(String dimension) {
             this.height = dimension;
             return this;
         }
 
+        /**
+         *
+         * @param source
+         * @param type
+         * @return
+         */
         @Override
         public Builder addSource(String source, String type){
             this.source = source;

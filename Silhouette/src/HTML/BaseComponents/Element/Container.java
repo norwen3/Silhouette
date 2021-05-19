@@ -7,15 +7,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// Represents an HTML element that that holds one or more elements
-// Such element is:
-// Div, Article, Section, Aside, Footer, Header, Address, Span
+
+
+/**
+ * Represents an HTML element that that holds one or more elements
+ * Such element is:
+ * Div, Article, Section, Aside, Footer, Header, Address, Span
+ */
 public class Container extends ContainerElement {
     private String type;
     private List<Element> elementList;
     private Map<String,String> attributes;
 
-    // Constructor: type implies the semantic tag
+    /**
+     * Used by builder to create a Container-element
+     * @param builder
+     */
     private Container(Builder builder){
 
         this.type = builder.type;
@@ -36,7 +43,15 @@ public class Container extends ContainerElement {
         return type;
     }
 
-    public String elementListToString(List<Element> elementList){
+    /**
+     * Takes a list of HTML-elements
+     * @param elementList
+     * Iterates over list and adds the textual content to a variable
+     * and returns the list as a string
+     * @return
+     * Used by toString() method
+     */
+    private String elementListToString(List<Element> elementList){
         String content = "";
 
         for(Element e: elementList) {
@@ -51,6 +66,10 @@ public class Container extends ContainerElement {
                 + "</"+this.type+">";
     }
 
+    /**
+     * Builder class for Container-Elements
+     * Returns a Container that holds other HTML-elements
+     */
     public static class Builder implements IBuilder {
         private String type;
         private List<Element> elementList;
@@ -63,12 +82,24 @@ public class Container extends ContainerElement {
             this.attributes = new HashMap<>();
         }
 
+        /**
+         * Takes a pre-made list of elements,
+         * @param elementList
+         * This becomes the new content of the container
+         * @return
+         */
         public Builder setContent(List<Element> elementList){
             this.elementList = elementList;
             return this;
 
         }
-        //type = div, head, body, footer, etc
+
+        /**
+         * Sets the type of the tag
+         * @param type
+         * type = div, head, body, footer, etc
+         * @return
+         */
         public Builder setType(String type){
             this.type = type;
             return this;
@@ -77,8 +108,9 @@ public class Container extends ContainerElement {
 
 
         /**
-         *
+         * Can take multiple Elements separated by a comma (,)
          * @param e
+         * Adds any HTML-Element to this Container
          * @return
          */
         public Builder addElements(Element... e){
@@ -89,7 +121,10 @@ public class Container extends ContainerElement {
         }
 
 
-
+        /**
+         * Returns a Container-object
+         * @return
+         */
         @Override
         public Container build(){
             Container container = new Container(this);
