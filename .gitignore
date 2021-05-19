@@ -4,6 +4,8 @@ Silhouette/WebFiles/*.css
 Silhouette/src/WebFiles
 Silhouette/src/WebFiles/*.css
 Silhouette/src/Testing.java
+Silhouette/out
+Silhouette/out/*
 
 .idea/workspace.xml
 
