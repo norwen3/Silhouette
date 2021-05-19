@@ -97,12 +97,16 @@ public class HTML {
 
     }
 
+    /**
+     * Iterates through the link list and returns them as a String
+     * @return
+     */
     private String linkIterator(){
         Iterator<Map.Entry<String, String>> temp = links.entrySet().iterator();
         String linkContent = "";
         while(temp.hasNext()){
             Map.Entry<String, String> pair = temp.next();
-            linkContent += pair.getKey() + " " + pair.getValue();
+            linkContent += pair.getKey() + " " + pair.getValue() + "\n";
         }
         return linkContent;
     }
