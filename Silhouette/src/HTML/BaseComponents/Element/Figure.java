@@ -2,13 +2,16 @@ package HTML.BaseComponents.Element;
 
 import HTML.BaseComponents.ILowLevel.IBuilder;
 
+
 /**
  * This class represents a Figure-element
  */
+
 public class Figure extends ContainerElement {
 
     private Image img;
     private String figCaption;
+
 
     /**
      * Constructor used by Builder
@@ -56,6 +59,7 @@ public class Figure extends ContainerElement {
          * Returns the Figure-element
          * @return
          */
+
         @Override
         public Element build() {
             Figure f = new Figure(this);

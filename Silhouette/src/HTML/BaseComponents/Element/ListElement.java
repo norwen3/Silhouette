@@ -14,10 +14,12 @@ public class ListElement extends ContainerElement {
     private List<String> items;
     private Boolean isOrdered;
 
+
     /**
      * Constructor used by Builder
      * @param builder
      */
+
     private ListElement(Builder builder) {
         this.items = builder.items;
         this.isOrdered = builder.isOrdered;

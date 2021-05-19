@@ -17,10 +17,12 @@ public class Image extends EmptyElement  {
     private Map<String, String> attributes;
     private String alt, style;
 
+
     /**
      * Constructor used by Builder
      * @param builder
      */
+
     private Image(Builder builder){
         this.width = builder.width;
         this.height = builder.height;
@@ -28,6 +30,7 @@ public class Image extends EmptyElement  {
         this.attributes = builder.attributes;
         this.alt = builder.alt;
         this.style = builder.style;
+
     }
 
     public String getWidth() {
@@ -45,6 +48,7 @@ public class Image extends EmptyElement  {
     public Map<String, String> getAttributes() {
         return attributes;
     }
+
 
     public String getAlt() {
         return alt;

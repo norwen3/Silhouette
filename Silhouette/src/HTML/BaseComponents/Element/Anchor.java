@@ -26,10 +26,12 @@ public class Anchor extends ContainerElement {
     }
 
 
+
     /**
      * Constructor used for Builder
      * @param builder
      */
+
     private Anchor(Builder builder){
         this.text = builder.text;
         this.url = builder.url;

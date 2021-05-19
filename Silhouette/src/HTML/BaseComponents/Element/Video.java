@@ -14,10 +14,12 @@ import HTML.BaseComponents.ILowLevel.ISource;
 public class Video extends ContainerElement {
     private String width, height, source,type;
 
+
     /**
      * Constructor used by Builder
      * @param builder
      */
+
     private Video(Builder builder){
         this.width = builder.width;
         this.height = builder.height;

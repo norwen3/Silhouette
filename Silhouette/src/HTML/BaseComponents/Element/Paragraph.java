@@ -9,6 +9,7 @@ import HTML.BaseComponents.ILowLevel.IBuilder;
 public class Paragraph extends ContainerElement {
     private String text;
 
+
     /**
      * Constructor used by builder
      * @param builder
@@ -16,6 +17,7 @@ public class Paragraph extends ContainerElement {
     private Paragraph(Builder builder){
         this.text = builder.text;
     }
+
 
 
     public String getText() {
@@ -27,10 +29,12 @@ public class Paragraph extends ContainerElement {
         return "<p>"+text+"</p>";
     }
 
+
     /**
      * Builder class for paragraph
      * Returns a paragraph-object
      */
+
     public static class Builder implements IBuilder{
         private String text;
 

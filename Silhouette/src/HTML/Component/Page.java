@@ -17,6 +17,7 @@ public class Page {
         this.builder = builder;
     }
 
+
     /**
      * Builds a pre-made article-page HTML object that is mutable
      * Make your changes and use .initialize() method to write to file
@@ -32,6 +33,7 @@ public class Page {
      */
     public void articlePage(){
         articlePageBuild().initialize("article");
+
     }
 
     /**
@@ -90,6 +92,7 @@ public class Page {
                 ;
     }
 
+
     /**
      * Builds a mutable HTML object
      * Make your changes and use .initialize() method to write to file
@@ -103,6 +106,7 @@ public class Page {
      * Inner private method that returns HTML-builder for an article page
      * @return
      */
+
     private HTML.Builder innerArticlePage(){
         Container.Builder body= new Container.Builder().setType("body");
         Container.Builder main = new Container.Builder().setType("main");
@@ -120,6 +124,7 @@ public class Page {
                         main.addElements(aside.build(),article.build())
                                 .build(),footer.build())
                         .build()).setLinkType("stylesheet","styles.css","text/css");
+
 
     }
 }

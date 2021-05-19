@@ -11,10 +11,12 @@ public class Input extends Element{
     private final String name;
     private final String label;
 
+
     /**
      * Constructor used by Builder
      * @param builder
      */
+
     private Input(Builder builder){
         this.type = builder.type;
         this.id = builder.id;

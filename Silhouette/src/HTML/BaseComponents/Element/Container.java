@@ -19,10 +19,12 @@ public class Container extends ContainerElement {
     private List<Element> elementList;
     private Map<String,String> attributes;
 
+
     /**
      * Used by builder to create a Container-element
      * @param builder
      */
+
     private Container(Builder builder){
 
         this.type = builder.type;
@@ -43,6 +45,7 @@ public class Container extends ContainerElement {
         return type;
     }
 
+
     /**
      * Takes a list of HTML-elements
      * @param elementList
@@ -52,6 +55,7 @@ public class Container extends ContainerElement {
      * Used by toString() method
      */
     private String elementListToString(List<Element> elementList){
+
         String content = "";
 
         for(Element e: elementList) {
