@@ -13,12 +13,18 @@ public class Picture extends ContainerElement{
     private List<Image> images;
     private Map<String,String> source;
     // Constructor
-    public Picture(Builder builder){
+    private Picture(Builder builder){
         this.images = builder.images;
         this.source = builder.source;
     }
 
+    public List<Image> getImages() {
+        return images;
+    }
 
+    public Map<String, String> getSource() {
+        return source;
+    }
 
     public static class Builder implements IBuilder, ISource {
         private List<Image> images;

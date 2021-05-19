@@ -14,11 +14,27 @@ public class FieldSet extends ContainerElement {
     private Map<String,String> attributes;
     private String content;
 
-    public FieldSet(Builder builder){
+    private FieldSet(Builder builder){
         this.inputList = builder.inputList;
         this.legend = builder.legend;
         this.attributes = builder.attributes;
         this.content = builder.content;
+    }
+
+    public List<Input> getInputList() {
+        return inputList;
+    }
+
+    public String getLegend() {
+        return legend;
+    }
+
+    public Map<String, String> getAttributes() {
+        return attributes;
+    }
+
+    public String getContent() {
+        return content;
     }
 
     public void addTextArea(ContainerElement element, Map<String, String> attributes, String content){}

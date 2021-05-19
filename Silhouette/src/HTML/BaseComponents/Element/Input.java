@@ -8,7 +8,7 @@ public class Input extends Element{
     private final String name;
     private final String label;
 
-    public Input(Builder builder){
+    private Input(Builder builder){
         this.type = builder.type;
         this.id = builder.id;
         this.name = builder.name;
@@ -19,9 +19,7 @@ public class Input extends Element{
         return type;
     }
 
-    public String getId() {
-        return id;
-    }
+
 
     public String getName() {
         return name;

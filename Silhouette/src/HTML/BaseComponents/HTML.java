@@ -27,14 +27,64 @@ public class HTML {
         this.charset = builder.charset;
         this.metaHtml = builder.metaHtml;
         this.links = builder.links;
+        this.pageBody = builder.pageBody;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getMetaName() {
+        return metaName;
+    }
+
+    public String getMetaContent() {
+        return metaContent;
+    }
+
+    public String getMetaProperty() {
+        return metaProperty;
+    }
+
+    public String getMetaPropertyContent() {
+        return metaPropertyContent;
+    }
+
+    public String getHttp_equiv() {
+        return http_equiv;
+    }
+
+    public String getMetaHttpContent() {
+        return metaHttpContent;
+    }
+
+    public String getCharset() {
+        return charset;
+    }
+
+    public String getMetaHtml() {
+        return metaHtml;
+    }
+
+    public Map<String, String> getLinks() {
+        return links;
+    }
+
+    public List<Element> getPageBody() {
+        return pageBody;
     }
 
     private String elementIterator(){
         String body = "";
-        for(Element e: pageBody){
-            body += e.toString();
-        }
-        return body;
+        if(this.pageBody != null){
+            for(Element e: this.pageBody){
+                body += e.toString()+"\n";
+            }
+            return body;
+        }else{
+                return "";
+            }
+
     }
     public void initialize(String fileName) throws IOException {
         // Initializes the html generation
@@ -45,8 +95,11 @@ public class HTML {
 
     @Override
     public String toString() {
-        return "<html><!DOCTYPE HTML5/>" + title + metaName + metaContent + metaProperty+
-                metaPropertyContent + http_equiv + metaHttpContent + charset + metaHtml +elementIterator() + "</html>";
+        return "<!DOCTYPE html><html>\n" +
+                "<head>\n" + this.title + this.metaName + this.metaContent + this.metaProperty+
+                this.metaPropertyContent + this.http_equiv + this.metaHttpContent + this.charset + this.metaHtml
+                +"</head>\n"
+                +elementIterator() + "\n</html>";
     }
 
     //Container c = new Container.Builder().build();
@@ -57,12 +110,20 @@ public class HTML {
         private List<Element> pageBody;
 
         public Builder(){
-            this.title = "";
             this.links = new HashMap<>();
             this.pageBody = new ArrayList<>();
+            this.title = "";
+            this.metaName = "";
+            this.metaContent = "";
+            this.metaProperty= "";
+            this.metaPropertyContent = "";
+            this.http_equiv = "";
+            this.metaHttpContent = "";
+            this.charset = "<meta charset=\"UTF-8\" />";
+            this.metaHtml = "";
         }
         public Builder setTitle(String title) {
-            this.title = title;
+            this.title = "<title>"+title+"</title>\n";
             return this;
         }
         public Builder append(Element... elements){
@@ -76,23 +137,23 @@ public class HTML {
         public Builder setMetaName(String metaName, String metaContent){
             // <meta name="application-name" content="Rey Bango Front-end Developer"/>
             this.metaName = "<meta name=\""+metaName+"\" ";
-            this.metaContent = "content=\""+metaContent+"\"/>";
+            this.metaContent = "content=\""+metaContent+"\"/>\n";
             return this;
         }
         public Builder setMetaProperty(String metaProperty, String metaPropertyContent){
             // <meta property="og:audio" content="http://example.com/amazing.mp3" />
-            this.metaProperty = metaProperty;
-            this.metaPropertyContent = metaPropertyContent;
+            this.metaProperty = "<meta property=\""+ metaProperty+"\"";
+            this.metaPropertyContent = " content=\""+metaPropertyContent+"\" />\n";
             return this;
         }
         public Builder setMetaHttpEquiv(String http_equiv, String metaHttpContent){
             // <meta http-equiv="X-UA-Compatible" content="chrome=1">
             this.http_equiv = "<meta http-equiv=\""+http_equiv+" ";
-            this.metaHttpContent = "content=\""+metaHttpContent+"\"/>";
+            this.metaHttpContent = "content=\""+metaHttpContent+"\"/>\n";
             return this;
         }
         public Builder setMetaCharset(String charset){
-            this.charset ="<meta charset=\""+ charset+"\" />";
+            this.charset ="<meta charset=\""+ charset+"\" />\n";
             return this;
         }
         public Builder setMetaDataAsHTML(String metaDataAsHTML){
@@ -104,7 +165,7 @@ public class HTML {
         // Modify link data (w/ Overloads)
         private Builder setLink(String rel, String href){
             // <link rel="apple-touch-icon" href="iphone.png" />
-            this.links.put("<link rel=\""+rel+"\"","href=\""+href+"\" />" );
+            this.links.put("<link rel=\""+rel+"\"","href=\""+href+"\" />\n" );
             return this;
         }
         //title can be empty ""

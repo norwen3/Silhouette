@@ -46,6 +46,60 @@ public abstract class Element {
     public void applyId(String idName){}
     public void applyIds(List<String> idNames){}
 
+    public static String getAccessKey() {
+        return accessKey;
+    }
 
+    public static String getDraggable() {
+        return draggable;
+    }
+
+    public static String getHidden() {
+        return hidden;
+    }
+
+    public static String getSpellCheck() {
+        return spellCheck;
+    }
+
+    public static String getContentEditable() {
+        return contentEditable;
+    }
+
+    public static String get_class() {
+        return _class;
+    }
+
+    public static String getId() {
+        return id;
+    }
+
+    public static String getLang() {
+        return lang;
+    }
+
+    public static String getDataAttribute() {
+        return dataAttribute;
+    }
+
+    public static String getDir() {
+        return dir;
+    }
+
+    public static String getStyle() {
+        return style;
+    }
+
+    public static String getTitle() {
+        return title;
+    }
+
+    public static String getTabindex() {
+        return tabindex;
+    }
+
+    public Map<String, String> getAttributes() {
+        return attributes;
+    }
 
 }

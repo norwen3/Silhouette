@@ -12,7 +12,7 @@ public class Audio extends ContainerElement{
     private String src;
 
 
-    public Audio(Builder builder){
+    private Audio(Builder builder){
         this.attributes = builder.attributes;
         this.srcset = builder.srcset;
         this.autoplay=builder.autoplay;
@@ -23,6 +23,38 @@ public class Audio extends ContainerElement{
         this.src = builder.src;
     }
 
+    @Override
+    public Map<String, String> getAttributes() {
+        return attributes;
+    }
+
+    public Map<String, String> getSrcset() {
+        return srcset;
+    }
+
+    public Boolean getAutoplay() {
+        return autoplay;
+    }
+
+    public Boolean getControls() {
+        return controls;
+    }
+
+    public Boolean getLoop() {
+        return loop;
+    }
+
+    public Boolean getMuted() {
+        return muted;
+    }
+
+    public Boolean getPreload() {
+        return preload;
+    }
+
+    public String getSrc() {
+        return src;
+    }
 
     public static class Builder implements IBuilder,ISource {
 

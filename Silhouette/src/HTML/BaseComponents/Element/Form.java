@@ -7,7 +7,7 @@ public class Form extends ContainerElement {
     private String method;
     private String action;
 
-    public Form(Builder builder){
+    private Form(Builder builder){
 
         this.fieldSet = builder.fieldSet;
         this.method = builder.method;

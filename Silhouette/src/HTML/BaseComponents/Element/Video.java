@@ -9,13 +9,28 @@ import HTML.BaseComponents.ILowLevel.ISource;
 public class Video extends ContainerElement {
     private String width, height, source,type;
 
-    public Video(Builder builder){
+    private Video(Builder builder){
         this.width = builder.width;
         this.height = builder.height;
         this.source = builder.source;
         this.type = builder.type;
     }
 
+    public String getWidth() {
+        return width;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public String getType() {
+        return type;
+    }
 
     public static class Builder implements IBuilder, IDimensions, ISource{
         private String width, height, source,type;

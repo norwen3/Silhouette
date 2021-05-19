@@ -12,16 +12,33 @@ public class ColGroup extends ContainerElement{
     private Map<String, String> attributes;
     private List<String> columns;
 
-    public ColGroup(Builder builder){
+    private ColGroup(Builder builder){
         this.span = builder.span;
         this.style = builder.style;
         this.attributes = builder.attributes;
         this.columns = builder.columns;
     }
 
+    public int getSpan() {
+        return span;
+    }
+
+    public String getColStyle() {
+        return style;
+    }
+
+    @Override
+    public Map<String, String> getAttributes() {
+        return attributes;
+    }
+
+    public List<String> getColumns() {
+        return columns;
+    }
+
     public String columnIterator(){
         String output = "";
-        for(String s:columns){
+        for(String s:getColumns()){
             output += "<col " +s + " >\n";
         }
         return output;
@@ -38,9 +55,7 @@ public class ColGroup extends ContainerElement{
         private Map<String, String> attributes;
         private List<String> columns;
 
-        public Builder(int span, String style){
-            this.span = span;
-            this.style = style;
+        public Builder(){
         }
         // Span only and Style (CSS)
         public Builder addColumn(int span, String style){

@@ -6,14 +6,22 @@ public class Paragraph extends ContainerElement {
     private String text;
 
     // Constructors
-    public Paragraph(Builder builder){
+    private Paragraph(Builder builder){
         this.text = builder.text;
     }
-    public Paragraph(String... text){}
+
 
     // Methods
     public void addText(String... text){}
 
+    public String getText() {
+        return text;
+    }
+
+    @Override
+    public String toString(){
+        return "<p>"+text+"</p>";
+    }
     public static class Builder implements IBuilder{
         private String text;
 

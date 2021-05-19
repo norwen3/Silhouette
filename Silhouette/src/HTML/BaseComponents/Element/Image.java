@@ -11,17 +11,42 @@ public class Image extends EmptyElement  {
     private String height;
     private String src;
     private Map<String, String> attributes;
-    private String alt;
+    private String alt, style;
     // Constructor
-    public Image(Builder builder){
+    private Image(Builder builder){
         this.width = builder.width;
         this.height = builder.height;
         this.src = builder.src;
         this.attributes = builder.attributes;
+        this.alt = builder.alt;
+        this.style = builder.style;
     }
 
+    public String getWidth() {
+        return width;
+    }
 
+    public String getHeight() {
+        return height;
+    }
 
+    public String getSrc() {
+        return src;
+    }
+
+    public Map<String, String> getAttributes() {
+        return attributes;
+    }
+
+    public String getAlt() {
+        return alt;
+    }
+
+    @Override
+    public String toString(){
+        return "<img src=\""+this.src + "\" alt=\"" + this.alt + "\" width=\""+this.width
+                + "\" height=\""+this.height+ "\" >";
+    }
 
     public static class Builder implements IBuilder, IDimensions {
         private String width,height,src,alt,style;
