@@ -23,7 +23,7 @@ public abstract class StyleSheetCompiler {
                 fileName = fileName.concat(".css");
             }
 
-            if (!outputFolder.endsWith("/")) {
+            if (!outputFolder.endsWith("/") && outputFolder.length() > 0) {
                 outputFolder = outputFolder.concat("/");
             }
 

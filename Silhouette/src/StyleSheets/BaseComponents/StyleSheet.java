@@ -90,7 +90,7 @@ public class StyleSheet {
         /**
          * @see StyleSheet#outputFolder
          */
-        private String outputFolder;
+        private String outputFolder = "";
         /**
          * @see StyleSheet#rawCSS
          */
@@ -99,6 +99,14 @@ public class StyleSheet {
          * @see StyleSheet#statements
          */
         private ArrayList<Statement> statements = new ArrayList<>();
+
+        /**
+         * Constructor for stylesheet builder.
+         * @param fileName the file name
+         */
+        public Builder(final String fileName) {
+            this.fileName = fileName;
+        }
 
         /**
          * Constructor for stylesheet builder.
