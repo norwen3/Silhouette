@@ -13,6 +13,7 @@ public class Table extends ContainerElement{
         this.column = builder.column;
         this.caption = builder.caption;
         this.colGroup = builder.colGroup;
+        this.tableArray = builder.tableArray;
 
     }
 
