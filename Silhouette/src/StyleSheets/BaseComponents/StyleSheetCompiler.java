@@ -23,12 +23,14 @@ public abstract class StyleSheetCompiler {
                 fileName = fileName.concat(".css");
             }
 
-            if (!outputFolder.endsWith("/")) {
+            if (!outputFolder.endsWith("/") && outputFolder.length() > 0) {
                 outputFolder = outputFolder.concat("/");
             }
 
             File file = new File( outputFolder + fileName);
-            file.getParentFile().mkdirs();
+            if (file.getParentFile() != null) {
+                file.getParentFile().mkdirs();
+            }
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             writer.write(css.toString());
             writer.close();
