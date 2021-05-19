@@ -23,28 +23,39 @@ public class Container extends ContainerElement {
         this.attributes = builder.attributes;
     }
 
+    public List<Element> getElementList() {
+        return elementList;
+    }
+
+    @Override
+    public Map<String, String> getAttributes() {
+        return attributes;
+    }
 
     public String getType() {
         return type;
     }
 
     public String elementListToString(List<Element> elementList){
-        if(elementList.isEmpty()){
-            return null;
+        String content = "";
+
+        for(Element e: elementList) {
+            content += e.toString() +"\n";
         }
-        for(Element e: elementList){e.toString();}
-        return elementListToString(elementList);
+        return content;
     }
 
     @Override
     public String toString(){
-        return "<"+type+">" + elementListToString(elementList) + "</"+type+">";
+        return "<"+this.type+">\n" + elementListToString(this.elementList)
+                + "</"+this.type+">";
     }
 
     public static class Builder implements IBuilder {
         private String type;
         private List<Element> elementList;
         private Map<String,String> attributes;
+        private String Class;
 
         public Builder(){
             this.type = "div";
@@ -63,10 +74,7 @@ public class Container extends ContainerElement {
             return this;
         }
 
-        public Builder addElement(Element element){
-            this.elementList.add(element);
-            return this;
-        }
+
 
         /**
          *

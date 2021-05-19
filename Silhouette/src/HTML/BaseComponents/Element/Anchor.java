@@ -21,14 +21,16 @@ public class Anchor extends ContainerElement {
         return url;
     }
 
+
     private Anchor(Builder builder){
         this.text = builder.text;
         this.url = builder.url;
+        this.attributes = builder.attributes;
     }
 
     @Override
     public String toString(){
-        return "<a href=\"" + this.url + "\">" +this.text + "<\\a>";
+        return "<a href=\"" + this.url + "\">" +this.text + "</a>";
     }
 
     public static class Builder implements IBuilder {

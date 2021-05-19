@@ -19,9 +19,7 @@ public class Input extends Element{
         return type;
     }
 
-    public String getId() {
-        return id;
-    }
+
 
     public String getName() {
         return name;

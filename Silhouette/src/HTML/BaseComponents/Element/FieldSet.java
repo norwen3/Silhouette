@@ -21,6 +21,22 @@ public class FieldSet extends ContainerElement {
         this.content = builder.content;
     }
 
+    public List<Input> getInputList() {
+        return inputList;
+    }
+
+    public String getLegend() {
+        return legend;
+    }
+
+    public Map<String, String> getAttributes() {
+        return attributes;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
     public void addTextArea(ContainerElement element, Map<String, String> attributes, String content){}
 
     @Override
