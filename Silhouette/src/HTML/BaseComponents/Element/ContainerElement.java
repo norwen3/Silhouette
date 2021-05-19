@@ -2,8 +2,15 @@ package HTML.BaseComponents.Element;
 
 import java.util.List;
 
-// Class that represents all elements that contain something
+//
 // Previously known as (OpenClosed)
+
+/**
+ * Abstract class that represents all elements that contain something
+ * Elements with opening and closing tags
+ * E.g. <body></body>
+ * Class is not properly implemented due to time constraints
+ */
 public abstract class ContainerElement extends Element {
     private List<Element> elementList;
 

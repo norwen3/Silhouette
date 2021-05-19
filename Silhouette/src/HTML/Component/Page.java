@@ -4,10 +4,10 @@ import HTML.BaseComponents.Element.*;
 import HTML.BaseComponents.HTML;
 import HTML.BaseComponents.ILowLevel.IBuilder;
 
-import java.io.IOException;
-
-// Should be very simple, only declare stuff like Title and page index
-//This might take over for director
+/**
+ * Should be very simple, only declare stuff like Title and page index
+ * This class works currently as a director
+ */
 public class Page {
 
     private static HTML.Builder builder;
@@ -17,16 +17,35 @@ public class Page {
         this.builder = builder;
     }
 
+    /**
+     * Builds a pre-made article-page HTML object that is mutable
+     * Make your changes and use .initialize() method to write to file
+     * @return
+     */
     public HTML articlePageBuild(){
         return innerArticlePage().build();
     }
+
+    /**
+     * Creates a pre-made article-page and writes it to file
+     * File-name is "article.html" and will appear in your src-folder
+     */
     public void articlePage(){
         articlePageBuild().initialize("article");
     }
 
+    /**
+     * Creates a pre-made basic-page and writes it to file
+     * File-name is "index.html" and will appear in your src-folder
+     */
     public void basicPage() {
         basicBuild().initialize("index");
     }
+
+    /**
+     * inner private method that returns an HTML-builder
+     * @return
+     */
     private HTML.Builder basicPageInner(){
 
 
@@ -35,7 +54,7 @@ public class Page {
                 .build();
         link1.addAttribute("class", "homelink");
 
-        return builder.append(new Container.Builder()
+        return builder.addElements(new Container.Builder()
                 .setType("body")
                 .addElements(new Container.Builder()
                                 .setType("header")
@@ -70,11 +89,20 @@ public class Page {
                 .setTitle("Main Page")
                 ;
     }
+
+    /**
+     * Builds a mutable HTML object
+     * Make your changes and use .initialize() method to write to file
+     * @return
+     */
     public HTML basicBuild(){
         return basicPageInner().build();
     }
 
-
+    /**
+     * Inner private method that returns HTML-builder for an article page
+     * @return
+     */
     private HTML.Builder innerArticlePage(){
         Container.Builder body= new Container.Builder().setType("body");
         Container.Builder main = new Container.Builder().setType("main");
@@ -86,12 +114,12 @@ public class Page {
 
 
         return builder.setTitle("Article")
-                .append(body.addElements(
+                .addElements(body.addElements(
                 header.addElements(nav.build())
                         .build(),
                         main.addElements(aside.build(),article.build())
                                 .build(),footer.build())
-                        .build());
+                        .build()).setLinkType("stylesheet","styles.css","text/css");
 
     }
 }
