@@ -5,10 +5,7 @@ import HTML.BaseComponents.Element.Element;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * This class represents an HTML-file
@@ -100,6 +97,16 @@ public class HTML {
 
     }
 
+    private String linkIterator(){
+        Iterator<Map.Entry<String, String>> temp = links.entrySet().iterator();
+        String linkContent = "";
+        while(temp.hasNext()){
+            Map.Entry<String, String> pair = temp.next();
+            linkContent += pair.getKey() + " " + pair.getValue();
+        }
+        return linkContent;
+    }
+
     /**
      * Writes the HTML object to file
      * @param fileName
@@ -122,7 +129,7 @@ public class HTML {
         return "<!DOCTYPE html><html>\n" +
                 "<head>\n" + this.title + this.metaName + this.metaContent + this.metaProperty+
                 this.metaPropertyContent + this.http_equiv + this.metaHttpContent + this.charset + this.metaHtml
-                +"</head>\n"
+                +linkIterator()+"</head>\n"
                 +elementIterator() + "\n</html>";
     }
 
