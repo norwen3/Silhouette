@@ -17,7 +17,14 @@ public class Page {
         this.builder = builder;
     }
 
-    public void basicPage() throws IOException {
+    public HTML articlePageBuild(){
+        return innerArticlePage().build();
+    }
+    public void articlePage(){
+        articlePageBuild().initialize("article");
+    }
+
+    public void basicPage() {
         basicBuild().initialize("index");
     }
     private HTML.Builder basicPageInner(){
@@ -64,8 +71,7 @@ public class Page {
                 ;
     }
     public HTML basicBuild(){
-        HTML.Builder temp =  basicPageInner();
-        return temp.build();
+        return basicPageInner().build();
     }
 
 

@@ -86,11 +86,17 @@ public class HTML {
             }
 
     }
-    public void initialize(String fileName) throws IOException {
+    public void initialize(String fileName) {
         // Initializes the html generation
-        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName+".html"));
-        writer.write(this.toString());
-        writer.close();
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName+".html"));
+            writer.write(this.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
