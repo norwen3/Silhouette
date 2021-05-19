@@ -12,6 +12,7 @@ public class Table extends ContainerElement{
         this.row = builder.row;
         this.column = builder.column;
         this.caption = builder.caption;
+        this.colGroup = builder.colGroup;
 
     }
 
@@ -59,11 +60,17 @@ public class Table extends ContainerElement{
             this.row = row;
             this.column = column;
             this.caption = "";
-            this.colGroup = null;
+            this.colGroup = new ColGroup.Builder().build();
             this.tableArray = new String[row][column];
         }
 
-        // row x column
+        /**
+         * row x column
+         * Sets the size of the table
+         * @param row
+         * @param column
+         * @return
+         */
         public Builder setSize(int row, int column){
             this.row = row;
             this.column = column;
@@ -72,17 +79,32 @@ public class Table extends ContainerElement{
         }
 
 
+        /**
+         * Sets the caption on the table
+         * @param caption
+         * @return
+         */
         public Builder setCaption(String caption){
             this.caption = caption;
             return this;
         }
 
+        /**
+         * Sets the colgroup that is used by the table
+         * @param colgroup
+         * @return
+         */
         public Builder setColgroup(ColGroup colgroup){
             this.colGroup = colgroup;
             return this;
         }
 
-
+        /**
+         * Sets one or more on headers a specified row
+         * @param row
+         * @param text
+         * @return
+         */
         public Builder insertHeaders(int row, String... text){
             int count = 0;
             this.tableArray[row][0] = "<thead>\n<tr>\n";
@@ -101,7 +123,12 @@ public class Table extends ContainerElement{
             return this;
         }
 
-
+        /**
+         * Sets one or more HTML-elements as headers in a specified row
+         * @param row
+         * @param elements
+         * @return
+         */
         public Builder insertHeaders(int row, Element... elements){
             int count = 0;
             this.tableArray[row][0] = "<thead>\n<tr>\n";
@@ -120,6 +147,12 @@ public class Table extends ContainerElement{
             return this;
         }
 
+        /**
+         * Insert one or more strings at specified row
+         * @param row
+         * @param text
+         * @return
+         */
         public Builder insert(int row, String... text){
             int count = 0;
             this.tableArray[row][0] = "<tbody>\n <tr>\n";
@@ -138,6 +171,13 @@ public class Table extends ContainerElement{
             }
             return this;
         }
+
+        /**
+         * Insert one or more HTML-element at specified row
+         * @param row
+         * @param elements
+         * @return
+         */
         public Builder insert(int row, Element... elements){
             int count = 0;
             this.tableArray[row][0] = "<tbody>\n <tr>\n";
@@ -157,7 +197,13 @@ public class Table extends ContainerElement{
             return this;
         }
 
-
+        /**
+         * Insert text at specified location in table
+         * @param row
+         * @param column
+         * @param text
+         * @return
+         */
         private Builder insertValue(int row, int column, String text){
             // <tbody>
             //    <tr><td>January</td></tr>
@@ -171,6 +217,14 @@ public class Table extends ContainerElement{
             }
             return this;
         }
+
+        /**
+         * Insert element at specified location in table
+         * @param row
+         * @param column
+         * @param element
+         * @return
+         */
         private Builder insertValue(int row, int column, Element element){
             // <tbody>
             //    <tr><td>January</td></tr>
@@ -186,6 +240,12 @@ public class Table extends ContainerElement{
             return this;
         }
 
+        /**
+         * Sets a footer with one or more strings at specified row
+         * @param row
+         * @param text
+         * @return
+         */
         public Builder insertFoot(int row, String... text){
             // <tfoot>
             //    <tr><td>January</td></tr>
@@ -209,6 +269,12 @@ public class Table extends ContainerElement{
             return this;
         }
 
+        /**
+         * Sets footer with one or more elements at specified row
+         * @param row
+         * @param elements
+         * @return
+         */
         public Builder insertFoot(int row, Element... elements){
             int count = 0;
             this.tableArray[row][0] = "<tfoot>\n<tr>\n";
@@ -230,7 +296,10 @@ public class Table extends ContainerElement{
         }
 
 
-
+        /**
+         * Creates a Table-object
+         * @return
+         */
         @Override
         public Table build() {
             Table t = new Table(this);
