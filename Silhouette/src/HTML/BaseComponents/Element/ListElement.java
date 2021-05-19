@@ -5,10 +5,20 @@ import HTML.BaseComponents.ILowLevel.IBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class represents List-tags
+ * <li></li>, <ul></ul>
+ */
 public class ListElement extends ContainerElement {
 
     private List<String> items;
     private Boolean isOrdered;
+
+
+    /**
+     * Constructor used by Builder
+     * @param builder
+     */
 
     private ListElement(Builder builder) {
         this.items = builder.items;
@@ -42,6 +52,10 @@ public class ListElement extends ContainerElement {
         return s;
     }
 
+    /**
+     * Builder class for ListElement
+     * Returns a new li or ul tag
+     */
     public static class Builder implements IBuilder{
         private List<String> items;
         private Boolean isOrdered;
@@ -52,6 +66,12 @@ public class ListElement extends ContainerElement {
         }
 
         //adds listItem to ListElement
+
+        /**
+         * takes one or more items to add to list
+         * @param item
+         * @return
+         */
         public Builder addItems(String... item){
             for(String s : item){
                 this.items.add(s);
@@ -60,6 +80,11 @@ public class ListElement extends ContainerElement {
         }
 
 
+        /**
+         * adds HTML-elements to a list
+         * @param elements
+         * @return
+         */
         public Builder addElements(Element... elements){
             for(Element e: elements){
                 this.items.add(e.toString());
@@ -68,6 +93,10 @@ public class ListElement extends ContainerElement {
         }
 
 
+        /**
+         * Returns a list-element
+         * @return
+         */
         @Override
         public ListElement build() {
             ListElement le = new ListElement(this);

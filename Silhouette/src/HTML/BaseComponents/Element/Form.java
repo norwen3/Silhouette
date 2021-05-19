@@ -2,10 +2,19 @@ package HTML.BaseComponents.Element;
 
 import HTML.BaseComponents.ILowLevel.IBuilder;
 
+/**
+ * This class represents a form-tag
+ */
 public class Form extends ContainerElement {
     private FieldSet fieldSet;
     private String method;
     private String action;
+
+
+    /**
+     * Constructor used by builder
+     * @param builder
+     */
 
     private Form(Builder builder){
 
@@ -32,12 +41,20 @@ public class Form extends ContainerElement {
         return "<form action=\""+action + "\">\n" + fieldSet + "\n</form";
     }
 
+    /**
+     * Builder class for Form
+     * Outputs Form-element
+     */
     public static class Builder implements IBuilder {
         private FieldSet fieldSet;
         private String method;
         private String action;
 
-        public Builder(){}
+        public Builder(){
+            this.fieldSet = null;
+            this.method="";
+            this.action="";
+        }
 
         /**
          *
@@ -49,11 +66,8 @@ public class Form extends ContainerElement {
             return this;
         }
 
-
-        //sets get or post
-
         /**
-         *
+         * sets get or post for Form
          * @param method
          * @return
          */
@@ -64,10 +78,9 @@ public class Form extends ContainerElement {
             return this;
         }
 
-        //sets action URL for form
 
         /**
-         *
+         * sets action URL for form
          * @param action
          * @return
          */
@@ -78,7 +91,7 @@ public class Form extends ContainerElement {
 
 
         /**
-         *
+         * Returns a Form-object
          * @return
          */
         @Override

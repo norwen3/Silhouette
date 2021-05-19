@@ -2,9 +2,14 @@ package HTML.BaseComponents.Element;
 
 import HTML.BaseComponents.ILowLevel.IBuilder;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Defines a new ColGroup Element
+ */
 public class ColGroup extends ContainerElement{
 
     private int span;
@@ -48,23 +53,44 @@ public class ColGroup extends ContainerElement{
         return "<colgroup>\n" + columnIterator() + "</colgroup>";
     }
 
-
+    /**
+     * Builder class for ColGroup
+     * Returns a colgroup element with its columns
+     */
     public static class Builder implements IBuilder{
         private int span;
         private String style;
         private Map<String, String> attributes;
         private List<String> columns;
 
-        public Builder(){
-        }
-        // Span only and Style (CSS)
+
+
+
+        /**
+         * The area that the colgroup applies to
+         * @param span
+         * The style that applies to this colgroup
+         * @param style
+         * @return
+         */
         public Builder addColumn(int span, String style){
+            this.span = span;
+            this.style = style;
+            this.attributes = new HashMap<>();
+            this.columns = new ArrayList<>();
+
             String s = "span=\""+span+"\" style=\"" + style + "\"";
             this.columns.add(s);
             return this;
         }
 
         // Style (CSS)
+
+        /**
+         * Add more styles to the colgroup
+         * @param styles
+         * @return
+         */
         public Builder addColumns(String... styles){
             for(String s : styles){
                 this.columns.add(s);
@@ -72,6 +98,10 @@ public class ColGroup extends ContainerElement{
             return this;
         }
 
+        /**
+         * Returns the colgroup-element
+         * @return
+         */
         @Override
         public ColGroup build() {
             ColGroup cg = new ColGroup(this);

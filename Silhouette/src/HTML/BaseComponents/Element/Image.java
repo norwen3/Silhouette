@@ -6,13 +6,23 @@ import HTML.BaseComponents.ILowLevel.IDimensions;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Represents an img-tag
+ * <img/>
+ */
 public class Image extends EmptyElement  {
     private String width;
     private String height;
     private String src;
     private Map<String, String> attributes;
     private String alt, style;
-    // Constructor
+
+
+    /**
+     * Constructor used by Builder
+     * @param builder
+     */
+
     private Image(Builder builder){
         this.width = builder.width;
         this.height = builder.height;
@@ -20,6 +30,7 @@ public class Image extends EmptyElement  {
         this.attributes = builder.attributes;
         this.alt = builder.alt;
         this.style = builder.style;
+
     }
 
     public String getWidth() {
@@ -38,6 +49,7 @@ public class Image extends EmptyElement  {
         return attributes;
     }
 
+
     public String getAlt() {
         return alt;
     }
@@ -54,6 +66,10 @@ public class Image extends EmptyElement  {
         private Map<String,String> attributes;
 
 
+        /**
+         * Creates a basic image with auto width style and 100 width/height
+         * no source set
+         */
         public Builder(){
             this.width = "100";
             this.height= "100";
@@ -63,16 +79,31 @@ public class Image extends EmptyElement  {
             this.style = "\"width:auto;\"";
         }
 
+        /**
+         * Sets css-styling directly on tag
+         * @param style
+         * @return
+         */
         public Builder setStyle(String style){
             this.style = style;
             return this;
         }
 
+        /**
+         * Sets alt text for image
+         * @param alt
+         * @return
+         */
         public Builder setAltText(String alt){
             this.alt=alt;
             return this;
         }
 
+        /**
+         * Sets the width of the image
+         * @param width
+         * @return
+         */
         @Override
         public Builder setWidth(String width) {
             this.width = width;
@@ -80,12 +111,21 @@ public class Image extends EmptyElement  {
         }
 
 
+        /**
+         * Sets the height of the image
+         * @param height
+         * @return
+         */
         @Override
         public Builder setHeight(String height) {
             this.height = height;
             return this;
         }
 
+        /**
+         * Creates the Image-object
+         * @return
+         */
         @Override
         public Image build() {
             Image img = new Image(this);
