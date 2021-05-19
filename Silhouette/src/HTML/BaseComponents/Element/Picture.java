@@ -19,10 +19,12 @@ public class Picture extends ContainerElement{
     private List<Image> images;
     private Map<String,String> source;
 
+
     /**
      * Constructor used by Builder
      * @param builder
      */
+
     private Picture(Builder builder){
         this.images = builder.images;
         this.source = builder.source;

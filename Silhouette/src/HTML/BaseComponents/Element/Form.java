@@ -10,10 +10,12 @@ public class Form extends ContainerElement {
     private String method;
     private String action;
 
+
     /**
      * Constructor used by builder
      * @param builder
      */
+
     private Form(Builder builder){
 
         this.fieldSet = builder.fieldSet;

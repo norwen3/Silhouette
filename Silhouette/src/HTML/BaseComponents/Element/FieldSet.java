@@ -21,6 +21,7 @@ public class FieldSet extends ContainerElement {
      * Constructor used by Builder class
      * @param builder
      */
+
     private FieldSet(Builder builder){
         this.inputList = builder.inputList;
         this.legend = builder.legend;
@@ -44,6 +45,7 @@ public class FieldSet extends ContainerElement {
         return content;
     }
 
+
     /**
      * Not yet implemented
      * @param element
@@ -51,6 +53,7 @@ public class FieldSet extends ContainerElement {
      * @param content
      * Should add an area with text to a field-set
      */
+
     public void addTextArea(ContainerElement element, Map<String, String> attributes, String content){}
 
     @Override

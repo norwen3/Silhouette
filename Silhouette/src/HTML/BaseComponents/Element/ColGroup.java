@@ -65,6 +65,7 @@ public class ColGroup extends ContainerElement{
 
 
 
+
         /**
          * The area that the colgroup applies to
          * @param span
@@ -77,6 +78,7 @@ public class ColGroup extends ContainerElement{
             this.style = style;
             this.attributes = new HashMap<>();
             this.columns = new ArrayList<>();
+
             String s = "span=\""+span+"\" style=\"" + style + "\"";
             this.columns.add(s);
             return this;
