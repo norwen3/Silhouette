@@ -14,6 +14,11 @@ public class StyleSheet {
      */
     private final String fileName;
     /**
+     * The folder where the stylesheet will be saved.
+     * The default location is "WebFiles/"
+     */
+    private final String outputFolder;
+    /**
      * Raw CSS that in String format that will be applied to the CSS file.
      */
     private final String rawCSS;
@@ -28,6 +33,7 @@ public class StyleSheet {
      */
     private StyleSheet(Builder builder) {
         fileName = builder.fileName;
+        outputFolder = builder.outputFolder;
         statements = builder.statements;
         rawCSS = builder.rawCSS;
     }
@@ -45,6 +51,14 @@ public class StyleSheet {
      */
     public String getFileName() {
         return fileName;
+    }
+
+    /**
+     * Gets the output folder of the stylesheet.
+     * @return String
+     */
+    public String getOutputFolder() {
+        return outputFolder;
     }
 
     /**
@@ -74,6 +88,10 @@ public class StyleSheet {
          */
         private String fileName;
         /**
+         * @see StyleSheet#outputFolder
+         */
+        private String outputFolder;
+        /**
          * @see StyleSheet#rawCSS
          */
         private String rawCSS = "";
@@ -85,9 +103,11 @@ public class StyleSheet {
         /**
          * Constructor for stylesheet builder.
          * @param fileName the file name
+         * @param outputFolder the output folder
          */
-        public Builder(final String fileName) {
+        public Builder(final String fileName, final String outputFolder) {
             this.fileName = fileName;
+            this.outputFolder = outputFolder;
         }
 
         /**
