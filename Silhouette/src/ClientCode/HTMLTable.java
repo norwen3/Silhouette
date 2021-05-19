@@ -16,7 +16,7 @@ public class HTMLTable {
                 .build();
 
         HTML myPage = new HTML.Builder()
-                .append(myTable)
+                .addElements(myTable)
                 .build();
 
         myPage.initialize("index");

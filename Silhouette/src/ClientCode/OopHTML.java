@@ -17,7 +17,7 @@ public class OopHTML {
         Container article = articleBuilder.build();
 
         HTML builder = new HTML.Builder()
-                .append(article)
+                .addElements(article)
                 .build();
 
         builder.initialize("index.html");
