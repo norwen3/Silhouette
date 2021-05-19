@@ -1,6 +1,7 @@
 package StyleSheets.BaseComponents;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -14,8 +15,21 @@ public abstract class StyleSheetCompiler {
         compileCSS(css, styleSheet);
 
         try {
-            // Initializes the html generation
-            BufferedWriter writer = new BufferedWriter(new FileWriter(styleSheet.getFileName() + ".css"));
+            // Initializes the css generation
+            String fileName = styleSheet.getFileName();
+            String outputFolder = styleSheet.getOutputFolder();
+
+            if (!fileName.contains(".css")) {
+                fileName = fileName.concat(".css");
+            }
+
+            if (!outputFolder.endsWith("/")) {
+                outputFolder = outputFolder.concat("/");
+            }
+
+            File file = new File( outputFolder + fileName);
+            file.getParentFile().mkdirs();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             writer.write(css.toString());
             writer.close();
         } catch(IOException e) {

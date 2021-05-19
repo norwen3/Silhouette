@@ -1,4 +1,8 @@
-Silhouette/bruh.css
+Silhouette/*.css
+Silhouette/WebFiles
+Silhouette/WebFiles/*.css
+Silhouette/src/WebFiles
+Silhouette/src/WebFiles/*.css
 Silhouette/src/Testing.java
 
 .idea/workspace.xml
