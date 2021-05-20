@@ -3,6 +3,7 @@ package HTML.BaseComponents;
 import HTML.BaseComponents.Element.Element;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
@@ -112,12 +113,15 @@ public class HTML {
     }
 
     /**
-     * Writes the HTML object to file
+     * Writes the HTML object to file in specified folder
      * @param fileName
+     * @param outputFolder
      */
-    public void initialize(String fileName) {
+    public void initialize(String fileName, String outputFolder) {
         // Initializes the html generation
 
+        File file = new File( outputFolder + fileName);
+        file.getParentFile().mkdirs();
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName+".html"));
             writer.write(this.toString());
