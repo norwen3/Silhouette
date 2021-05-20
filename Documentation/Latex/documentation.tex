@@ -46,7 +46,7 @@ In addition to all this, the user will have access to all the OOP benefits that 
     \subsection{Delegation of Work}
     Mats Engelien - Java (HTMl) and Documentation\\
     Lars Erik Faber - Java (CSS) and Documentation\\
-    Håkon Marthinsen - Documentation
+    Håkon Marthinsen - Documentation and User testing
 
 \section{Background}
 TODO: Include some client-code here
@@ -119,15 +119,15 @@ You should describe how you have worked, not what you produced, in this section.
         
     After some time we knew what we wanted the code ot looke like and how to simplify it more, and that is when we started to use "Builder pattern" instead of the heavy object coding we had previously. This made it more readable for the eyes and work with.
 
-        \subsubsection{Description of setup}
+        \subsubsection{Description of setup (Silhouette-HTML v.2)}
         We sent a jar file containing the framework to group and started with some simple instructions. Firstly, they needed to start a new project and add our framework/library to their project from the project structure menu. Once this was done, they were ready to start coding inside the main method.
         
         At first, we let them figure out the process themselves, but once they met issues and got stuck, we gave explanations to what each code block represented and guided them through the process. The next section will cover the resulting code and feedback from our testing.
 
-        \subsubsection{Frist user testing session}
+        \subsubsection{Frist user testing session (Silhouette-HTML v.2)}
         Right after they had tested our framework and completed the setup, we asked them to give their initial reaction and opinion. They said, “It was pretty good once we got the hang of the class names” which was a relief to hear. It seemed to us that they found the APIs to be intuitive, as they quickly grew familiar with the main classes. We then followed up with a few questions regarding their experience, and they told us they could easily expand further on their website with enough practice.
 
-        \subsubsection{Second user testing session}
+        \subsubsection{Second user testing session (Silhouette-HTML v.2)}
         This user testing toke more time that what was needed, if it wasn’t for an error from our side in the code structure. When we found out what the error was and the confusion was over, it was back to the user testing, but the person that was testing the program was stuck and didn’t understand how to start and/or what to write (defining the html-object). After some time we gave the user a push in the right and the user started to type/write like nature to them or as the hade used our framework before.
 
         Feedback from the user:
@@ -137,15 +137,14 @@ You should describe how you have worked, not what you produced, in this section.
             \item Quite object-heavy which can be demanding in regards to user friendliness, and requires you to instantiate things often. On the other hand the general structure could provide a lot of flexibility once mastered as well.
         \end{itemize}
 
-        \subsubsection{Third user testing session}
+        \subsubsection{Third user testing session (Silhouette-HTML v.2)}
         In this user testing the tester was tested in a different way, where the tester received minimal help and mostly think and some fiddling on their own. This user has a higher understating when it comes to code structure and language.\\ The user managed the first part of the task easily (due to the naming of classes and method names) but began to strive on the second task. Now the user was supposed to create a new object called "Container", but started working on the method calls instead (because it seemed most natural to them) and had to ask for help and then came the next problem... what are Builders.\\ After some explanation it came naturally and the rest of the second task was then over. Now the user was on their owe, with a little hint here and there. The user could see the logic but felt that it lacked a flow in the structure and believed that getting in to "Silhouette" as a new user is not easy without a manual or help from someone.
         
-        \subsubsection{Fourth user testing session}
+        \subsubsection{Fourth user testing session (Silhouette-HTML v.3)}
         Fourth testing was done in a group context, where one of them wrote and the others watched and tried to understand "Silhouette". I also had to describe how Builders works. 
         It started the same with this group as it was done with the other user testing section, but since it was one user that was looking through the library and was reading the methods that had a similar name as in HTML, one tester got an idea what to write and they managed to complete this task. And they applied the same tactic to the next tasks, and they managed the whole user testing with a few hints. 
 
-
-        \subsubsection{Fifth user testing session}
+        \subsubsection{Fifth user testing session (Silhouette-HTML v.3)}
         The fifth test was carried out by a student with a good knowledge of java and HTML, who wanted to learn the framework (“Silhouette”) from top to bottom. The user spent 1 hour and 30 min doing the task (without help) and gained insight into how "Silhouette" HTML.BaseComponents.* (file) worked. This user was more interested in the "Silhouette" library and gave some feedback about the structure is easy to understand, but there was a lack of comment on what the methods do/did, etc. and that the end result might affect a user “Silhouette’s code” and meant that “it’s too hard-coded” when a user is done with it.
 
 
@@ -273,7 +272,7 @@ You should describe how you have worked, not what you produced, in this section.
 
         \paragraph{Scenario 5}
         Make a Container of type header and give it a navigation bar with links to all pages previously created. Make the navigation bar into a CSS flexbox so that all anchors be laid horizontally and justify the content to be "space-around".
-
+        
         \begin{shaded}
             Scenario 5 - Proposed Solution
             \begin{lstlisting}
@@ -295,20 +294,142 @@ You should describe how you have worked, not what you produced, in this section.
         \paragraph{Scenario 6}
         Make a simple article page about yourself. Write your name in a level 2 heading at the top of the article, then add an unordered list containing containing key points about you. Lastly, add your email in bold text below the text.
 
+        \begin{shaded}
+            Scenario 6 - Proposed Solution (Silhouette-HTML v.2)
+            \begin{lstlisting}
+            Container body = new Container.Builder()
+                .setType("body")
+                .build();
+
+            Container main = new Container.Builder()
+                .setType("main")
+                .build();
+
+            Container artical = new Container.Builder()
+                .setType("artical")
+                .build();
+
+            Heading h2 = new Heading.Builder(2, "Lisa Osteraas").build();
+                                        
+            ListElement unorder = new ListElement(, false);
+            unorder.addListItem("First Name : Lisa");
+            unorder.addListItem("Last Name : Osteraas");
+            unorder.addListItem("Age : 27");
+            unorder.addListItem(Format.bold("Lisa123mail@mail.com"));
+
+            body.addElement(main);
+            main.addElement(artical);
+            artical.addElement(h2);
+            artical.addElement(unorder);
+            \end{lstlisting}
+        \end{shaded}
+
         \paragraph{Scenario 7}
         Display a local video on your website and make sure that it supports at least three different file formats.
+
+        \begin{shaded}
+            Scenario 7 - Proposed Solution (Silhouette-HTML v.2)
+            \begin{lstlisting}
+            Container body = new Container.Builder()
+            .setType("body")
+            .build();
+
+            Video myVideo = new Video();
+            myVideo.setHeight("200");
+            myVideo.setWidth("400");
+            myVideo.addSource("movie.mp4", "video/mp4");
+            myVideo.addSource("movie.ogg", "video/ogg");
+            myVideo.addSource("movie.webm", "video/webm");
+
+            myPage.append(body);
+            \end{lstlisting}
+        \end{shaded}
 
         \paragraph{Scenario 8}
         Make a questionnaire consisting of two questions. Make it so the first question has two possibilities and one correct answer, and so the second question has three possibilities with multiple correct answers. (Radio and Checkbox)
 
+        \begin{shaded}
+            Scenario 8 - Proposed Solution (Silhouette-HTML v.3)
+            \begin{lstlisting}
+            Container div = new Container.Builder()
+            .addElements(new Input.Builder()
+                    .setType("radio")
+                    .setId("male")
+                    .setName("Gender")
+                    .build())
+            .addElements(new Container.Builder()
+                    .setType("label")
+                    .build().addParagraph("Male"))
+            .addElements(new Input.Builder()
+                    .setType("radio")
+                    .setId("female")
+                    .setName("Gender")
+                    .build())
+            .addElements(new Container.Builder()
+                    .setType("label")
+                    .build().addParagraph("Female"))
+            .build();
+            \end{lstlisting}
+        \end{shaded}
+
         \paragraph{Scenario 9}
         Remove underline for all anchors inside nav Containers and change the text color to red on mouse hover for each anchor.
+
+        \begin{shaded}
+            Scenario 9 - Proposed Solution (Silhouette-CSS v.2)
+            \begin{lstlisting}
+            StyleSheet css = new StyleSheet("style");
+            RuleSet a = new RuleSet();
+            a
+                .setSelector("a")
+                .addRule("text-decoration", "noen");
+    
+            RuleSet aHover = new RuleSet();
+            aHover
+                    .setSelector("a:Hover")
+                    .addRule("color", "red");
+            \end{lstlisting}
+        \end{shaded}
             
         \paragraph{Scenario 10}
         Give the header a fixed gradient background from blue to red (right).
 
+        \begin{shaded}
+        Scenario 10 - Proposed Solution (Silhouette-CSS v.2)
+            \begin{lstlisting}
+            StyleSheet css = new StyleSheet("style");
+
+            RuleSet header = new RuleSet();
+            header.addRule("background-image",
+                        "linear-gradient(to right, blue, red)");
+            \end{lstlisting}
+        \end{shaded}
+
         \paragraph{Scenario 11}
         Define a grid that serves as a page layout, and give it three columns and one row with equally distributed length. Make sure to wrap them under each other once the screen is narrower than 1000px, such that there are one column and three rows.
+
+        \begin{shaded}
+            Scenario 11 - Proposed Solution (Silhouette-CSS v.3)
+            \begin{lstlisting}
+                Grid grid = new Grid.Builder("main")
+                .addRule(Property.GRID_TEMPLATE_COLUMNS, "1fr 1fr 1fr")
+                .addRule(Property.GRID_TEMPLATE_ROWS, "100%")
+                .build();
+
+            AtRule newRule = new AtRule.Builder(AtRuleType.MEDIA, "(min-width: 1000px)")
+                .addRuleSet(new Grid.Builder("main")
+                        .addRule(Property.GRID_TEMPLATE_COLUMNS, "100%")
+                        .addRule(Property.GRID_TEMPLATE_ROWS, "100px 100px 100px")
+                    .build())
+                .build();
+
+            StyleSheet css = new StyleSheet.Builder("SC11","css")
+                .applyStyle(grid).applyStyle(newRule)
+                .build();
+
+            css.initialize();
+            \end{lstlisting}
+        \end{shaded}
 
     \subsection{User Testing}
 
