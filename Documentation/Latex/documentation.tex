@@ -36,17 +36,15 @@ An article titled "The Problem with HTML" by Dr. Maxime Chevalier-Boisvert argue
 
 With the Silhouette framework, it keeps function areas more organized by clearly distinguishing between markup and styling through different APIs. It tries to promote best practices, such as not using in-line styling, by making these processes easier, and hiding away the bad practices. In addition, the methods will make sure to correct minor mistakes to prevent nasty surprises. Silhouette also implements solutions for tags that are less supported among browsers. 
 
-In addition to all this, the user will have access to all the OOP benefits that lets anyone have more control, automate, and format the code after any given standard. We think this alone is a good enough reason to work with markup in OOP. This also means that if the code is not valid, it will simply not compile, and the compiler will inform of the problem.
-
-So to sum it up short, Silhouette acts like a gateway to make websites with OOP, while imposing best practices and removing the caveats found in standard HTML. It should make the overall process more enjoyable and creative, rather than a chore. People also don't need prior knowledge of HTML and CSS to be able to make websites through Silhouette.
-
-\subsection{Group Description}
+    \subsection{Group Description}
+    The plan is to make a html-structure in Java by using object-oriented code structure.\\
+    In the first phase we were working together all the time. We collected as much information that we could find, about html and css. And after some working sessions we had a 1 to 1 structure (of the Java-code to html and css part). The css part was straightforward when it came to the structure part, but the problem was in the html. We found new and better ways all time to make the client code easier and more understandable.\\
+    In the second phase we have agreed that this is what we need for “Silhouette” to be able to create web pages. At this point we are working on the html part and hope that we can start on user testing aright away. After some user testing, we start on the third phase and now that we knew what we want the code structure to look like, we start to specializing us (and you can se that in the “Delegation of work”). 
 
     \subsection{Delegation of Work}
-
-    \subsubsection{Description of Work}
-    Each students writes about scenarios they have contributed with...
-    Workload...
+    Mats Engelien - Java (HTMl) and Documentation\\
+    Lars Erik Faber - Java (CSS) and Documentation\\
+    Håkon Marthinsen - Documentation and User testing
 
 \section{Background}
 
@@ -124,14 +122,28 @@ You should describe how you have worked, not what you produced, in this section.
     After some time we knew what we wanted the code ot looke like and how to simplify it more, and that is when we started to use "Builder pattern" instead of the heavy object coding we had previously. This made it more readable for the eyes and work with.
 
         \subsubsection{Description of setup}
-        We sent a jar file containing the framework to group and started with some simple instructions. Firstly, they needed to start a new project and add our framework/library to their project from the project structure menu. Once this was done, they were ready to start coding inside the main method.
+        We sent a jar file containing the framework to the group (or the tester) and started with some simple instructions. Firstly, they needed to start a new project and add our framework/library to their project from the project structure menu. Once this was done, they were ready to start coding inside the main method.
         
         At first, we let them figure out the process themselves, but once they met issues and got stuck, we gave explanations to what each code block represented and guided them through the process. The next section will cover the resulting code and feedback from our testing.
 
-        \subsubsection{Frist user testing session}
+        \subsubsection{Frist user testing session (Silhouette-HTML v.2)}
         Right after they had tested our framework and completed the setup, we asked them to give their initial reaction and opinion. They said, “It was pretty good once we got the hang of the class names” which was a relief to hear. It seemed to us that they found the APIs to be intuitive, as they quickly grew familiar with the main classes. We then followed up with a few questions regarding their experience, and they told us they could easily expand further on their website with enough practice.
 
-        \subsubsection{Second user testing session}
+        \subsubsection{Second user testing session (Silhouette-HTML v.2)}
+        This user testing toke more time that what was needed, if it wasn’t for an error from our side in the code structure. When we found out what the error was and the confusion was over, it was back to the user testing, but the person that was testing the program was stuck and didn’t understand how to start and/or what to write (defining the html-object). After some time we gave the user a push in the right and the user started to type/write like it was natural for them or as the hade used our framework before.
+
+        \subsubsection{Third user testing session (Silhouette-HTML v.2)}
+        In this user testing the tester was tested in a different way, where the tester received minimal help and mostly through think and some fiddling on their own, because of the users higher understating to code structure and language. \\
+        The user managed the first part of the task easily (due to the naming of classes and method names) but began to strive on the second task. The user was supposed to create a new object called "Container", but started working on the method calls instead (because it seemed most natural to them) and had to ask for help and then came the next problem... what are Builders.\\
+        After some explanation it came naturally and the rest of the second task was then over and the user was on their owe, with a little hint here and there. The user could see the logic but felt that it lacked a flow in the structure and believed that getting in to "Silhouette" for a new user is not easy without a manual or help from someone.
+        
+        \subsubsection{Fourth user testing session (Silhouette-HTML v.3)}
+        Fourth testing was done in a group context, where one of them wrote and the others watched and tried to understand "Silhouette" (I also had to describe how Builders works). \\
+        It started the same with this group as it was done with the other user testing section, but since one of the user was looking through the library and was reading the methods that had a similar name as in HTML, one tester got an idea what to write and they managed to complete this task. And they applied the same tactic to the next tasks, and they managed the whole user testing with a few hints. 
+
+        \subsubsection{Fifth user testing session (Silhouette-HTML v.3)}
+        The fifth test was carried out by a student with a good knowledge of java and HTML, who wanted to learn the framework (“Silhouette”) from top to bottom. The user spent 1 hour and 30 min doing the task (without help) and gained insight into how "Silhouette" HTML.BaseComponents.* (file's) worked. This user was more interested in the "Silhouette" library and gave some feedback about that the structure is easy to understand, but there was a lack of comment (you can read comments for a jar file) on what the methods do/did, etc. and that the end result might affect a user “Silhouette’s code” and meant that “it’s too hard-coded” when a user is done with it.
+
 
 \section{Design Process/Results}
 
@@ -162,17 +174,17 @@ You should describe how you have worked, not what you produced, in this section.
         \begin{shaded}
             Scenario 1 - Proposed Solution
             \begin{lstlisting}
-                RuleSet color = new RuleSet(".color");
-                color.addRule("background-color", "blue");
-                color.addRule("color", Color.Hex(#32a852));
+            RuleSet color = new RuleSet(".color");
+            color.addRule("background-color", "blue");
+            color.addRule("color", Color.Hex(#32a852));
 
-                Grid grid = new Grid("#grid");
-                grid.setColumns("1fr", "100px", "2em");
-                grid.setRows("50%", "120px");
+            Grid grid = new Grid("#grid");
+            grid.setColumns("1fr", "100px", "2em");
+            grid.setRows("50%", "120px");
 
-                Container myHeader = new Container("header");
-                myHeader.applySelector(".color");
-                myHeader.applySelector("#grid");
+            Container myHeader = new Container("header");
+            myHeader.applySelector(".color");
+            myHeader.applySelector("#grid");
             \end{lstlisting}
         \end{shaded}
 
@@ -182,27 +194,27 @@ You should describe how you have worked, not what you produced, in this section.
         \begin{shaded}
             Scenario 2 - Proposed Solution
             \begin{lstlisting}
-                Table table = new Table();
-                int col = headerArray.length;
-                int row = array.length;
-                RuleSet color = new RuleSet(".tableClass");
-                color.addRule("background-color", Color.RGB(255,255,255));
-                ColGroup headerCol = new ColGroup();
+            Table table = new Table();
+            int col = headerArray.length;
+            int row = array.length;
+            RuleSet color = new RuleSet(".tableClass");
+            color.addRule("background-color", Color.RGB(255,255,255));
+            ColGroup headerCol = new ColGroup();
 
-                table.setSize(row, col);
-                table.applySelector(".tableClass");
+            table.setSize(row, col);
+            table.applySelector(".tableClass");
 
-                for(int i= 0; i<row; i++){
-                    for(int j= 0; j<col; j++){
-                        while(i<1){
-                            table.insertHead(i,j, headerArray[j]);
-                        }
-                        table.insertValue(i,j, array[j])
-                        if(i<1){
-                            headerCol.addCol(col, color.toString());
-                        }
+            for(int i= 0; i<row; i++){
+                for(int j= 0; j<col; j++){
+                    while(i<1){
+                        table.insertHead(i,j, headerArray[j]);
+                    }
+                    table.insertValue(i,j, array[j])
+                    if(i<1){
+                        headerCol.addCol(col, color.toString());
                     }
                 }
+            }
             \end{lstlisting}
         \end{shaded}
 
@@ -212,25 +224,25 @@ You should describe how you have worked, not what you produced, in this section.
         \begin{shaded}
             Scenario 3 - Proposed Solution
             \begin{lstlisting}
-                HTML myWebsite = new HTML("example website");
-                
-                Page frontPage = new Page("frontpage", "My Front Page");
-                Page articlePage1 = new Page("article", "My First Article");
-                page articlePage2 = new Page("article", "My Second Article");
+            HTML myWebsite = new HTML("example website");
+            
+            Page frontPage = new Page("frontpage", "My Front Page");
+            Page articlePage1 = new Page("article", "My First Article");
+            page articlePage2 = new Page("article", "My Second Article");
 
-                StyleSheet style = new StyleSheet("style.css");
+            StyleSheet style = new StyleSheet("style.css");
 
-                RuleSet bg = new RuleSet("body");
-                bg.addRule("background-color", "lightgreen");
+            RuleSet bg = new RuleSet("body");
+            bg.addRule("background-color", "lightgreen");
 
-                style.append(bg);
+            style.append(bg);
 
-                website.link("style.css");
-                website.addPage(frontPage);
-                website.addPage(articlePage1);
-                website.addPage(articlePage2);
+            website.link("style.css");
+            website.addPage(frontPage);
+            website.addPage(articlePage1);
+            website.addPage(articlePage2);
 
-                website.initialize();
+            website.initialize();
             \end{lstlisting}
         \end{shaded}
 
@@ -240,65 +252,303 @@ You should describe how you have worked, not what you produced, in this section.
         \begin{shaded}
             Scenario 4 - Proposed Solution
             \begin{lstlisting}
-                FieldSet myFields = new FieldSet();
+            FieldSet myFields = new FieldSet();
 
-                Input username = new Input("text");
-                username.addLabel("Type Username");
-                
-                Input password = new Input("password");
-                password.addLabel("Type Password");
-                
-                Input submit = new Input("submit");
+            Input username = new Input("text");
+            username.addLabel("Type Username");
+            
+            Input password = new Input("password");
+            password.addLabel("Type Password");
+            
+            Input submit = new Input("submit");
 
-                myFields.addFields(username, password, submit);
-                myFields.addLegend("Login Credentials");
+            myFields.addFields(username, password, submit);
+            myFields.addLegend("Login Credentials");
             \end{lstlisting}
         \end{shaded}
 
         \paragraph{Scenario 5}
         Make a Container of type header and give it a navigation bar with links to all pages previously created. Make the navigation bar into a CSS flexbox so that all anchors be laid horizontally and justify the content to be "space-around".
-
+        
         \begin{shaded}
             Scenario 5 - Proposed Solution
             \begin{lstlisting}
-                Container header = new Container("header");
-                Container nav = new Container("nav");
+            Container header = new Container("header");
+            Container nav = new Container("nav");
 
-                Anchor link1 = new AnchorBuilder("Front Page", "frontpage.html").build();
-                Anchor link2 = new AnchorBuilder("First Article", "article1.html").build();
-                Anchor link3 = new AnchorBuilder("Second Article", "article1.html").build();
+            Anchor link1 = new AnchorBuilder("Front Page", "frontpage.html").build();
+            Anchor link2 = new AnchorBuilder("First Article", "article1.html").build();
+            Anchor link3 = new AnchorBuilder("Second Article", "article1.html").build();
 
-                nav.addElements(link1, link2, link3);
+            nav.addElements(link1, link2, link3);
 
-                FlexBox flexbox = new FlexBox("header nav");
-                flexbox.setFlexDirection("row");
-                flexbox.setJustifyContent("space-around");
+            FlexBox flexbox = new FlexBox("header nav");
+            flexbox.setFlexDirection("row");
+            flexbox.setJustifyContent("space-around");
             \end{lstlisting}
         \end{shaded}
 
         \paragraph{Scenario 6}
         Make a simple article page about yourself. Write your name in a level 2 heading at the top of the article, then add an unordered list containing containing key points about you. Lastly, add your email in bold text below the text.
 
+        \begin{shaded}
+            Scenario 6 - Proposed Solution (Silhouette-HTML v.2)
+            \begin{lstlisting}
+            Container body = new Container.Builder()
+                .setType("body")
+                .build();
+
+            Container main = new Container.Builder()
+                .setType("main")
+                .build();
+
+            Container artical = new Container.Builder()
+                .setType("artical")
+                .build();
+
+            Heading h2 = new Heading.Builder(2, "Lisa Osteraas").build();
+                                        
+            ListElement unorder = new ListElement(, false);
+            unorder.addListItem("First Name : Lisa");
+            unorder.addListItem("Last Name : Osteraas");
+            unorder.addListItem("Age : 27");
+            unorder.addListItem(Format.bold("Lisa123mail@mail.com"));
+
+            artical.addElement(h2);
+            artical.addElement(unorder);
+            main.addElement(artical);
+            body.addElement(main);
+            \end{lstlisting}
+        \end{shaded}
+
         \paragraph{Scenario 7}
         Display a local video on your website and make sure that it supports at least three different file formats.
+
+        \begin{shaded}
+            Scenario 7 - Proposed Solution (Silhouette-HTML v.2)
+            \begin{lstlisting}
+            Container body = new Container.Builder()
+            .setType("body")
+            .build();
+
+            Video myVideo = new Video();
+            myVideo.setHeight("200");
+            myVideo.setWidth("400");
+            myVideo.addSource("movie.mp4", "video/mp4");
+            myVideo.addSource("movie.ogg", "video/ogg");
+            myVideo.addSource("movie.webm", "video/webm");
+
+            myPage.append(body);
+            \end{lstlisting}
+        \end{shaded}
 
         \paragraph{Scenario 8}
         Make a questionnaire consisting of two questions. Make it so the first question has two possibilities and one correct answer, and so the second question has three possibilities with multiple correct answers. (Radio and Checkbox)
 
+        \begin{shaded}
+            Scenario 8 - Proposed Solution (Silhouette-HTML v.3)
+            \begin{lstlisting}
+            Container div = new Container.Builder()
+            .addElements(new Input.Builder()
+                    .setType("radio")
+                    .setId("male")
+                    .setName("Gender")
+                    .build())
+            .addElements(new Container.Builder()
+                    .setType("label")
+                    .build().addParagraph("Male"))
+            .addElements(new Input.Builder()
+                    .setType("radio")
+                    .setId("female")
+                    .setName("Gender")
+                    .build())
+            .addElements(new Container.Builder()
+                    .setType("label")
+                    .build().addParagraph("Female"))
+            .build();
+            \end{lstlisting}
+        \end{shaded}
+
         \paragraph{Scenario 9}
         Remove underline for all anchors inside nav Containers and change the text color to red on mouse hover for each anchor.
+
+        \begin{shaded}
+            Scenario 9 - Proposed Solution (Silhouette-CSS v.2)
+            \begin{lstlisting}
+            StyleSheet css = new StyleSheet("style");
+            RuleSet a = new RuleSet();
+            a
+                .setSelector("a")
+                .addRule("text-decoration", "noen");
+    
+            RuleSet aHover = new RuleSet();
+            aHover
+                    .setSelector("a:Hover")
+                    .addRule("color", "red");
+            \end{lstlisting}
+        \end{shaded}
             
         \paragraph{Scenario 10}
         Give the header a fixed gradient background from blue to red (right).
 
+        \begin{shaded}
+        Scenario 10 - Proposed Solution (Silhouette-CSS v.2)
+            \begin{lstlisting}
+            StyleSheet css = new StyleSheet("style");
+
+            RuleSet header = new RuleSet();
+            header.addRule("background-image",
+                        "linear-gradient(to right, blue, red)");
+            \end{lstlisting}
+        \end{shaded}
+
         \paragraph{Scenario 11}
         Define a grid that serves as a page layout, and give it three columns and one row with equally distributed length. Make sure to wrap them under each other once the screen is narrower than 1000px, such that there are one column and three rows.
+
+        \begin{shaded}
+            Scenario 11 - Proposed Solution (Silhouette-CSS v.3)
+            \begin{lstlisting}
+            Grid grid = new Grid.Builder(".main")
+                .addRule(Property.GRID_TEMPLATE_COLUMNS, "1fr 1fr 1fr")
+                .addRule(Property.GRID_TEMPLATE_ROWS, "auto")
+                .build();
+
+            AtRule newRule = new AtRule.Builder(AtRuleType.MEDIA, "(min-width: 1000px)")
+                .addRuleSet(new Grid.Builder(".main")
+                        .addRule(Property.GRID_TEMPLATE_COLUMNS, "100%")
+                        .addRule(Property.GRID_TEMPLATE_ROWS, "100px 100px 100px")
+                    .build())
+                .build();
+
+            StyleSheet css = new StyleSheet.Builder("SC11","css")
+                .applyStyle(grid).applyStyle(newRule)
+                .build();
+
+            css.initialize();
+            \end{lstlisting}
+        \end{shaded}
 
     \subsection{User Testing}
 
         \subsubsection{The Code}
+        \begin{shaded}
+            The third user testing code (Silhouette-HTML v.2)
+            \begin{lstlisting}
+            HTML mypage = new HTML.Builder()
+                    .setTitle("test")
+                    .setMetaCharset("UTF-8")
+                    .build();
 
-        \subsubsection{Feedback}
+            Container body = new Container.Builder()
+                    .setType("body")
+                    .build();
+
+            Container header = new Container.Builder()
+                    .setType("header")
+                    .build();
+            Heading h1 = new Heading.Builder()
+                    .setLevel("h1")
+                    .setText("hei der du")
+                    .build();
+            header.addElement(h1);
+
+            Container main = new Container.Builder()
+                    .setType("main")
+                    .build();
+            Heading h2 = new Heading.Builder()
+                    .setLevel("h2")
+                    .setText("Ulf")
+                    .build();
+            Paragraph pMain = new Paragraph("hey hey people.");
+            pMain.applyId("pMain");
+            main.addElement(h2, pMain);
+
+            Container footer = new Container.Builder()
+                    .setType("footer")
+                    .build();
+            Paragraph pFooter = new Paragraph(
+                    Format.bold("Hei der du!"),
+                    Format.deleted("del"));
+            footer.addElement(pFooter);
+
+            body.addElement(header, main, footer);
+            \end{lstlisting}
+        \end{shaded}
+
+        \begin{shaded}
+            The fifth user testing code (Silhouette-HTML v.3)
+            \begin{lstlisting}
+            // ----- header -----
+            var title = new Heading.Builder()
+                    .setLevel("h1")
+                    .setText("yayeet")
+                    .build();
+
+            var header = new Container.Builder()
+                    .setType("header")
+                    .addElements(title)
+                    .build();
+
+            // ----- main -----
+            var secondTitle = new Heading.Builder()
+                    .setLevel("h2")
+                    .setText("Second title")
+                    .build();
+
+            var paragraph = new Paragraph.Builder()
+                    .setText("Something")
+                    .build();
+
+            var main = new Container.Builder()
+                    .setType("main")
+                    .addElements(secondTitle, paragraph)
+                    .build();
+
+            // ----- footer -----
+            var boldText = Format.bold("second paragraph");
+            var deletedText = Format.deleted(boldText);
+
+            var secondParagraph = new Paragraph.Builder()
+                    .setText(deletedText)
+                    .build();
+
+            var footer = new Container.Builder()
+                    .setType("footer")
+                    .addElements(secondParagraph)
+                    .build();
+
+            // body
+            Container body = new Container.Builder()
+                    .setType("body")
+                    .addElements(header, main, footer)
+                    .build();
+
+            // HTML page
+            HTML.Builder builder = new HTML.Builder()
+                    .setTitle("CBT")
+                    .setMetaCharset("UTF-8")
+                    .addElements(body);
+
+            builder.build().initialize("pressFInTheChat.html");
+            \end{lstlisting}
+        \end{shaded}
+
+        \subsubsection{Feedback - ta en titt}
+        From the second user tester:
+        \begin{itemize}
+            \item I like that you can focus on a specific class only to quickly narrow down troubleshooting if needed.
+            \item Somewhat difficult to know where to start and what to start with: can I simply make a new HTML object to get a blank page just to get started?
+            \item Quite object-heavy which can be demanding in regards to user friendliness, and requires you to instantiate things often. On the other hand the general structure could provide a lot of flexibility once mastered as well.
+        \end{itemize}
+
+        From the third user tester:
+        \begin{itemize}
+            \item What is a Container?
+            \item Why is Container for body, main, header...?
+            \item Why not make a "h1" in the Container and not in the Heading -object?
+            \item What is .append and whats the difference between that in Container and HTML -object.
+        \end{itemize}
+
 
     \subsection{Revised API}
 
