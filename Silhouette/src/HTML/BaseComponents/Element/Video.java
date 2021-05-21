@@ -103,7 +103,6 @@ public class Video extends ContainerElement {
         @Override
         public Video build() {
             Video v = new Video(this);
-            verify();
             return v;
         }
 

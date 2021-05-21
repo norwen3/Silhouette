@@ -100,7 +100,6 @@ public class ListElement extends ContainerElement {
         @Override
         public ListElement build() {
             ListElement le = new ListElement(this);
-            verify();
             return le;
         }
 

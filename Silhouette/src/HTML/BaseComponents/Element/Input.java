@@ -2,6 +2,8 @@ package HTML.BaseComponents.Element;
 
 import HTML.BaseComponents.ILowLevel.IBuilder;
 
+import java.util.Locale;
+
 /**
  * This class represents the Input-tag
  */
@@ -10,6 +12,7 @@ public class Input extends Element{
     private final String id;
     private final String name;
     private final String label;
+    private final String value;
 
 
     /**
@@ -22,6 +25,7 @@ public class Input extends Element{
         this.id = builder.id;
         this.name = builder.name;
         this.label = builder.label;
+        this.value = builder.value;
     }
 
     public String getType() {
@@ -40,8 +44,12 @@ public class Input extends Element{
 
     @Override
     public String toString() {
-        return "<label for=\""+id+"\">" + label + "</label>\n"+"\n" +
-                "<input type=\""+this.type+"\" id=\"" + this.id + "\" name=\""+ this.name + "\"> <br><br>";
+        if(!this.type.equalsIgnoreCase("submit")) {
+            return "<label for=\"" + id + "\">" + label + "</label>\n" + "\n" +
+                    "<input type=\"" + this.type + "\" id=\"" + this.id + "\" name=\"" + this.name + "\"> <br><br>";
+        } else {
+            return "<input type=\""+this.type + "\" value=\""+this.value+"\" >";
+        }
     }
 
     /**
@@ -51,15 +59,16 @@ public class Input extends Element{
     public static class Builder implements IBuilder {
 
         private String type;
-        private String id = "";
-        private String name ="";
-        private String label = "";
+        private String id;
+        private String name;
+        private String label;
+        private String value = "";
 
         /**
          * Constructor creates an empty input with no field values
          */
         public Builder(){
-            this.type = "";
+            this.type = "text";
             this.id = "";
             this.name = "";
             this.label = "";
@@ -95,7 +104,15 @@ public class Input extends Element{
             return this;
         }
 
+        public Builder setValue(String value){
+            this.value = value;
+            return this;
+        }
 
+        public Builder setType(String type){
+            this.type = type;
+            return this;
+        }
         /**
          * Returns an Input-object
          * @return
@@ -103,7 +120,6 @@ public class Input extends Element{
         @Override
         public Input build(){
             Input input = new Input(this);
-            verify();
             return input;
         }
 

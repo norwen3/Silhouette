@@ -166,7 +166,6 @@ public class Audio extends ContainerElement{
         @Override
         public Audio build() {
             Audio a = new Audio(this);
-            verify();
             return a;
         }
 

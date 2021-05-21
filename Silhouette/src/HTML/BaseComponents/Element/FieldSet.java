@@ -81,6 +81,7 @@ public class FieldSet extends ContainerElement {
             this.inputList = new ArrayList<>();
             this.attributes = new HashMap<>();
             this.content="";
+            this.legend = "";
         }
 
         /**
@@ -135,7 +136,6 @@ public class FieldSet extends ContainerElement {
         @Override
         public FieldSet build(){
             FieldSet fieldSet = new FieldSet(this);
-            verify();
             return fieldSet;
         }
 

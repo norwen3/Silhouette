@@ -105,7 +105,6 @@ public class ColGroup extends ContainerElement{
         @Override
         public ColGroup build() {
             ColGroup cg = new ColGroup(this);
-            verify();
             return cg;
         }
 

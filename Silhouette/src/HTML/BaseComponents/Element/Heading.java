@@ -76,7 +76,6 @@ public class Heading extends ContainerElement{
         @Override
         public Heading build() {
             Heading h = new Heading(this);
-            verify();
             return h;
         }
 
