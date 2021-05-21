@@ -81,11 +81,12 @@ What separates Silhouette is the user of the builder pattern. In Silhouette, bui
 You should describe how you have worked, not what you produced, in this section."
 
     \subsection{API Design Specification}
-    Forklar hvordan vi kom fram til Tankesett av hvordan API-et skal gå fram, høy-nivå og lav-nivå prinsipper
 
-    From the get-go we knew our framework needed to generate HTML somehow, and decided that it would be best to 
+    The method used for producing the API design specification was Scenario-driven design. Each member created use-cases, and matching client-code individually, then compared these. After 2 or 3 iterations, new client-code was produced as a group. This client-code received feedback from a user-tester, student-assistant, or supervisor, using an iterative process.
 
-    From the get-go we knew that our framework needed to support both the declarative and stylistic sides of webdesign, so we started forming two bas
+    The group meet weekly to measure progress. Virtual communication and resource-sharing happened through Discord and GitHub.
+
+    Frequent meetings with supervisor to answer any relevant questions we had during the process.
     
 
     \subsection{API Design}
@@ -110,11 +111,45 @@ You should describe how you have worked, not what you produced, in this section.
         \subsubsection{Design Patterns}
 
         \paragraph{Builder Pattern}
+
         We were very quickly guided towards using the Builder pattern when we first had decided on the Framework-type. The Builder pattern, unlike the Abstract Factory pattern, is a lot more like a "Fluent interface", meaning it relies heavily on method cascading.
         The builder pattern is useful as it attempts to seperate the construction of an object from the way it is represented, this way we can use the same process to create many different looking objects that are fundementally similar.
+
         We need to use the builder pattern when we want immutable objects. We want immutable classes because they have a wide range of benefits when we are developing an API. They are simple to use, they are synchronization safe, we only need one constructor, and they are great for maps(which we're using) to name a few.
 
         The main problem with implementing the builder pattern is the sheer amount of extra code required. The lines will most likely more than double. However, those extra lines of code give us much more readable code and design flexibility. We exchange parameters in the constructor for much prettier method calls.
+
+        \textbf{Process}
+
+        To develop the API design specification, we employed Scenario-driven design. As a group, we discussed what we wanted this API to do. The requirements that developed from this process needed us to 1: object-orient writing HTML, 2: have an almost one to one translation from HTML-tag to java object, 3: write to file and give that file a .html extension. Based on these three main concepts for the API we created our initial scenarios for how this framework would be used.
+
+        First we need to create a page and we need to be able to populate that page with HTML-elements that can also hold their own internal values like a container of sorts. The objects we put in the container need to be able to have their own functionality written out. This is the basis of what the API needs to be able to do. We need to figure out how the end-user would want to generate their page.
+        An example of the first code-iteration:
+
+        \begin{shaded}
+            \begin{lstlisting}
+                WebPage myPage = new WebPage(); // initialize webpage
+
+                ArrayList<InputField> listOfFields = new ArrayList();
+                InputField emailField = new InputField(type: "email", name: "email");
+                InputField phoneField = new InputField(type: "phone", name: "phone");
+                TextField textField = new TextField(type: "text", name: "text");
+
+                listOfFields.add(emailField);
+                listOfFields.add(phoneField);
+                listOfFields.add(textField);
+                Form myForm = new Form(listOfFields);
+
+                // generates html page in this order
+                myPage.generateHeader(); // generate simple header
+                myPage.append(myForm);
+                myPage.generateFooter(); // generate simple footer
+            \end{lstlisting}
+        \end{shaded}
+
+        Here we had usage of both high-level and low-level APIs. We could create simple one to one elements and we could automagically generate entire parts of a page.
+
+        Next the user needs to be able to create the body, main, and other semantic containers for their website, but these tags do the same things. Also we need to be able to populate the containers, as well as adding paragraphs and pictures to them.
 
     \subsection{API Design}
 
@@ -186,6 +221,39 @@ You should describe how you have worked, not what you produced, in this section.
 
         For the last user test we tested with a student who previously had the same framework course, and who was very familiar with builder pattern and API design. The session took about three hours, and we tested both the HTML API and the CSS API. We sent him the Jar file of the newest version of the framework, a type reference documentation, and some scenarios to solve with the framework.
 
+        \textbf{Make a new HTML page. Set a custom title, and set the charset meta tag to "UTF-8"}
+
+        \textbf{Make a body element and append it to the HTML page. Then create header, main and footer elements and append it to the body element.}
+
+        For scenario 2, the user were instructed to make a body element and add it to the page. At first, it wasn't very obvious form him to use the Container object to build the body element, as it is passed through the parameter. After some explanation, he understood why we had done it that way, but still felt like it was not as intuitive. He commented that it would be much better to just separate the most important layout elements into their own class, though this was already discussed within the group at the beginning of the project. Having a class for each element comes with two major issues. Firstly, if we would simply make a class for each element, there would be too many classes to keep track of. Secondly, how would we decide which element needed their own class? Because of this we decided to keep it as originally planned.
+
+        \textbf{Give the header element a main heading for the page}
+
+        Here he found it confusing that there were two ways of adding a heading to a container element. While the intended solution was to make a Heading object, he opted for the addHeading method inside ContainerElement.
+
+        \begin{shaded}
+            Making a Heading object
+
+            \begin{lstlisting}
+                Heading myHeading = new Heading.Builder()
+                        .setLevel("h1")
+                        .setText("My heading")
+                        .build();
+            \end{lstlisting}
+
+            Using the addHeading method inside ContainerElement
+
+            \begin{lstlisting}
+                Container div = new Container.Builder()
+                        .addHeading(1, "My heading")
+                        .build();
+            \end{lstlisting}
+        \end{shaded}
+
+        Initially, this was done to give users more options when declaring the markup. However, this proved to be more confusing then helpful, so we decided to remove this additional method.
+
+        \textbf{Make a second custom heading and add it to the main element. Make a paragraph element and give it an arbitrary Id.}
+
         Right off the bat, his impression was that we had over-used the builder pattern, to the point where it becomes unecessarily complicated. For example, he explained how it was unecessary to use builder pattern for the Paragraph class, as the paragraph should only take one argument in the constructor anyway. He suggested that it would be better to simply pass the text to the constructor.
 
         \begin{shaded}
@@ -204,8 +272,13 @@ You should describe how you have worked, not what you produced, in this section.
             \end{lstlisting}
         \end{shaded}
 
-        However, the problem arises when trying to add attributes to the paragraph, such as an id or class. 
-        
+        His suggestion was not bad, but since we wanted to follow the same convention for every class, we felt it was better to leave it as be with the builder pattern. That way, there is not confusion whether it uses the builder or not. We also find the parameters more clearer with builder pattern, as it explicitly shows it in the method name.
+
+        \textbf{Finishing questions}
+
+        To finish off the session, we asked him some general questions about the framwork. Firslty, we asked him about what he thought about the name "Silhouette", and if he found it intruiging and informative. To this, he told us that the name is as ambiguous as most other names out there. He stressed, that it does not necessarily mean it is bad, but it did not give him any idea of what the framework did. At this point, we have become very fond of the name, but it is always nice to get feedback.
+
+        We also asked him if he found the framework to be difficult to use. To this he responded that builder pattern greatly increases the amount of code needed to generate a website, so in this case it would be faster to write it in standard HTML and CSS. We agree to this, wowever, we are still of the belief that the OOP aspects and the additional make up for it. Another issue for him was the quality of the type reference documentation, as it often failed to give him a good idea of what each class represented.
 
 \section{Resulting Framework}
 Framvisning av det ferdie API-et
