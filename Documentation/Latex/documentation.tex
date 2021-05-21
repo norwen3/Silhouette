@@ -132,69 +132,93 @@ Another important side of Frameworks is to establish a structure in the applicat
     \subsection{API Design Specification}
 
 
-        \textbf{Process}
+    \textbf{Process}
 
-        All relevant scenarios produced are attached as an appendix.
-To develop the APIs, we employed Scenario-driven design. As a group, we discussed what we wanted these APIs to do. The requirements that developed from this process were:
- 1: To object-orient writing HTML and CSS.
-2: Have an almost one-to-one translation from HTML-tag and CSS-ruleset to java object.
-3: Write to file and give that file a .html or .css extension. Based on these three main concepts for the API we created our initial scenarios for how this framework would be used. 
-The design and implementations of the APIs are slightly different as they were designed and implemented at different periods of the development process.
+    All relevant scenarios produced are attached as an appendix.
 
-\textbf{Scenario 24} - Make a website with a Form consisting of a field for e-mail, phone number, a text field and a submit button.
+    To develop the APIs, we employed Scenario-driven design. As a group, we discussed what we wanted these APIs to do. The requirements that developed from this process were:
 
-This scenario hits on a few different aspects of the API. It requires a form class that has 3 different input-fields, and a button connected to it. We also need to put that form in a logical place in an html-file. This html-file also needs to contain a head with meta-data and necessary tags like a body, a header and a footer to be a webpage.
+    \begin{enumerate}
+        \item To object-orient writing HTML and CSS.
+        \item Have an almost one-to-one translation from HTML-tag and CSS-ruleset to java object.
+        \item Write to file and give that file a .html or .css extension. 
+    \end{enumerate}
+    
+    Based on these three main concepts for the API we created our initial scenarios for how this framework would be used. 
+    The design and implementations of the APIs are slightly different as they were designed and implemented at different periods of the development process.
 
+    \paragraph{Scenario 24}
+    Make a website with a Form consisting of a field for e-mail, phone number, a text field and a submit button.
 
-        \begin{shaded}
-            \begin{lstlisting}
-                WebPage myPage = new WebPage(); // initialize webpage
+    This scenario hits on a few different aspects of the API. It requires a form class that has 3 different input-fields, and a button connected to it. We also need to put that form in a logical place in an html-file. This html-file also needs to contain a head with meta-data and necessary tags like a body, a header and a footer to be a webpage.
 
-                ArrayList<InputField> listOfFields = new ArrayList();
-                InputField emailField = new InputField(type: "email", name: "email");
-                InputField phoneField = new InputField(type: "phone", name: "phone");
-                TextField textField = new TextField(type: "text", name: "text");
+    \begin{shaded}
+        \begin{lstlisting}
+            WebPage myPage = new WebPage(); // initialize webpage
 
-                listOfFields.add(emailField);
-                listOfFields.add(phoneField);
-                listOfFields.add(textField);
-                Form myForm = new Form(listOfFields);
+            ArrayList<InputField> listOfFields = new ArrayList();
+            InputField emailField = new InputField(type: "email", name: "email");
+            InputField phoneField = new InputField(type: "phone", name: "phone");
+            TextField textField = new TextField(type: "text", name: "text");
 
-                // generates html page in this order
-                myPage.generateHeader(); // generate simple header
-                myPage.append(myForm);
-                myPage.generateFooter(); // generate simple footer
-            \end{lstlisting}
-        \end{shaded}
+            listOfFields.add(emailField);
+            listOfFields.add(phoneField);
+            listOfFields.add(textField);
+            Form myForm = new Form(listOfFields);
 
-        Here we had usage of both high-level and low-level APIs. We could create simple one-to-one elements and we could automagically generate entire parts of a page. 
+            // generates html page in this order
+            myPage.generateHeader(); // generate simple header
+            myPage.append(myForm);
+            myPage.generateFooter(); // generate simple footer
+        \end{lstlisting}
+    \end{shaded}
 
-        \textbf{Scenario 25} - Make an article page with a title, an image and 5 paragraphs of text.
-        Here the user needs to be able to create the body, main, and other semantic containers for their website, but these tags do the same things. In addition, we need to be able to populate the containers with other html-tags.
-        \begin{shaded}
-            \begin{lstlisting}
-                CreatePage thisPage = new CreatePage();
- int numbersOfParagraphs;
- String[numbersOfParagraphs] paragraphsText;
- Title titleName = new Title();
- Article articlePage = new Article();
+    Here we had usage of both high-level and low-level APIs. We could create simple one-to-one elements and we could automagically generate entire parts of a page. 
 
- thisPage.add(titleName);
- thisPage.add(articalPage);
- GetImg img = new GetImg(String imgName);
- Paragraphs newParagraph = new Paragraphs()
- articlePage.add(img);
- articlePage.add(newParagraph(numbersOfParagraphs, paragraphsText));
+    \paragraph{Scenario 25}
+    Make an article page with a title, an image and 5 paragraphs of text.
 
-            \end{lstlisting}
-        \end{shaded}
-        
-        These scenarios created many questions about how the design should be. We started doing one-to-one translation between HTML-tags and java-objects, but now there were these containers that did not need to be their own classes.
-        
+    Here the user needs to create the body, main, and other semantic containers for their website, but these tags do the same things. In addition, they need to be able to populate the containers with other html-tags.
+
+    \begin{shaded}
+        \begin{lstlisting}
+            CreatePage thisPage = new CreatePage();
+            int numbersOfParagraphs;
+            String[numbersOfParagraphs] paragraphsText;
+            Title titleName = new Title();
+            Article articlePage = new Article();
+
+            thisPage.add(titleName);
+            thisPage.add(articalPage);
+            GetImg img = new GetImg(String imgName);
+            Paragraphs newParagraph = new Paragraphs()
+            articlePage.add(img);
+            articlePage.add(newParagraph(numbersOfParagraphs, paragraphsText));
+
+        \end{lstlisting}
+    \end{shaded}
+    
+    These scenarios created many questions about how the design should be. We started doing one-to-one translation between HTML-tags and java-objects, but now there were these containers that did not need to be their own classes.
+
+    \paragraph{Scenario 14}
+    Define a main grid for a website with 6 columns and 12 rows.
+    
+    For this scenario, the user needs to make a new grid object and define its columns and rows. The actual sizes are irellevant. 
+
+    \begin{shaded}
+        \begin{lstlisting}
+            WebPage frontPage = new WebPage();
+            Grid mainGrid = new Grid(
+            new String[]{"1em", "1em", "1em", "1em", "1em", "1em"},
+            new String[]{"1em", "1em", "1em", "1em", "1em", "1em","1em", "1em", "1em", "1em","1em", "1em"});
+        \end{lstlisting}
+    \end{shaded}
+
+    This early psudo code for the CSS API shows how we initially wanted to pass CSS rules in the class constructors in the form of varargs. However, we realized this was not going to work as we could not tell which CSS property the constructor values would modify. A possible solution that we considered was to add multiple overloads to the constructos, however too many overloads could confuse developers and would not be a good practice for API design.
 
     \subsection{API Design}
 
-    When designing the APIs in Silhouette, we started writing client-code to see what would work the best. We knew it was important to preserve the advantages of OOP, giving the user control by making objects and manipulating them in various ways. This meant that users have the ability to generate blocks of HTMl quickly with the tools we already know from OOP. We decided to write some client-code to see what would satisfy our requirements, and this would be one of the earliest iterations.
+    When designing the APIs in Silhouette, we started writing client-code to see what would work the best. We knew it was important to preserve the advantages of OOP, giving the user control by making objects and manipulating them in various ways. This meant that users have the ability to generate blocks of HTML quickly with the tools we already know from OOP.
 
     We designed the interface as a group, discussing how the classes would reflect the client-code. We separated the higher-level and lower-level aspects into their own packages, and decided that all html-elements would need to inherit from one superclass. The superclass then had all the base necessities of said element in a similar manner to the Factory method. However, there were many problems with this. Too many objects were being instantiated, no method-chaining, it acted clunky, and looked clunky, on top of being unreadable.
 
@@ -206,100 +230,43 @@ This scenario hits on a few different aspects of the API. It requires a form cla
         \caption{Builder Pattern Visualized}
     \end{figure}
     
-        \subsubsection{Design Decisions}
-        Following best-practices for making APIs, for example, from     
+    Later on once we got some feedback from other groups we came across another problem. Users expected to be able to chain multiple methods after another. But that was just not possible with how we originally structured our methods and classes, that's where builder pattern comes in. Builder pattern aided the framework in two areas: One, it served as a tool to hide the backend-implementation from the user, and two, it allowed for method-chaining which was exactly what we needed.
 
-        Later on once we got some feedback from other groups we came across another problem. Users expected to be able to chain multiple methods after eachother. But that was just not possible with how we originally structured our methods and classes, that's where builder pattern comes in. Builder pattern aided the framework in two areas: One, it served as a tool to hide the backend-implementation from the user, and two, it allowed for method-chaining which was exactly what we needed.
+    Builder pattern helped to account for all the different options when writing HTML and CSS. The pattern creates a structure in the code that consists of building components and appending them to each other. It organises the process of creating objects into steps, so one can make the same object look very different depending on how it was put together. Using a director on the builders allows for even more abstraction that we could use to develop a base for a high-level API.
 
-        However, with Silhouette, we took a different approach using the builder pattern to account for all the different options when writing HTML and CSS. The pattern creates a structure in the code that consists of building components and appending them to each other. With Spring, the user builds a component through the factory pattern that initalizes the beans by following given instructions, but we thought the builder pattern would be more flexible on the go:
-
-        \begin{shaded}
-            Creating a paragraph and adding it to a div
-            \begin{lstlisting}
-                Paragraph p = new Paragraph.Builder()
-                        .setText("Hello World")
-                        .build();
-                Container div = new Container.Builder()
-                        .addElements(p)
-                        .build();
-            \end{lstlisting}
-        \end{shaded}
-
-        The builder patterns organises the process of creating objects into steps, so one can make the same object look very different depending on how it was put together. Using a director on the builders allows for even more abstraction that we could use to develop a base for a high-level API.
-        This design pattern allows for the making of immutable objects and method chaining. This made the code a lot more readable, though still somewhat repetitive.
-
-        \begin{shaded}
-            Creating a paragraph and adding it to a div
-            \begin{lstlisting}
-                new HTML.Builder()
-    .addElements(new Form.Builder(new FieldSet.Builder()
-                        .setInputs(
-                          new Input.Builder()
-                                .setLabel("email")
-                                .setId("email")
-                                .setName("email").build(),
-                                new Input.Builder()
-                                .setLabel("phone")
-                                .setType("tel")                                    					 .setId("phone")
-                                .setName("phone").build()
-                                new Input.Builder()
-                                .setLabel("name")
-                                .setId("fullname")
-                                .setName("name").build(),
-                                new Input.Builder()
-                                .setType("submit")
-                                .setValue("Submit").build())
-                        .build())
-        .setAction("/dest.php")
-        .setMethod("get")
-        .build())
-    .build()
-    .initialize();
-
-            \end{lstlisting}
-        \end{shaded}
-        
-        Now we needed to separate functionality. Which classes belonged, and what needed to be extracted. Following the Single Responsibility Principle, each class should have one and only one responsibility. In most cases we have tried to follow this as best we could. The one-to-one mapping that we initially built the API around was due to this principle, though deprecated or exceedingly similar HTML-elements were left out of the design and implementation, some due to time constraints, and some because they were better to combine, such as all page section-tags(<div>, <main>, etc.). The HTML-class currently has too many responsibilities and breaks with this principle, due to the initialize()-method, which means the html-class currently both represents an html-tag and the an html file. The compiling and writing to file should happen in its own class like it does in the Framework’s CSS API.
-
-        Abstraction to interfaces within the API allows for different implementations of the same method in multiple classes. Sticking with the interface segregation principle, we tried to ensure that these interfaces would only have a few specific tasks. 
-
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.5]{images/solidGraphic.png}
-            \caption{SOLID Principles of Software Design}
-        \end{figure}
-
-        \subsubsection{Personal Decisions}
+    This design pattern allows for the making of immutable objects and method chaining, and it made the code a lot more readable, though still somewhat repetitive.
     
-        \subsection{Implementation}
+    Now we needed to separate functionality. Which classes belonged, and what needed to be extracted. Following the Single Responsibility Principle, each class should have one and only one responsibility. In most cases we have tried to follow this as best we could. The one-to-one mapping that we initially built the API around was due to this principle, though deprecated or exceedingly similar HTML-elements were left out of the design and implementation, some due to time constraints, and some because they were better to combine, such as all page section-tags( $<$div$>$, $<$main$>$, etc.). The HTML-class currently has too many responsibilities and breaks with this principle, due to the initialize()-method, which means the html-class currently both represents an html-tag and the an html file. The compiling and writing to file should happen in its own class like it does in the Framework’s CSS API.
 
-        Most non-abstract or static classes received their own internal static Builder class during the initial implementation, however some classes did not, like the Paragraph and Heading classes as they could be considered very small, and are used with high frequency. Though it unnecessary to implement the pattern here as well, due to user-test feedback, we decided to after all, since the change in pattern broke with the development flow. This led to the implementation of builder-classes for every class in the API that should be instantiated.
-        
-        The top-level builder has been abstracted into its own interface. This interface is then implemented in each of the internal builder-classes. Even though a lot of very different looking objects are being created, both the higher- and lower-level components of the API should depend on the same abstraction, so there is some achieved dependency inversion, though implementation is not complete.
+    Abstraction to interfaces within the API allows for different implementations of the same method in multiple classes. Sticking with the interface segregation principle, we tried to ensure that these interfaces would only have a few specific tasks. 
 
-        The biggest problem with the implementation of the Builder-pattern, and attempting to apply these principles, is that the builder pattern usually doubles the amount of code necessary, and using correct abstractions can be very difficult.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.5]{images/solidGraphic.png}
+        \caption{SOLID Principles of Software Design}
+    \end{figure}
 
-        Implementation was done in various stages as we had many ideas for how we wanted the resulting framework to behave. After a lot of discussion with the group, we began writing client-code to help us visualize the API to get better ideas on how we got incorperate the implementation. After several supervisions with the lectruer, we were advised to use a builder-pattern, which works wonders for the type of tasks we want to do, however it makes implementing a bit of a chore, as this means usually our source-code will double. Getting to understand how this pattern works was not easy, since as we were writing our API-code we did not have a full understanding of the structure of method-calls/chaining, nor how to really instantiate these objects. This led to some early errors like giving each builder-class a specific name, and not implementing it correctly.
+    \subsection{Implementation}
+
+    Most non-abstract or static classes received their own internal static Builder class during the initial implementation, however some classes did not, like the Paragraph and Heading classes as they could be considered very small, and are used with high frequency. Though it unnecessary to implement the pattern here as well, due to user-test feedback, we decided to after all, since the change in pattern broke with the development flow. This led to the implementation of builder-classes for every class in the API that should be instantiated.
     
-    
-        Lastly, we needed to form a system to generate the actual file. The big idea was to make some sort of compiler that puts strings together to make the necessary web files. It later became apparent that we needed one compiler for each API, as the logic and syntax are wastly different. As it stands, the compilers will either read html and css in the form of Strings, or plain java old objects (POJOs). Then once the user is done defining their pages and stylings, they will inform the respective compiler to perform a compile and generate the web files. If these files already exist, the compiler should just overwrite them to apply the new changes.
+    The top-level builder has been abstracted into its own interface. This interface is then implemented in each of the internal builder-classes. Even though a lot of very different looking objects are being created, both the higher- and lower-level components of the API should depend on the same abstraction, so there is some achieved dependency inversion, though implementation is not complete.
+
+    The biggest problem with the implementation of the Builder-pattern, and attempting to apply these principles, is that the builder pattern usually doubles the amount of code necessary, and using correct abstractions can be very difficult.
+
+    Implementation was done in various stages as we had many ideas for how we wanted the resulting framework to behave. After a lot of discussion with the group, we began writing client-code to help us visualize the API to get better ideas on how we got incorperate the implementation. After several supervisions with the lectruer, we were advised to use a builder-pattern, which works wonders for the type of tasks we want to do, however it makes implementing a bit of a chore, as this means usually our source-code will double. Getting to understand how this pattern works was not easy, since as we were writing our API-code we did not have a full understanding of the structure of method-calls/chaining, nor how to really instantiate these objects. This led to some early errors like giving each builder-class a specific name, and not implementing it correctly.
+
+
+    Lastly, we needed to form a system to generate the actual file. The big idea was to make some sort of compiler that puts strings together to make the necessary web files. It later became apparent that we needed one compiler for each API, as the logic and syntax are wastly different. As it stands, the compilers will either read html and css in the form of Strings, or plain java old objects (POJOs). Then once the user is done defining their pages and stylings, they will inform the respective compiler to perform a compile and generate the web files. If these files already exist, the compiler should just overwrite them to apply the new changes.
 
 
     \subsection{User Testing}
-
-    (THIS NEEDS TO BE CHANGED)
 
     User testing started after a month of developing the first iteration of the API. At this point the low-level HTML API felt almost complete, however the high-level-, and CSS-APIs were bare minimum. The implementation was not ready and the APIs consisted of plain old java objects. It was therefore important know if the names and overall use made sense, and if there were any major flaws that we could improve upon.
 
     After the testers solved the scenarios using our framework, we would have a quick discussion with them about their thoughts and opinions. As they expressed their views on the framework, we would take notes and often ask some follow-up questions. At the end of the session we would ask some general questions to see how their views compared with other testers. This would help us see how the changes affected the framework, as other testers had different opinions.
 
     After the session with the testers, we would have a discussion with eachother about the feedback we got from the user testing. Since each group member had their own focus areas in the development, this would help a lot to get insight on the next big changes we were going to implement. 
-
-    Right after all the classes that was needed to build am HTML document and the same for the CSS part. At this time the code was just object oriented programming and it flet easy to use, but it was alot of unnecessary writing and to a degree hard to follow.   
-        
-    After the first user testing with another group, we didn't get alot of crtical feedback on whats "good" and "bad" excepted for the things that we knew about, but we got feedback on the logical structure part and that is one of the things we needed.
-        
-    After some time we knew what we wanted the code ot looke like and how to simplify it more, and that is when we started to use "Builder pattern" instead of the heavy object coding we had previously. This made it more readable for the eyes and work with.
 
         \subsubsection{Frist user testing session (Silhouette-HTML v.2)}
 
@@ -398,6 +365,75 @@ This scenario hits on a few different aspects of the API. It requires a form cla
         We also asked the user found the framework to be difficult to use. To this the user responded that builder pattern greatly increases the amount of code needed to generate a website, so in this case it would be faster to write it in standard HTML and CSS. We agree to this, wowever, we are still of the belief that the OOP aspects and the additional make up for it. Another issue for the user was the quality of the type reference documentation, as it often failed to give the user a good idea of what each class represented.
 
 \section{Resulting Framework}
+
+    See JavaDoc for project-structure and source code.
+
+    \paragraph{Scenario 24}
+    Method-chaining through the builder-pattern allows for the creation of an entire HTML-file in a single line of code.
+
+    \begin{shaded}
+        Creating a paragraph and adding it to a div
+        \begin{lstlisting}
+        new HTML.Builder()
+            .addElements(new Form.Builder(new FieldSet.Builder()
+                .setInputs(
+                    new Input.Builder()
+                        .setLabel("email")
+                        .setId("email")
+                        .setName("email").build(),
+                        new Input.Builder()
+                        .setLabel("phone")
+                        .setType("tel")
+                        .setId("phone")
+                        .setName("phone").build()
+                        new Input.Builder()
+                        .setLabel("name")
+                        .setId("fullname")
+                        .setName("name").build(),
+                        new Input.Builder()
+                        .setType("submit")
+                        .setValue("Submit").build())
+                    .build())
+                .setAction("/dest.php")
+                .setMethod("get")
+                .build())
+            .build()
+            .initialize();
+        \end{lstlisting}
+    \end{shaded}
+
+    Whilst not necessarily the most straight forward way of coding, the style is easy to read, in effect making the barrier of entry, for most programmers, low.
+
+    \paragraph{Scenario 14}
+    Define a main grid for a website with 6 columns and 12 rows.
+
+    \begin{shaded}
+        \begin{lstlisting}
+            Grid myGrid = new Grid.Builder()
+                .addRule(Property.GRID_TEMPLATE_COLUMNS,
+                    "1em 1em 1em 1em 1em 1em")
+                .addRule(Property.GRID_TEMPLATE_ROWS,
+                    "1em 1em 1em 1em 1em 1em 1em 1em 1em 1em 1em 1em")
+                .build();
+        \end{lstlisting}
+    \end{shaded}
+
+    This client code shows the newest style sheet API and the clarity of using the builder pattern. Builder pattern makes the code a lot more readable and makes it possible to dynamically change the property and value parameters in the chained methods. 
+
+    \subsection{Patterns, principles and user feedback}
+
+    The framework consists of two low-level APIs that cover their own aspect of web-development. Both are object-oriented conversions of declarative languages; CSS and HTML. The designs of the two APIs are drastically different as the one-to-one conversion for the HTML API was slow and clunky. This process was very time-consuming, and, due to the mapping, the pattern led to bloating of the source code. This was unfortunately an issue we never were able to address for this API, as we had already invested too much time in its implementation at this point.
+
+    The stronger aspect of this implementation is SRP. All classes have only one responsibility, except the HTML-class. This means that changing something in a class will not affect the rest of the API, just the parts dependent upon it. Avoiding random dependencies within the API, keeping the code DRY and creating logical dependency inversion abstractions was a large part of understanding how to develop the framework.
+
+    The CSS API has a more cohesive implementation. This API does a lot more with a lot less code. Though this API requires a greater understanding of design and development than the HTML API does, it too was initially based on the factory method of design. The abstract class was implemented, and its children look like it with variations. This is a much more correct application of the builder-pattern, as the objects created are essentially the same, with small variations, unlike the HTML API which uses the pattern to create very different objects using the same process.
+    The use of internal Builder classes was an early decision that was made due to a lack of knowledge about the application of the pattern. Though no one way is correct, extracting these inner classes into their own package, and referencing their respective products would be a lot cleaner, and require slightly less code.
+
+    What informed the resulting framework and its functionality was user-testing and related feedback-discussions, this is where the process of Scenario-driven design shines. Initially the builder-classes behaved very differently from each other. Some builder-constructors would have parameters and others not, set-methods would allow for different types in their parameters and not just strings, or the internal objects, as was the most used methodology throughout the API. Through user-testing we discovered these differences, how they changed way the testers applied the coding pattern, and experienced how they affected the development-process of others.
+
+    In the end, all classes in the HTML API have the same behaviour, making it consistent and intuitive in use. The CSS API implementation took inspiration from the HTML API, however opting for an inheritance based pattern instead.
+
+
 
 \section{Discussion}
 
