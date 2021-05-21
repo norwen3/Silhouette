@@ -5,10 +5,20 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * This class is used to compile style sheets.
+ */
 public abstract class StyleSheetCompiler {
 
     private static int TabSpaces = 4;
 
+    /**
+     * This method will compile stylesheets into css files.
+     * If the file extension is missing in the filename, it will be automatically added.
+     * @param styleSheet the stylesheet to compile
+     * @param fileName the specified file name
+     * @param outputFolder the specified output folder
+     */
     public static void compile(StyleSheet styleSheet, String fileName, String outputFolder) {
         StringBuilder css = new StringBuilder();
 
