@@ -85,20 +85,8 @@ public class StyleSheet {
          * @param statement the statement to be added to the list of statements
          * @return builder of generic type for stylesheets
          */
-        public Builder applyStyle(final Statement statement) {
+        public Builder addStatement(final Statement statement) {
             this.statements.add(statement);
-            return this;
-        }
-
-        /**
-         * Normalizes the stylesheet using normalize.css v8.0.1 provided by Necolas.
-         * @return builder of generic type for stylesheets
-         */
-        public Builder normalize() {
-            String str = StyleManager.readFile("src/StyleSheets/BaseComponents/Resources/normalize.css");
-            if (str != null) {
-                rawCSS = str;
-            }
             return this;
         }
 
