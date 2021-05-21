@@ -43,11 +43,18 @@ An article titled "The Problem with HTML" by Dr. Maxime Chevalier-Boisvert argue
 With the Silhouette framework, it keeps function areas more organized by clearly distinguishing between markup and styling through different APIs. It tries to promote best practices, such as not using in-line styling, by making these processes easier, and hiding away the bad practices. In addition, the methods will make sure to correct minor mistakes to prevent nasty surprises. Silhouette also implements solutions for tags that are less supported among browsers. 
 
     \subsection{Group Description}
-    The plan is to make a html-structure in Java by using object-oriented code structure.\\
-    In the first phase we were working together all the time. We collected as much information that we could find, about html and css. And after some working sessions we had a 1 to 1 structure (of the Java-code to html and css part). The css part was straightforward when it came to the structure part, but the problem was in the html. We found new and better ways all time to make the client code easier and more understandable.\\
-    In the second phase we have agreed that this is what we need for “Silhouette” to be able to create web pages. At this point we are working on the html part and hope that we can start on user testing aright away. After some user testing, we start on the third phase and now that we knew what we want the code structure to look like, we start to specializing us (and you can se that in the “Delegation of work”). 
+    
+    The project group consist of Mats Engelien, Håkon Marthinsen and Lars Erik Faber. Throughout the development, everyone has contributed in both the design and programming aspects of the project, as well as writing in the final report. 
+
+    Mats has had a big responsibility regarding the APIs and code implementation in the framework. He is a skilled programmer in multiple coding languages and is great at problem solving. In addition, he is good at discussing problems in the code together with the group.
+
+    Håkon is good at managing social connections and is also a creative brainstormer. Therefore, he has played an important role in communcating with testers in order to arrange user tests throghout development.
+
+    Lars Erik has done a good job creating of one of the APIs of the framework, and has laid the foundation in the final report. He good at arranging guidance meetings with the group and has written summaries for each guidance meeting.
+
 
     \subsection{Delegation of Work}
+
     Mats Engelien - Java (HTMl) and Documentation\\
     Lars Erik Faber - Java (CSS) and Documentation\\
     Håkon Marthinsen - Documentation and User testing
@@ -82,11 +89,13 @@ You should describe how you have worked, not what you produced, in this section.
 
     \subsection{API Design Specification}
 
-    The method used for producing the API design specification was Scenario-driven design. Each member created use-cases, and matching client-code individually, then compared these. After 2 or 3 iterations, new client-code was produced as a group. This client-code received feedback from a user-tester, student-assistant, or supervisor, using an iterative process.
+    Throughout this process we have employed Scenario-driven design. This is an iterative process that changes each part of the resulting API along the way. This process works backwards from what the dream scenario would be, then loops along the way to change the resulting API to fit the client’s needs.
 
-    The group meet weekly to measure progress. Virtual communication and resource-sharing happened through Discord and GitHub.
+    The API design specification consists a collection of the client-code and scenarios that guide the design of the interface. A scenario is a problem that needs to be solved by the API and the client-code is dream/pseudo code that should solve the problem presented. 
 
-    Frequent meetings with supervisor to answer any relevant questions we had during the process.
+    The design of the interface is the interface’s structure. What areas of the interface can communicate, the file-architecture, which methods are needed and what each class should do. 
+
+    Implementation is the actual code that is written. The details of the implementation should not leak out into the API. Design patterns and principles, and user-testing inform how the physical implementation develops.
     
 
     \subsection{API Design}
@@ -223,11 +232,11 @@ You should describe how you have worked, not what you produced, in this section.
 
         \textbf{Make a new HTML page. Set a custom title, and set the charset meta tag to "UTF-8"}
 
-        \textbf{Make a body element and append it to the HTML page. Then create header, main and footer elements and append it to the body element.}
+        \textbf{Scenario 17}
 
         For scenario 2, the user were instructed to make a body element and add it to the page. At first, it wasn't very obvious form him to use the Container object to build the body element, as it is passed through the parameter. After some explanation, he understood why we had done it that way, but still felt like it was not as intuitive. He commented that it would be much better to just separate the most important layout elements into their own class, though this was already discussed within the group at the beginning of the project. Having a class for each element comes with two major issues. Firstly, if we would simply make a class for each element, there would be too many classes to keep track of. Secondly, how would we decide which element needed their own class? Because of this we decided to keep it as originally planned.
 
-        \textbf{Give the header element a main heading for the page}
+        \textbf{Scenario 18}
 
         Here he found it confusing that there were two ways of adding a heading to a container element. While the intended solution was to make a Heading object, he opted for the addHeading method inside ContainerElement.
 
@@ -252,7 +261,7 @@ You should describe how you have worked, not what you produced, in this section.
 
         Initially, this was done to give users more options when declaring the markup. However, this proved to be more confusing then helpful, so we decided to remove this additional method.
 
-        \textbf{Make a second custom heading and add it to the main element. Make a paragraph element and give it an arbitrary Id.}
+        \textbf{Scenario 19}
 
         Right off the bat, his impression was that we had over-used the builder pattern, to the point where it becomes unecessarily complicated. For example, he explained how it was unecessary to use builder pattern for the Paragraph class, as the paragraph should only take one argument in the constructor anyway. He suggested that it would be better to simply pass the text to the constructor.
 
@@ -274,18 +283,30 @@ You should describe how you have worked, not what you produced, in this section.
 
         His suggestion was not bad, but since we wanted to follow the same convention for every class, we felt it was better to leave it as be with the builder pattern. That way, there is not confusion whether it uses the builder or not. We also find the parameters more clearer with builder pattern, as it explicitly shows it in the method name.
 
-        \textbf{Finishing questions}
+        \textbf{Scenario 20}
+        
+        At first he was not fond of using enums when adding a new rule to the rule set, but quickly he grew the habit of using them. He commented that it felt unecessary at first, and that he would rather type in the propeties and values as a string. But after explaining why we use them (which is to make sure the user does not pass inn misspellings), he understood and agreed that it was a good solution.
+
+        \textbf{Scenario 21}
+
+        
+                
 
         To finish off the session, we asked him some general questions about the framwork. Firslty, we asked him about what he thought about the name "Silhouette", and if he found it intruiging and informative. To this, he told us that the name is as ambiguous as most other names out there. He stressed, that it does not necessarily mean it is bad, but it did not give him any idea of what the framework did. At this point, we have become very fond of the name, but it is always nice to get feedback.
 
         We also asked him if he found the framework to be difficult to use. To this he responded that builder pattern greatly increases the amount of code needed to generate a website, so in this case it would be faster to write it in standard HTML and CSS. We agree to this, wowever, we are still of the belief that the OOP aspects and the additional make up for it. Another issue for him was the quality of the type reference documentation, as it often failed to give him a good idea of what each class represented.
 
 \section{Resulting Framework}
-Framvisning av det ferdie API-et
 
 \section{Discussion}
 
+The plan is to make a html-structure in Java by using object-oriented code structure.
+
+In the first phase we were working together all the time. We collected as much information that we could find, about html and css. And after some working sessions we had a 1 to 1 structure (of the Java-code to html and css part). The css part was straightforward when it came to the structure part, but the problem was in the html. We found new and better ways all time to make the client code easier and more understandable.
+
+In the second phase we have agreed that this is what we need for “Silhouette” to be able to create web pages. At this point we are working on the html part and hope that we can start on user testing aright away. After some user testing, we start on the third phase and now that we knew what we want the code structure to look like, we start to specializing us (and you can se that in the “Delegation of work”). 
+
 \section{References}
-[1] - https://pointersgonewild.com/2015/04/16/the-problem-with-html/
+[1]:  Chevalier-Boisvert, M. (2015). \textit{The Problem with HTML}. \\ Retrieved from https://pointersgonewild.com/2015/04/16/the-problem-with-html/
 
 \end{document}
