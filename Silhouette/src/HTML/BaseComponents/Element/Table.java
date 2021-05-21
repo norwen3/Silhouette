@@ -2,6 +2,9 @@ package HTML.BaseComponents.Element;
 
 import HTML.BaseComponents.ILowLevel.IBuilder;
 
+/**
+ * This class represents the Table-tag
+ */
 public class Table extends ContainerElement{
     private int row, column;
     private String caption;
