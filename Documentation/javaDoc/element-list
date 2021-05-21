@@ -5,5 +5,4 @@ HTML.Component
 HTML.Feature
 StyleSheets
 StyleSheets.BaseComponents
-StyleSheets.BaseComponents.Implementation
 StyleSheets.Values
