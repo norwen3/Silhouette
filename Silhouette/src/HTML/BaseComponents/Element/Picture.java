@@ -74,7 +74,6 @@ public class Picture extends ContainerElement{
         @Override
         public Picture build() {
             Picture p = new Picture(this);
-            verify();
             return p;
         }
 

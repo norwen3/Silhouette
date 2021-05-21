@@ -129,7 +129,6 @@ public class Image extends EmptyElement  {
         @Override
         public Image build() {
             Image img = new Image(this);
-            verify();
             return img;
         }
 
