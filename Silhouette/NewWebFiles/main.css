@@ -1,7 +1,0 @@
-#mainGrid {
-    display: grid;
-    grid-template-columns: 10px 20px 30px;
-    grid-template-rows: 40em 50em 60em;
-    grid-template-areas: "header header header" "main main aside" "footer footer footer";
-}
-

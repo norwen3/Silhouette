@@ -8,16 +8,6 @@ import java.util.ArrayList;
  * One or more stylesheets can be used for a single HTML page or throughout the whole website.
  */
 public class StyleSheet {
-
-    /**
-     * The file name ending with the .css extension.
-     */
-    private final String fileName;
-    /**
-     * The folder where the stylesheet will be saved.
-     * The default location is "WebFiles/"
-     */
-    private final String outputFolder;
     /**
      * Raw CSS that in String format that will be applied to the CSS file.
      */
@@ -32,33 +22,25 @@ public class StyleSheet {
      * @param builder the builder for rule set
      */
     private StyleSheet(Builder builder) {
-        fileName = builder.fileName;
-        outputFolder = builder.outputFolder;
         statements = builder.statements;
         rawCSS = builder.rawCSS;
     }
 
     /**
      * Compiles the stylesheet into a CSS file.
+     * @param fileName The file name ending with the .css extension.
      */
-    public void initialize() {
-        StyleSheetCompiler.compile(this);
+    public void initialize(String fileName) {
+        StyleSheetCompiler.compile(this, fileName, "");
     }
 
     /**
-     * Gets the file name of the stylesheet.
-     * @return String
+     * Compiles the stylesheet into a CSS file.
+     * @param fileName The file name ending with the .css extension.
+     * @param outputFolder The folder where the stylesheet will be saved.
      */
-    public String getFileName() {
-        return fileName;
-    }
-
-    /**
-     * Gets the output folder of the stylesheet.
-     * @return String
-     */
-    public String getOutputFolder() {
-        return outputFolder;
+    public void initialize(String fileName, String outputFolder) {
+        StyleSheetCompiler.compile(this, fileName, outputFolder);
     }
 
     /**
@@ -84,14 +66,6 @@ public class StyleSheet {
     public static class Builder {
 
         /**
-         * @see StyleSheet#fileName
-         */
-        private String fileName;
-        /**
-         * @see StyleSheet#outputFolder
-         */
-        private String outputFolder;
-        /**
          * @see StyleSheet#rawCSS
          */
         private String rawCSS = "";
@@ -102,12 +76,8 @@ public class StyleSheet {
 
         /**
          * Constructor for stylesheet builder.
-         * @param fileName the file name
-         * @param outputFolder the output folder
          */
-        public Builder(final String fileName, final String outputFolder) {
-            this.fileName = fileName;
-            this.outputFolder = outputFolder;
+        public Builder() {
         }
 
         /**

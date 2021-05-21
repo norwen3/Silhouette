@@ -5,30 +5,38 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * This class is used to compile style sheets.
+ */
 public abstract class StyleSheetCompiler {
 
     private static int TabSpaces = 4;
 
-    public static void compile(StyleSheet styleSheet) {
+    /**
+     * This method will compile stylesheets into css files.
+     * If the file extension is missing in the filename, it will be automatically added.
+     * @param styleSheet the stylesheet to compile
+     * @param fileName the specified file name
+     * @param outputFolder the specified output folder
+     */
+    public static void compile(StyleSheet styleSheet, String fileName, String outputFolder) {
         StringBuilder css = new StringBuilder();
 
         compileCSS(css, styleSheet);
 
         try {
-            // Initializes the css generation
-            String fileName = styleSheet.getFileName();
-            String outputFolder = styleSheet.getOutputFolder();
-
             if (!fileName.contains(".css")) {
                 fileName = fileName.concat(".css");
             }
 
-            if (!outputFolder.endsWith("/")) {
+            if (!outputFolder.endsWith("/") && outputFolder.length() > 0) {
                 outputFolder = outputFolder.concat("/");
             }
 
-            File file = new File( outputFolder + fileName);
-            file.getParentFile().mkdirs();
+            File file = new File(outputFolder + fileName);
+            if (file.getParentFile() != null) {
+                file.getParentFile().mkdirs();
+            }
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             writer.write(css.toString());
             writer.close();
