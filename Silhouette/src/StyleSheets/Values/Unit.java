@@ -1,8 +1,10 @@
 package StyleSheets.Values;
 
+import StyleSheets.UnitManager;
+
 /**
  * Contains all CSS units used to determine absolute and relative sizes.
- * @see StyleSheets.Size#generic(int, Unit)
+ * @see UnitManager#generic(int, Unit)
  */
 public enum Unit {
     CM,

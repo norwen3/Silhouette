@@ -44,7 +44,7 @@ public class Anchor extends ContainerElement {
     }
 
     /**
-     * Builder class for Anchor-tag <a></a>
+     * Builder class for Anchor-tag
      * This is an inner class that creates an Anchor-element
      */
     public static class Builder implements IBuilder {

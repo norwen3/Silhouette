@@ -7,7 +7,7 @@ import StyleSheets.Values.Unit;
  * Can be useful with number manipulation as each methods take an integer value used to determine the size.
  * Every method in this class is static and returns a string that can be used with properties.
  */
-public abstract class Size {
+public abstract class UnitManager {
 
     /**
      * Converts sizes to string with any given unit.
