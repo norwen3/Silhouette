@@ -44,7 +44,6 @@ public class Input extends Element{
 
     @Override
     public String toString() {
-        String temp;
         if(!this.type.equalsIgnoreCase("submit")) {
             return "<label for=\"" + id + "\">" + label + "</label>\n" + "\n" +
                     "<input type=\"" + this.type + "\" id=\"" + this.id + "\" name=\"" + this.name + "\"> <br><br>";
