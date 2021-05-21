@@ -120,10 +120,18 @@ public class HTML {
     public void initialize(String fileName, String outputFolder) {
         // Initializes the html generation
 
-        File file = new File( outputFolder + fileName);
-        file.getParentFile().mkdirs();
+
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName+".html"));
+            if (!fileName.contains(".html")) {
+                fileName = fileName.concat(".html");
+            }
+
+            if (!outputFolder.endsWith("/")) {
+                outputFolder = outputFolder.concat("/");
+            }
+            File file = new File( outputFolder + fileName);
+            file.getParentFile().mkdirs();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
             writer.write(this.toString());
             writer.close();
         } catch (IOException e) {
