@@ -18,11 +18,17 @@
 \date{}
 \maketitle
 
+\thispagestyle{empty}
+
 \newpage
 
 \tableofcontents
 
+\thispagestyle{empty}
+
 \newpage
+
+\setcounter{page}{1}
 
 Link til GitHub: \href{https://github.com/norwen3/Silhouette}{https://github.com/norwen3/Silhouette}
 
@@ -83,36 +89,8 @@ You should describe how you have worked, not what you produced, in this section.
     
 
     \subsection{API Design}
-    Forklar hvordan vi kom fram til Builder pattern... Hvordan API-et faktisk ser ut
-
-    When designing the APIs in Silhouette, we started writing client-code to see what would work the best. We knew it was important to preserve the advantages of OOP, giving the user control by making objects and manipulating them in various ways. This meant that users have the ability to generate blocks of HTMl quickly with the tools we already know from OOP. We decided to write some client-code to see what would satisfy our requirements, and this would be one of the earliest iterations.
-
-    SHOW CLIENT-CODE HERE
-    
-    The idea of x was important, and you can see that with the way it's set up and all. But another thing that we couldn't dismiss was the fact that we would get way too many classes if we had kept going the route of making one-to-one relations between classes and HTML tags, following the rule of 30 (Insert Source Here!), so we came up with a secondary solution. Say, for example, the user wants to make a video on their page. The video tag in HTML requires some smaller tags inside it that specifies file and filetypes and controls etc.. an we saw it as an opportunity to hide away these smaller tags within methods. This proved to be a good solution as it both cut down on the total amount of classes, and the user had less things to worry about but still achieve the same things. Eventually we settled on sone one-to-one classes, and some methods to generate simpler HTML code...
-    
-        \subsubsection{Design Decisions}
-        Following best-practices for making APIs, for example, from     
-
-        Later on once we got some feedback from other groups we came across another problem. Users expected to be able to chain multiple methods after eachother. But that was just not possible with how we originally structured our methods and classes, that's where builder pattern comes in. Builder pattern aided the framework in two areas: One, it served as a tool to hide the backend-implementation from the user, and two, it allowed for method-chaining which was exactly what we needed. This mean that previously, the user had to type:
-
-        SHOW CLIENT-CODE HERE
-
-        But now, with the builder-pattern in place, the user can do this:
-
-        SHOW CLIENT-CODE HERE
-
-        \subsubsection{Personal Decisions}
-
-
 
     \subsection{Implementation}
-    Implementation was done in various stages as we had many ideas for how we wanted the resulting framework to behave. After a lot of discussion with the group, we began writing client-code to help us visualize the API to get better ideas on how we got incorperate the implementation. After several supervisions with the lectruer, we were advised to us a builder-pattern, which works wonders for the type of tasks we want to do, however it makes implementing a bit of a chore, as this means usually our source-code will double. Getting to understand how this pattern works was not easy, since as we were writing our API-code we did not have a full understanding of the structure of method-calls/chaining, nor how to really instantiate these objects. This led to some early errors like giving each builder-class a specific name, and not implementing it correctly.
-
-    After getting to understand these things there are other issues that appear throughout. We have some global attributes that all objects in the API share, so it's logical to just write the method once and be done with it, however this does mean that casting between classes becomes necessary. This is possibly because we opted for internal static Builder classes. We felt that was the most logical and direct connection we could make between an objects and its builder.
-
-    Lastly, we needed to form a system to generate the actual. The big idea was to make some sort of compiler that puts strings together to make the necessary web files. It later became apparent that we needed one compiler for each API, as the logic and syntax are wastly different. As it stands, the compilers will either read html and css in the form of Strings, or plain java old objects (POJOs). Then once the user is done defining their pages and stylings, they will inform the respective compiler to perform a compile and generate the web files. If these files already exist, the compiler should just overwrite them to apply the new changes.
-
 
     \subsection{User Testing}
     
@@ -138,12 +116,34 @@ You should describe how you have worked, not what you produced, in this section.
 
         The main problem with implementing the builder pattern is the sheer amount of extra code required. The lines will most likely more than double. However, those extra lines of code give us much more readable code and design flexibility. We exchange parameters in the constructor for much prettier method calls.
 
-    \subsection{Api Design}
+    \subsection{API Design}
 
-        \subsubsection{Type Reference Documentation}
-        Link to type doc...
+    When designing the APIs in Silhouette, we started writing client-code to see what would work the best. We knew it was important to preserve the advantages of OOP, giving the user control by making objects and manipulating them in various ways. This meant that users have the ability to generate blocks of HTMl quickly with the tools we already know from OOP. We decided to write some client-code to see what would satisfy our requirements, and this would be one of the earliest iterations.
 
-    \subsection{Implementation}
+    SHOW CLIENT-CODE HERE
+    
+    The idea of x was important, and you can see that with the way it's set up and all. But another thing that we couldn't dismiss was the fact that we would get way too many classes if we had kept going the route of making one-to-one relations between classes and HTML tags, following the rule of 30 (Insert Source Here!), so we came up with a secondary solution. Say, for example, the user wants to make a video on their page. The video tag in HTML requires some smaller tags inside it that specifies file and filetypes and controls etc.. an we saw it as an opportunity to hide away these smaller tags within methods. This proved to be a good solution as it both cut down on the total amount of classes, and the user had less things to worry about but still achieve the same things. Eventually we settled on sone one-to-one classes, and some methods to generate simpler HTML code...
+    
+        \subsubsection{Design Decisions}
+        Following best-practices for making APIs, for example, from     
+
+        Later on once we got some feedback from other groups we came across another problem. Users expected to be able to chain multiple methods after eachother. But that was just not possible with how we originally structured our methods and classes, that's where builder pattern comes in. Builder pattern aided the framework in two areas: One, it served as a tool to hide the backend-implementation from the user, and two, it allowed for method-chaining which was exactly what we needed. This mean that previously, the user had to type:
+
+        SHOW CLIENT-CODE HERE
+
+        But now, with the builder-pattern in place, the user can do this:
+
+        SHOW CLIENT-CODE HERE
+
+        \subsubsection{Personal Decisions}
+    
+        \subsection{Implementation}
+
+        Implementation was done in various stages as we had many ideas for how we wanted the resulting framework to behave. After a lot of discussion with the group, we began writing client-code to help us visualize the API to get better ideas on how we got incorperate the implementation. After several supervisions with the lectruer, we were advised to us a builder-pattern, which works wonders for the type of tasks we want to do, however it makes implementing a bit of a chore, as this means usually our source-code will double. Getting to understand how this pattern works was not easy, since as we were writing our API-code we did not have a full understanding of the structure of method-calls/chaining, nor how to really instantiate these objects. This led to some early errors like giving each builder-class a specific name, and not implementing it correctly.
+    
+        After getting to understand these things there are other issues that appear throughout. We have some global attributes that all objects in the API share, so it's logical to just write the method once and be done with it, however this does mean that casting between classes becomes necessary. This is possibly because we opted for internal static Builder classes. We felt that was the most logical and direct connection we could make between an objects and its builder.
+    
+        Lastly, we needed to form a system to generate the actual. The big idea was to make some sort of compiler that puts strings together to make the necessary web files. It later became apparent that we needed one compiler for each API, as the logic and syntax are wastly different. As it stands, the compilers will either read html and css in the form of Strings, or plain java old objects (POJOs). Then once the user is done defining their pages and stylings, they will inform the respective compiler to perform a compile and generate the web files. If these files already exist, the compiler should just overwrite them to apply the new changes.
 
 
     \subsection{User Testing}
@@ -157,12 +157,15 @@ You should describe how you have worked, not what you produced, in this section.
     After some time we knew what we wanted the code ot looke like and how to simplify it more, and that is when we started to use "Builder pattern" instead of the heavy object coding we had previously. This made it more readable for the eyes and work with.
 
         \subsubsection{Frist user testing session (Silhouette-HTML v.2)}
+
         Right after they had tested our framework and completed the setup, we asked them to give their initial reaction and opinion. They said, “It was pretty good once we got the hang of the class names” which was a relief to hear. It seemed to us that they found the APIs to be intuitive, as they quickly grew familiar with the main classes. We then followed up with a few questions regarding their experience, and they told us they could easily expand further on their website with enough practice.
 
         \subsubsection{Second user testing session (Silhouette-HTML v.2)}
+
         This user testing toke more time that what was needed, if it wasn’t for an error from our side in the code structure. When we found out what the error was and the confusion was over, it was back to the user testing, but the person that was testing the program was stuck and didn’t understand how to start and/or what to write (defining the html-object). After some time we gave the user a push in the right and the user started to type/write like it was natural for them or as the hade used our framework before.
 
         \subsubsection{Third user testing session (Silhouette-HTML v.2)}
+
         In this user testing the tester was tested in a different way, where the tester received minimal help and mostly through think and some fiddling on their own, because of the users higher understating to code structure and language.
 
         The user managed the first part of the task easily (due to the naming of classes and method names) but began to strive on the second task. The user was supposed to create a new object called "Container", but started working on the method calls instead (because it seemed most natural to them) and had to ask for help and then came the next problem... what are Builders.
@@ -170,20 +173,23 @@ You should describe how you have worked, not what you produced, in this section.
         After some explanation it came naturally and the rest of the second task was then over and the user was on their owe, with a little hint here and there. The user could see the logic but felt that it lacked a flow in the structure and believed that getting in to "Silhouette" for a new user is not easy without a manual or help from someone.
         
         \subsubsection{Fourth user testing session (Silhouette-HTML v.3)}
+
         Fourth testing was done in a group context, where one of them wrote and the others watched and tried to understand "Silhouette" (I also had to describe how Builders works).
 
         It started the same with this group as it was done with the other user testing section, but since one of the user was looking through the library and was reading the methods that had a similar name as in HTML, one tester got an idea what to write and they managed to complete this task. And they applied the same tactic to the next tasks, and they managed the whole user testing with a few hints. 
 
         \subsubsection{Fifth user testing session (Silhouette-HTML v.3)}
+
         The fifth test was carried out by a student with a good knowledge of java and HTML, who wanted to learn the framework (“Silhouette”) from top to bottom. The user spent 1 hour and 30 min doing the task (without help) and gained insight into how "Silhouette" HTML.BaseComponents.* (file's) worked. This user was more interested in the "Silhouette" library and gave some feedback about that the structure is easy to understand, but there was a lack of comment (you can read comments for a jar file) on what the methods do/did, etc. and that the end result might affect a user “Silhouette’s code” and meant that “it’s too hard-coded” when a user is done with it.
 
-        \subsubsection{Last user testing session}
-        For the last user test we tested with a student who previously had the same framework course, and who was very familiar with builder pattern and API design. The session took about three hours, and we tested both the HTML API and the CSS API. We used the same general method for user testing as the above tests, where we sent him the Jar file, a type reference documentation, and some scenarios to solve with the framework.
+        \subsubsection{Last user test}
 
-        Right off the bat, his impression was that we had over-used the builder pattern, to the point where it becomes unecessarily complicated. For example, he explained how it was unecessary to use builder pattern for the Paragraph class, as the paragraph should only take one argument in the constructor anyway.
+        For the last user test we tested with a student who previously had the same framework course, and who was very familiar with builder pattern and API design. The session took about three hours, and we tested both the HTML API and the CSS API. We sent him the Jar file of the newest version of the framework, a type reference documentation, and some scenarios to solve with the framework.
+
+        Right off the bat, his impression was that we had over-used the builder pattern, to the point where it becomes unecessarily complicated. For example, he explained how it was unecessary to use builder pattern for the Paragraph class, as the paragraph should only take one argument in the constructor anyway. He suggested that it would be better to simply pass the text to the constructor.
 
         \begin{shaded}
-            The current version
+            With builder pattern
 
             \begin{lstlisting}
                 Paragraph p = new Paragraph.Builder()
@@ -197,6 +203,8 @@ You should describe how you have worked, not what you produced, in this section.
                 Paragraph p = new Paragraph("Hello, World!");
             \end{lstlisting}
         \end{shaded}
+
+        However, the problem arises when trying to add attributes to the paragraph, such as an id or class. 
         
 
 \section{Resulting Framework}
