@@ -65,31 +65,22 @@ There is no hiding that there are plenty of existing web frameworks out on the i
 
 People generally use web frameworks to gain access to additional features and to reuse existing code, as opposed to redoing it from scratch. It is important that the web framework increases the velocity of web development compared to doing it in plain HTML and CSS. A good example is the \textit{JSF framework} (Java Server Faces). It has a unique feature where users design UI-components through high level abstractions that are converted into the appropriate representation of HTML depending on the device and version of the internet. This greatly reduces repeated code and means that users can worry less about the technical aspects.
 
-Another important side of Frameworks is to establish a structure in the application. The \textit{Spring framework} creates such a structure by abstracting POJOs (Plain Old Java Objects) into special components called beans. These components are designed to be flexible and adjustable and can be wired together with other beans. This way, users can manipulate each component by interacting with the beans. However, with Silhouette, we took a different approach using the builder pattern to account for all the different options when writing HTML and CSS. The pattern creates a structure in the code that consists of building components and appending them to each other. With Spring, the user builds a component through the factory pattern that initalizes the beans by following given instructions, but we thought the builder pattern would be more flexible on the go:
-
-\begin{shaded}
-    Creating a paragraph and adding it to a div
-    \begin{lstlisting}
-        Paragraph p = new Paragraph.Builder()
-                .setText("Hello World")
-                .build();
-        Container div = new Container.Builder()
-                .addElements(p)
-                .build();
-    \end{lstlisting}
-\end{shaded}
+Another important side of Frameworks is to establish a structure in the application. The \textit{Spring framework} creates such a structure by abstracting POJOs (Plain Old Java Objects) into special components called beans. These components are designed to be flexible and adjustable and can be wired together with other beans. This way, users can manipulate each component by interacting with the beans. 
 
 \textbf{Vaadin} is probably the framework closest to Silhouette. It enables users to make web applications completely in Java, which means it does not require any prior knowledge to HTML, CSS or JavaScript altogether. Everything made with Vaadin is a component that are presented in layouts on the page. To add functionality, the user adds event listeners to the desired components. And lastly, to stylize the web app, Vaadin uses a theme roller called \textit{Vaalo} that is similar to CSS but comes with some additional features, like auto-contrasting text color depending on the background color. It does the majority of what Silhouette wants to achieve, which is why it is the closest to Silhouette.
 
-What separates Silhouette is the user of the builder pattern. In Silhouette, builder pattern is used for just about everything to account for all the different options when writing HTML or CSS. Therefore, POJOs won't hold. 
-
 \section{Method}
-"A section to describe the method under which the framework has been created (can be shared). This section should contain a description for each of the stages given in the "Framework Design" lecture (API Design Specification, API Design, Implementation and User Testing). 
-You should describe how you have worked, not what you produced, in this section."
 
     \subsection{API Design Specification}
 
     Throughout this process we have employed Scenario-driven design. This is an iterative process that changes each part of the resulting API along the way. This process works backwards from what the dream scenario would be, then loops along the way to change the resulting API to fit the client’s needs.
+
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.5]{images/api-design-process.png}
+        \caption{Api design process}
+    \end{figure}
 
     The API design specification consists a collection of the client-code and scenarios that guide the design of the interface. A scenario is a problem that needs to be solved by the API and the client-code is dream/pseudo code that should solve the problem presented. 
 
@@ -103,8 +94,6 @@ You should describe how you have worked, not what you produced, in this section.
     \subsection{Implementation}
 
     \subsection{User Testing}
-    
-    User testing started after a month of developing the first iteration of the API. At this point the low-level HTML API felt almost complete, however the high-level-, and CSS-APIs were bare minimum. The implementation was not ready and the APIs consisted of plain old java objects. It was therefore important know if the names and overall use made sense, and if there were any major flaws that we could improve upon.
 
     When we performed the user tests, the method varied a lot each time. Generally call the testers and give them the most updated Jar file and then let them explore the contents first of the framework, and along with it, we would give a set of scenarios for the testers to solve using our framework. At this point we just let them play around with the APIs and get used to it, but most often they would get stuck very fast, and we would have to explain the general gist of the framework and how to use it as intended. Throughout the session we would communicate with them if there were any issues, and if so, we would take notes of the problem.
 
@@ -115,16 +104,13 @@ You should describe how you have worked, not what you produced, in this section.
 \section{Design Process/Results}
 
     \subsection{API Design Specification}
-    Forklar hva High Level Design Principles...
 
-        \subsubsection{Design Patterns}
-
-        \paragraph{Builder Pattern}
+        \subsubsection{Builder Pattern}
 
         We were very quickly guided towards using the Builder pattern when we first had decided on the Framework-type. The Builder pattern, unlike the Abstract Factory pattern, is a lot more like a "Fluent interface", meaning it relies heavily on method cascading.
         The builder pattern is useful as it attempts to seperate the construction of an object from the way it is represented, this way we can use the same process to create many different looking objects that are fundementally similar.
 
-        We need to use the builder pattern when we want immutable objects. We want immutable classes because they have a wide range of benefits when we are developing an API. They are simple to use, they are synchronization safe, we only need one constructor, and they are great for maps(which we're using) to name a few.
+        We needed to use the builder pattern to create immutable objects. We want immutable classes because they have a wide range of benefits when we are developing an API. They are simple to use, they are synchronization safe, we only need one constructor, and they are great for maps(which we're using) to name a few.
 
         The main problem with implementing the builder pattern is the sheer amount of extra code required. The lines will most likely more than double. However, those extra lines of code give us much more readable code and design flexibility. We exchange parameters in the constructor for much prettier method calls.
 
@@ -179,6 +165,20 @@ You should describe how you have worked, not what you produced, in this section.
 
         SHOW CLIENT-CODE HERE
 
+        However, with Silhouette, we took a different approach using the builder pattern to account for all the different options when writing HTML and CSS. The pattern creates a structure in the code that consists of building components and appending them to each other. With Spring, the user builds a component through the factory pattern that initalizes the beans by following given instructions, but we thought the builder pattern would be more flexible on the go:
+
+        \begin{shaded}
+            Creating a paragraph and adding it to a div
+            \begin{lstlisting}
+                Paragraph p = new Paragraph.Builder()
+                        .setText("Hello World")
+                        .build();
+                Container div = new Container.Builder()
+                        .addElements(p)
+                        .build();
+            \end{lstlisting}
+        \end{shaded}
+
         \subsubsection{Personal Decisions}
     
         \subsection{Implementation}
@@ -191,6 +191,8 @@ You should describe how you have worked, not what you produced, in this section.
 
 
     \subsection{User Testing}
+
+    User testing started after a month of developing the first iteration of the API. At this point the low-level HTML API felt almost complete, however the high-level-, and CSS-APIs were bare minimum. The implementation was not ready and the APIs consisted of plain old java objects. It was therefore important know if the names and overall use made sense, and if there were any major flaws that we could improve upon.
 
 
     (THIS NEEDS TO BE CHANGED)
