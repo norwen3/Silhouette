@@ -11,7 +11,6 @@ import HTML.BaseComponents.ILowLevel.IBuilder;
 public class Page {
 
     private static HTML.Builder builder;
-    private HTML html;
 
     public Page(HTML.Builder builder){
         this.builder = builder;
@@ -30,18 +29,22 @@ public class Page {
     /**
      * Creates a pre-made article-page and writes it to file
      * File-name is "article.html" and will appear in your src-folder
+     * @param fileName
+     * @param outputFolder
      */
-    public void articlePage(){
-        articlePageBuild().initialize("article");
+    public void articlePage(String fileName, String outputFolder){
+        articlePageBuild().initialize(fileName, outputFolder);
 
     }
 
     /**
      * Creates a pre-made basic-page and writes it to file
      * File-name is "index.html" and will appear in your src-folder
+     * @param fileName
+     * @param outputFolder
      */
-    public void basicPage() {
-        basicBuild().initialize("index");
+    public void basicPage(String fileName, String outputFolder) {
+        basicBuild().initialize(fileName, outputFolder);
     }
 
     /**

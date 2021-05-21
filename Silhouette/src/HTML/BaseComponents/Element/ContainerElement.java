@@ -21,7 +21,11 @@ public abstract class ContainerElement extends Element {
     // @TODO: Remove? This is now a class
     //High-level API??
     public Paragraph addParagraph(String... text){
-        return null;
+        String content = "";
+        for (String s: text) {
+            content += s + "\n";
+        }
+        return new Paragraph.Builder().setText(content).build();
     }
 
     //will add an HTML.LowLevel.Element to OpenClosed container of any type
@@ -29,7 +33,7 @@ public abstract class ContainerElement extends Element {
 
     //High-level API
     //adds a title <h1>, <h2> etc..
-    public Heading addHeading(int level, String text){
+    public Heading addHeading(String level, String text){
         return null;
     }
 
