@@ -169,7 +169,7 @@ This scenario hits on a few different aspects of the API. It requires a form cla
 
         Here we had usage of both high-level and low-level APIs. We could create simple one-to-one elements and we could automagically generate entire parts of a page. 
 
-        \textbf{Scenario 25} - Make an article page with a title, an image and 5 paragraphs of text
+        \textbf{Scenario 25} - Make an article page with a title, an image and 5 paragraphs of text.
         Here the user needs to be able to create the body, main, and other semantic containers for their website, but these tags do the same things. In addition, we need to be able to populate the containers with other html-tags.
         \begin{shaded}
             \begin{lstlisting}
@@ -269,9 +269,6 @@ This scenario hits on a few different aspects of the API. It requires a form cla
             \caption{SOLID Principles of Software Design}
         \end{figure}
 
-        Most non-abstract or static classes received their own internal static Builder class during the initial implementation, however some classes did not, like the Paragraph and Heading classes as they could be considered very small, and are used with high frequency. Though it unnecessary to implement the pattern here as well, due to user-test feedback, we decided to after all, since the change in pattern broke with the development flow. This led to the implementation of builder-classes for every class in the API that should be instantiated.
-
-
         \subsubsection{Personal Decisions}
     
         \subsection{Implementation}
@@ -298,7 +295,7 @@ This scenario hits on a few different aspects of the API. It requires a form cla
 
     After the session with the testers, we would have a discussion with eachother about the feedback we got from the user testing. Since each group member had their own focus areas in the development, this would help a lot to get insight on the next big changes we were going to implement. 
 
-    right after all the classes that was needed to build am HTML document and the same for the CSS part. At this time the code was just object oriented programming and it flet easy to use, but it was alot of unnecessary writing and to a degree hard to follow.   
+    Right after all the classes that was needed to build am HTML document and the same for the CSS part. At this time the code was just object oriented programming and it flet easy to use, but it was alot of unnecessary writing and to a degree hard to follow.   
         
     After the first user testing with another group, we didn't get alot of crtical feedback on whats "good" and "bad" excepted for the things that we knew about, but we got feedback on the logical structure part and that is one of the things we needed.
         
@@ -328,21 +325,21 @@ This scenario hits on a few different aspects of the API. It requires a form cla
 
         \subsubsection{Fifth user testing session (Silhouette-HTML v.3)}
 
-        The fifth test was carried out by a student with a good knowledge of java and HTML, who wanted to learn the framework (“Silhouette”) from top to bottom. The user spent 1 hour and 30 min doing the task (without help) and gained insight into how "Silhouette" HTML.BaseComponents.* (file's) worked. This user was more interested in the "Silhouette" library and gave some feedback about that the structure is easy to understand, but there was a lack of comment (you can read comments for a jar file) on what the methods do/did, etc. and that the end result might affect a user “Silhouette’s code” and meant that “it’s too hard-coded” when a user is done with it.
+        The fifth test was carried out by a student with a good knowledge of java and HTML, who wanted to learn the framework (“Silhouette”) from top to bottom. The user spent 1 hour and 30 min doing the task (without help) and gained insight into how "Silhouette" HTML.BaseComponents.* (file's) worked. This user was more interested in the "Silhouette" library and gave some feedback about that the structure is easy to understand, but there was a lack of comment (you can't read comments for a jar file) on what the methods do/did, etc. and that the end result might affect a user “Silhouette’s code” and meant that “it’s too hard-coded” when a user is done with it.
 
         \subsubsection{Last user test}
 
-        For the last user test we tested with a student who previously had the same framework course, and who was very familiar with builder pattern and API design. The session took about three hours, and we tested both the HTML API and the CSS API. We sent him the Jar file of the newest version of the framework, a type reference documentation, and some scenarios to solve with the framework.
+        For the last user test we tested with a student who previously had the same framework course, and who was very familiar with builder pattern and API design. The session took about three hours, and we tested both the HTML API and the CSS API. We sent the Jar file of the newest version of the framework to the tester, a type reference documentation, and some scenarios to solve with the framework.
 
         \textbf{Make a new HTML page. Set a custom title, and set the charset meta tag to "UTF-8"}
 
         \textbf{Scenario 17}
 
-        For scenario 2, the user were instructed to make a body element and add it to the page. At first, it wasn't very obvious form him to use the Container object to build the body element, as it is passed through the parameter. After some explanation, he understood why we had done it that way, but still felt like it was not as intuitive. He commented that it would be much better to just separate the most important layout elements into their own class, though this was already discussed within the group at the beginning of the project. Having a class for each element comes with two major issues. Firstly, if we would simply make a class for each element, there would be too many classes to keep track of. Secondly, how would we decide which element needed their own class? Because of this we decided to keep it as originally planned.
+        For scenario 2, the user were instructed to make a body element and add it to the page. At first, it wasn't very obvious for the user to use the Container object to build the body element, as it is passed through the parameter. After some explanation, the user understood why we had done it that way, but still felt like it was not as intuitive. The user commented that it would be much better to just separate the most important layout elements into their own class, though this was already discussed within the group at the beginning of the project. Having a class for each element comes with two major issues. Firstly, if we would simply make a class for each element, there would be too many classes to keep track of. Secondly, how would we decide which element needed their own class? Because of this we decided to keep it as originally planned.
 
         \textbf{Scenario 18}
 
-        Here he found it confusing that there were two ways of adding a heading to a container element. While the intended solution was to make a Heading object, he opted for the addHeading method inside ContainerElement.
+        Here the user found it confusing that there were two ways of adding a heading to a container element. While the intended solution was to make a Heading object, the user opted for the addHeading method inside ContainerElement.
 
         \begin{shaded}
             Making a Heading object
@@ -367,7 +364,7 @@ This scenario hits on a few different aspects of the API. It requires a form cla
 
         \textbf{Scenario 19}
 
-        Right off the bat, his impression was that we had over-used the builder pattern, to the point where it becomes unecessarily complicated. For example, he explained how it was unecessary to use builder pattern for the Paragraph class, as the paragraph should only take one argument in the constructor anyway. He suggested that it would be better to simply pass the text to the constructor.
+        Right off the bat, his impression was that we had over-used the builder pattern, to the point where it becomes unecessarily complicated. For example, the user explained how it was unecessary to use builder pattern for the Paragraph class, as the paragraph should only take one argument in the constructor anyway. The user suggested that it would be better to simply pass the text to the constructor.
 
         \begin{shaded}
             With builder pattern
@@ -389,16 +386,16 @@ This scenario hits on a few different aspects of the API. It requires a form cla
 
         \textbf{Scenario 20}
         
-        At first he was not fond of using enums when adding a new rule to the rule set, but quickly he grew the habit of using them. He commented that it felt unecessary at first, and that he would rather type in the propeties and values as a string. But after explaining why we use them (which is to make sure the user does not pass inn misspellings), he understood and agreed that it was a good solution.
+        At first the user was not fond of using enums when adding a new rule to the rule set, but quickly the user grew the habit of using them. The user commented that it felt unecessary at first, and that they would rather type in the propeties and values as a string. But after explaining why we use them (which is to make sure the user does not pass inn misspellings), the user understood and agreed that it was a good solution.
 
         \textbf{Scenario 21}
 
         
                 
 
-        To finish off the session, we asked him some general questions about the framwork. Firslty, we asked him about what he thought about the name "Silhouette", and if he found it intruiging and informative. To this, he told us that the name is as ambiguous as most other names out there. He stressed, that it does not necessarily mean it is bad, but it did not give him any idea of what the framework did. At this point, we have become very fond of the name, but it is always nice to get feedback.
+        To finish off the session, we asked the user for some general questions about the framwork. Firslty, we asked the user about what they thought about the name "Silhouette", and if they found it intruiging and informative. To this, the user told us that the name is as ambiguous as most other names out there. They stressed, that it does not necessarily mean it is bad, but it did not give them any idea of what the framework did. At this point, we have become very fond of the name, but it is always nice to get feedback.
 
-        We also asked him if he found the framework to be difficult to use. To this he responded that builder pattern greatly increases the amount of code needed to generate a website, so in this case it would be faster to write it in standard HTML and CSS. We agree to this, wowever, we are still of the belief that the OOP aspects and the additional make up for it. Another issue for him was the quality of the type reference documentation, as it often failed to give him a good idea of what each class represented.
+        We also asked the user found the framework to be difficult to use. To this the user responded that builder pattern greatly increases the amount of code needed to generate a website, so in this case it would be faster to write it in standard HTML and CSS. We agree to this, wowever, we are still of the belief that the OOP aspects and the additional make up for it. Another issue for the user was the quality of the type reference documentation, as it often failed to give the user a good idea of what each class represented.
 
 \section{Resulting Framework}
 
