@@ -62,7 +62,6 @@ public class Paragraph extends ContainerElement {
         @Override
         public Paragraph build() {
             Paragraph p = new Paragraph(this);
-            verify();
             return p;
         }
 

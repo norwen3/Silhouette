@@ -38,7 +38,7 @@ public class Form extends ContainerElement {
 
     @Override
     public String toString(){
-        return "<form action=\""+action + "\">\n" + fieldSet + "\n</form";
+        return "<form action=\""+action + "\">\n" + fieldSet + "\n</form>";
     }
 
     /**
@@ -97,7 +97,6 @@ public class Form extends ContainerElement {
         @Override
         public Form build(){
             Form form = new Form(this);
-            verify();
             return form;
         }
 

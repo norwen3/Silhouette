@@ -315,7 +315,6 @@ public class Table extends ContainerElement{
         @Override
         public Table build() {
             Table t = new Table(this);
-            verify();
             return t;
         }
 

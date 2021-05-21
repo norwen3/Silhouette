@@ -132,7 +132,6 @@ public class Container extends ContainerElement {
         @Override
         public Container build(){
             Container container = new Container(this);
-            verify();
             return container;
         }
 

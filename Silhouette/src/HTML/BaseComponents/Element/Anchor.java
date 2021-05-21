@@ -100,7 +100,6 @@ public class Anchor extends ContainerElement {
         @Override
         public Anchor build(){
             Anchor a = new Anchor(this);
-            verify();
             return a;
         }
 
